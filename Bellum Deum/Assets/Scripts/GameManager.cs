@@ -79,6 +79,20 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void TimeEnded(Players pEnded)
+    {
+
+        if(Players.Player1 == pEnded)
+        {
+            _crazyBarJ1.GetComponent<CrazyBarComponent>().startMuerteSubita();
+        }
+        else
+        {
+            _crazyBarJ2.GetComponent<CrazyBarComponent>().startMuerteSubita();
+        }
+
+    }
+
     public void CheckCardPlayed()
     {
         int crazyPoints;

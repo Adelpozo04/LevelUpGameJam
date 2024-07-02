@@ -22,6 +22,21 @@ public class CrazyBarComponent : MonoBehaviour
 
     #endregion
 
+    #region properties
+
+
+    private bool _muerteSubita = false;
+
+    private float _muerteTurns;
+
+    #endregion
+
+
+    public void startMuerteSubita()
+    {
+        _muerteSubita = true;
+    }
+
     public void changeTurn(GameManager.Players pEnded)
     {
 
@@ -43,6 +58,11 @@ public class CrazyBarComponent : MonoBehaviour
                 }
             }
 
+        }
+
+        if (_muerteSubita)
+        {
+            IncreaseCrazy(2 * _muerteTurns);
         }
 
     }
