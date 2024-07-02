@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
+    public enum Players{
+        Player1,
+        Player2
+    }
+
     public static GameManager Instance
     {
         get
@@ -31,6 +36,49 @@ public class GameManager : MonoBehaviour
     {
         _instance = this;
 
+    }
+
+    public void CheckCardPlayed()
+    {
+        int crazyPoints;
+
+        int advancePoints;
+
+        //revision de puntos de cada carta
+        //revision de efectos
+
+
+
+    }
+
+    public void EndGame(Players player, bool isWinner)
+    {
+        if(player == Players.Player1)
+        {
+            if (isWinner)
+            {
+                //victoria jugador 1
+            }
+            else
+            {
+                //victoria jugador 2
+            }
+
+
+        }
+        else
+        {
+
+            if (isWinner)
+            {
+                //victoria jugador 2
+            }
+            else
+            {
+                //victoria jugador 1
+            }
+
+        }
     }
 
     // Start is called before the first frame update
