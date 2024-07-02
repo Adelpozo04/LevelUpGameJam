@@ -256,6 +256,48 @@ MonoBehaviour:
   maxAmount: 100
   playerNumber: 1
   resistence: 0
+--- !u!1 &778331123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1111366009452714356, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 7148501190538072149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &778331125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 778331123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb40411aeaeb34a488d39e06dfcaea3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0
+  maxAmount: 100
+  playerNumber: 0
+  resistence: 0
+--- !u!1 &997174951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6312941423911008681, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 7148501190538072149}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &997174953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997174951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amount: 0
+  maxAmount: 100
+  playerNumber: 0
+  resistence: 0
 --- !u!1001 &7148501190538072149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -416,6 +458,12 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1111366009452714356, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 778331125}
+    - targetCorrespondingSourceObject: {fileID: 6312941423911008681, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 997174953}
     - targetCorrespondingSourceObject: {fileID: 10746799113856183, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 396132864}

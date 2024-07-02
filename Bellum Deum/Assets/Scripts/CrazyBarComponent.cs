@@ -95,7 +95,7 @@ public class CrazyBarComponent : MonoBehaviour
             amount = 0;
         }
 
-        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = amount;
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
 
     }
 
@@ -109,7 +109,14 @@ public class CrazyBarComponent : MonoBehaviour
             GameManager.Instance.EndGame(playerNumber, false);
         }
 
-        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = amount;
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
+
+    }
+
+    void Start()
+    {
+
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = 0;
 
     }
 
