@@ -17,6 +17,8 @@ public class AdvanceBarComponent : MonoBehaviour
 
     [SerializeField] private float resistence;
 
+    [SerializeField] private float advanceIncrement = 1;
+
     private List<float> resistenceValues= new List<float>();
 
     private List<int> resistenceTurns = new List<int>();
@@ -45,6 +47,8 @@ public class AdvanceBarComponent : MonoBehaviour
             }
             
         }
+
+        IncreaseAdvance(advanceIncrement);
 
     }
 
@@ -93,6 +97,13 @@ public class AdvanceBarComponent : MonoBehaviour
 
 
         transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
+    }
+
+    public void UpgradeAdvanceIncrement()
+    {
+
+        advanceIncrement *= 2;
+
     }
 
     void Start()
