@@ -7,6 +7,9 @@ public class Carta : ScriptableObject{
     public Sprite diseño;
 
     public int locura;
+    public int locura_propia;
+    public int avance;
+    public int avance_propio;
     public int cost_mana;
     public int num_cartas;
     public int num_turnos;
