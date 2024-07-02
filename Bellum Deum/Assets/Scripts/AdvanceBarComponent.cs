@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class AdvanceBarComponent : MonoBehaviour
@@ -75,6 +76,9 @@ public class AdvanceBarComponent : MonoBehaviour
             amount = 0;
         }
 
+
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = amount;
+
     }
 
     public void IncreaseAdvance(float n)
@@ -87,5 +91,7 @@ public class AdvanceBarComponent : MonoBehaviour
             GameManager.Instance.EndGame(playerNumber, true);
         }
 
+
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = amount;
     }
 }

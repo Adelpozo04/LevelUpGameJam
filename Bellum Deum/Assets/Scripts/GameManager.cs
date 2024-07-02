@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,8 +17,18 @@ public class GameManager : MonoBehaviour
 
     #region references
 
-    [SerializeField] private GameObject _barJ1;
-    [SerializeField] private GameObject _barJ2;
+    [SerializeField] private GameObject _crazyBarJ1;
+    [SerializeField] private GameObject _crazyBarJ2;
+    [SerializeField] private GameObject _advanceBarJ1;
+    [SerializeField] private GameObject _advanceBarJ2;
+
+    [SerializeField] private InputActionAsset _J1_Input;
+    [SerializeField] private InputActionAsset _J2_Input;
+
+    [SerializeField] private GameObject _eventSystem;
+
+    [SerializeField] private GameObject _startCardJ1;
+    [SerializeField] private GameObject _startCardJ2;
 
     #endregion
 
@@ -35,6 +48,34 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _instance = this;
+
+    }
+
+    public void EndTurn(Players pEnded)
+    {
+
+        if(Players.Player1 == pEnded)
+        {
+
+            _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
+            _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
+
+            _eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = _startCardJ2;
+
+            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
+
+        }
+        else
+        {
+
+            _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
+            _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
+
+            _eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = _startCardJ1;
+
+            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
+
+        }
 
     }
 

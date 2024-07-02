@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CrazyBarComponent : MonoBehaviour
 {
@@ -74,6 +75,8 @@ public class CrazyBarComponent : MonoBehaviour
             amount = 0;
         }
 
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = amount;
+
     }
 
     private void IncreaseCrazy(float n)
@@ -85,6 +88,8 @@ public class CrazyBarComponent : MonoBehaviour
         {
             GameManager.Instance.EndGame(playerNumber, false);
         }
+
+        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = amount;
 
     }
 
