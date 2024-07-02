@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
 
 public class AdvanceBarComponent : MonoBehaviour
 {
@@ -12,13 +14,61 @@ public class AdvanceBarComponent : MonoBehaviour
 
     [SerializeField] private GameManager.Players playerNumber;
 
+    [SerializeField] private float resistence;
+
+    private List<float> resistenceValues= new List<float>();
+
+    private List<int> resistenceTurns = new List<int>();
+
     #endregion
 
-
-    private void DecreaseAdvance(float n)
+    public void changeTurn(GameManager.Players pEnded)
     {
 
-        amount -= n;
+        if(pEnded == playerNumber)
+        {
+
+            for (int i = 0; i < resistenceTurns.Count; i++)
+            {
+                resistenceTurns[i]--;
+
+                if (resistenceTurns[i] <= 0)
+                {
+
+                    resistence -= resistenceValues[i];
+
+                    resistenceValues.Remove(i);
+                    resistenceTurns.Remove(i);
+
+                }
+            }
+            
+        }
+
+    }
+
+    public void addResistence(float res, int turns)
+    {
+
+        resistence += res;
+
+        resistenceValues.Add(res);
+        resistenceTurns.Add(turns);
+
+    }
+
+    public void DecreaseAdvance(float n)
+    {
+
+        if (resistence > 0)
+        {
+            amount -= n;
+        }
+        else
+        {
+            amount -= n * (1 - (resistence / 100));
+        }
+        
 
         if (amount <= 0)
         {
@@ -27,7 +77,7 @@ public class AdvanceBarComponent : MonoBehaviour
 
     }
 
-    private void IncreaseAdvance(float n)
+    public void IncreaseAdvance(float n)
     {
 
         amount += n;
