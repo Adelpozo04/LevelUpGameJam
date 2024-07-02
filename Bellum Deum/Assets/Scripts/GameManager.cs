@@ -53,17 +53,17 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn(Players pEnded)
     {
-
+        Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
 
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
 
-            _eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = _startCardJ2;
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ2);
 
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
-
+            Debug.Log("Entra en EndTurn Player1");
         }
         else
         {
@@ -71,10 +71,10 @@ public class GameManager : MonoBehaviour
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
 
-            _eventSystem.GetComponent<EventSystem>().firstSelectedGameObject = _startCardJ1;
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ1);
 
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
-
+            Debug.Log("Entra en EndTurn Player2");
         }
 
     }
@@ -139,7 +139,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ1);
+        _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
     }
 
     // Update is called once per frame

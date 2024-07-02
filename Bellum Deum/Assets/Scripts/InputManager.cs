@@ -15,9 +15,13 @@ public class InputManager : MonoBehaviour
     private float _tiempoPulsando = 0f;
     public float _tiempoNecesario = 3f;
 
+    private bool _enterPulsado = false;
+
     public Vector2 _posCartaGuardada;
 
     private Button _botonSeleccionado;
+
+    private Players _currentPlayer = Players.Player1;
 
     private void Start()
     {
@@ -26,21 +30,39 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        // Verifica si la tecla está siendo presionada
-        if (Input.GetKey(KeyCode.KeypadEnter))
+        if (!_enterPulsado)
         {
-            _tiempoPulsando += Time.deltaTime;
-
-            if (_tiempoPulsando >= _tiempoNecesario)
+            if (Input.GetKey(KeyCode.Return))
             {
-                GameManager.Instance.EndTurn(Players.Player1);//CAMBIAR TURNO
+                _tiempoPulsando += Time.deltaTime;
+
+                if (_tiempoPulsando >= _tiempoNecesario)
+                {
+                    _enterPulsado = true;
+                    GameManager.Instance.EndTurn(_currentPlayer);
+                    if (_currentPlayer == Players.Player1)
+                    {
+                        _currentPlayer = Players.Player2;
+                    }
+                    else
+                    {
+                        _currentPlayer = Players.Player1;
+                    }
+                    _tiempoPulsando = 0.0f;
+                    Debug.Log("tiempo pulsando cumplido");
+                }
+            }
+            else
+            {
                 _tiempoPulsando = 0.0f;
-                Debug.Log("tiempo pulsando cumplido");
             }
         }
         else
         {
-            _tiempoPulsando = 0.0f;
+            if (Input.GetKeyUp(KeyCode.Return))
+            {
+                _enterPulsado = false;
+            }
         }
     }
 

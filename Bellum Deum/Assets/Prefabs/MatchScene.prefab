@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 4028063779638788277}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &3757367923142937474
@@ -78,6 +78,119 @@ MonoBehaviour:
   m_DeselectOnBackgroundClick: 1
   m_PointerBehavior: 0
   m_CursorLockBehavior: 0
+--- !u!1 &4294531899590456183
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7033202206769340683}
+  - component: {fileID: 5611962156043474072}
+  - component: {fileID: 5036683639551669787}
+  m_Layer: 0
+  m_Name: InputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7033202206769340683
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294531899590456183}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1030.8068, y: 518.4645, z: 15.439002}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6686272658926772858}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5611962156043474072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294531899590456183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78fbb7b47849fb0499c9ca2547af931e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tiempoNecesario: 3
+  _posCartaGuardada: {x: 0, y: 0}
+--- !u!114 &5036683639551669787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4294531899590456183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 93e6b163308ca8b4ca3b104a279ae123, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 479e6513-e160-4494-8ccc-a3b0b4d8040b
+    m_ActionName: UI/Navigate[/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: GuardarCarta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b48eb1a4-1ab9-4912-83d7-e9b011558df3
+    m_ActionName: UI/GardarCarta
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: JugarCarta
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: be31c643-f782-4fff-82bb-7f1478a7f684
+    m_ActionName: UI/JugarCarta[/Keyboard/s]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: UI
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &6408495965299583939
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,8 +274,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8916347512158546093}
-  - {fileID: 2252395440954788778}
+  - {fileID: 7033202206769340683}
   - {fileID: 4581920325364923279}
+  - {fileID: 2252395440954788778}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6230234344347406993
@@ -410,7 +524,17 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8438142854546348074, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 3430159004917193368, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 7950540470949865111, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 8020472332550798475, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 7162553976251525716, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 3600400479475866527, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 9078348109690423373, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 8498127929200916600, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 4343614560809311489, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
+    - {fileID: 4689878855227377569, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 6420550183441615845, guid: 9a5c35f05d8b8574fa5f230afad1f0ee, type: 3}
