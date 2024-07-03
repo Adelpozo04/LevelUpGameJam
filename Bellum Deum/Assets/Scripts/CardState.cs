@@ -8,7 +8,9 @@ public class CardState : MonoBehaviour
 
     #region parameters
 
-    private GameManager.CardStateValues _currentState;
+    private GameManager.CardStateValues _currentState = GameManager.CardStateValues.Normal;
+
+    private Carta _cardStats;
 
     #endregion
 
@@ -43,6 +45,11 @@ public class CardState : MonoBehaviour
         }
 
         
+    }
+
+    public void AddCardStats(Carta card)
+    {
+        _cardStats = card;
     }
 
     // Start is called before the first frame update

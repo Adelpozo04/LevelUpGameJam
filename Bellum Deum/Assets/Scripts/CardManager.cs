@@ -7,15 +7,13 @@ using UnityEngine.InputSystem.UI;
 
 public class CardManager : MonoBehaviour
 {
-    public Carta carta_a_barajar;
-    public void Actualizar_num_cartas(Carta carta)
-    {
-        carta.num_cartas -= 1;
-    }
+    private Carta carta_a_barajar;
+
+    private List<Carta> baraja = new List<Carta>();
 
     public List<Carta> Barajar_cartas()
     {
-        List<Carta> baraja = new List<Carta>();
+        
         for (int i = 0; i < 3; i++) {
             if (i == 0){
                 for (int j = 1; j==3; j++)
@@ -70,10 +68,23 @@ public class CardManager : MonoBehaviour
         return baraja;
     }
 
+    public Carta AskCard()
+    {
+
+        int cardIndex = Random.Range(0, baraja.Count);
+
+        Carta card = baraja[cardIndex];
+
+        baraja.Remove(card);
+
+        return card;
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        List<Carta> baraja = Barajar_cartas();
+        baraja = Barajar_cartas();
         
     }
 
