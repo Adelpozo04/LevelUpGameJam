@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FeComponent : MonoBehaviour
@@ -13,6 +14,12 @@ public class FeComponent : MonoBehaviour
 
     #endregion
 
+    #region references
+
+    [SerializeField] private GameObject _textAmount;
+
+    #endregion
+
 
     public bool UseFe(int fe)
     {
@@ -20,6 +27,9 @@ public class FeComponent : MonoBehaviour
         if(_feAmount - fe >= 0)
         {
             _feAmount -= fe;
+
+            _textAmount.GetComponent<TextMeshProUGUI>().text = _feAmount.ToString();
+
             return true;
         }
 
@@ -42,7 +52,9 @@ public class FeComponent : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         
+
     }
 
     // Update is called once per frame
