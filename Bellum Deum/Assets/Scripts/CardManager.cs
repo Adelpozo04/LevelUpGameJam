@@ -19,14 +19,23 @@ public class CardManager : MonoBehaviour
                 for (int j = 1; j<=3; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Ataque/aum_loc_dism_avan_"+j);
-                    baraja.Add(carta_a_barajar);
+
+                    for(int k = 0; k < carta_a_barajar.num_cartas; k++)
+                    {
+                        baraja.Add(carta_a_barajar);
+                    }
+
+                    
                 }
             }
             else if (i == 1) {
                 for (int j = 1; j <= 8; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Ataque/aumentar_locura_"+j);
-                    baraja.Add(carta_a_barajar);
+                    for (int k = 0; k < carta_a_barajar.num_cartas; k++)
+                    {
+                        baraja.Add(carta_a_barajar);
+                    }
                 }
             }
             else
@@ -34,7 +43,10 @@ public class CardManager : MonoBehaviour
                 for (int j = 1; j <= 8; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Ataque/disminuir_avance_"+j);
-                    baraja.Add(carta_a_barajar);
+                    for (int k = 0; k < carta_a_barajar.num_cartas; k++)
+                    {
+                        baraja.Add(carta_a_barajar);
+                    }
                 }
             }
         }
@@ -45,7 +57,10 @@ public class CardManager : MonoBehaviour
                 for (int j = 1; j <= 3; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Mejora/ambos_escudos_" + j);
-                    baraja.Add(carta_a_barajar);
+                    for (int k = 0; k < carta_a_barajar.num_cartas; k++)
+                    {
+                        baraja.Add(carta_a_barajar);
+                    }
                 }
             }
             else if (i == 1)
@@ -53,7 +68,10 @@ public class CardManager : MonoBehaviour
                 for (int j = 1; j <= 6; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Mejora/aumentar_escudo_avan_" + j);
-                    baraja.Add(carta_a_barajar);
+                    for (int k = 0; k < carta_a_barajar.num_cartas; k++)
+                    {
+                        baraja.Add(carta_a_barajar);
+                    }
                 }
             }
             else
@@ -61,7 +79,10 @@ public class CardManager : MonoBehaviour
                 for (int j = 1; j <= 6; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Mejora/aumentar_escudo_loc_" + j);
-                    baraja.Add(carta_a_barajar);
+                    for (int k = 0; k < carta_a_barajar.num_cartas; k++)
+                    {
+                        baraja.Add(carta_a_barajar);
+                    }
                 }
             }
         }
@@ -71,11 +92,7 @@ public class CardManager : MonoBehaviour
     public Carta AskCard()
     {
 
-        Debug.Log(baraja.Count);
-
         int cardIndex = Random.Range(0, baraja.Count);
-
-        Debug.Log(cardIndex);
 
         Carta card = baraja[cardIndex];
 
