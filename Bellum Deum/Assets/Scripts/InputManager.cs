@@ -12,6 +12,7 @@ using static GameManager;
 public class InputManager : MonoBehaviour
 {
     private GameManager gameManager;
+    [SerializeField] private GameObject inputManager;
 
     private float _tiempoPulsando = 0f;
     public float _tiempoNecesario = 3f;
@@ -132,6 +133,7 @@ public class InputManager : MonoBehaviour
                     _carta.GetComponent<TweenManager>().MoveArriba();
                     _carta.GetComponent<CardState>().ChangeState(false);
                 }
+                
             }
             else
             {
