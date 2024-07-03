@@ -47,6 +47,11 @@ public class CardState : MonoBehaviour
         
     }
 
+    public GameManager.CardStateValues GetState()
+    {
+        return _currentState;
+    }
+
     public void AddCardStats(Carta card)
     {
         _cardStats = card;

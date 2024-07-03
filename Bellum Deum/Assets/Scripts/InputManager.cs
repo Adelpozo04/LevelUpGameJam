@@ -43,13 +43,17 @@ public class InputManager : MonoBehaviour
                     GameManager.Instance.EndTurn(_currentPlayer);
                     if (_currentPlayer == Players.Player1)
                     {
+                        _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
                         _currentPlayer = Players.Player2;
                         _contadorCartas = 0;
+                        _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
                     }
                     else
                     {
+                        _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
                         _currentPlayer = Players.Player1;
                         _contadorCartas = 0;
+                        _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
                     }
                     _tiempoPulsando = 0.0f;
                     Debug.Log("tiempo pulsando cumplido");
@@ -72,18 +76,22 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
                 if (_contadorCartas > 0)
                 {
                     _contadorCartas--;
                 }
                 else
                 {
-                    _contadorCartas = _deck1.transform.GetChildCount() - 1;
+                    _contadorCartas = _deck1.transform.childCount - 1;
                 }
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
-                _contadorCartas = (_contadorCartas + 1) % (_deck1.transform.GetChildCount());
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+                _contadorCartas = (_contadorCartas + 1) % (_deck1.transform.childCount);
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
             }
         }
 
@@ -91,47 +99,72 @@ public class InputManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
+                _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
                 if (_contadorCartas > 0)
                 {
                     _contadorCartas--;
                 }
                 else
                 {
-                    _contadorCartas = _deck2.transform.GetChildCount() - 1;
+                    _contadorCartas = _deck2.transform.childCount - 1;
                 }
+                _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                _contadorCartas = (_contadorCartas + 1) % (_deck2.transform.GetChildCount());
+                _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+                _contadorCartas = (_contadorCartas + 1) % (_deck2.transform.childCount);
+                _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
             }
         }
     }
 
     public void GuardarCarta(InputAction.CallbackContext context)
     {
+        GameObject _carta;
         if (context.started)
         {
-            Debug.Log("Llega");
             if (_currentPlayer == Players.Player1)
             {
-                _deck1.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveArriba();
+                _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
+                if (_carta.GetComponent<CardState>().GetState() != GameManager.CardStateValues.Guardado)
+                {
+                    _carta.GetComponent<TweenManager>().MoveArriba();
+                    _carta.GetComponent<CardState>().ChangeState(false);
+                }
             }
             else
             {
-                _deck2.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveAbajo();
+                _carta = _deck2.transform.GetChild(_contadorCartas).gameObject;
+                if (_carta.GetComponent<CardState>().GetState() != GameManager.CardStateValues.Guardado)
+                {
+                    _carta.GetComponent<TweenManager>().MoveAbajo();
+                    _carta.GetComponent<CardState>().ChangeState(false);
+                }
             }
         }
     }
 
     public void JugarCarta(InputAction.CallbackContext context)
     {
+        GameObject _carta;
         if (_currentPlayer == Players.Player1)
         {
-            _deck1.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveAbajo();
+            _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
+            if (_carta.GetComponent<CardState>().GetState() != GameManager.CardStateValues.Jugado)
+            {
+                _carta.GetComponent<TweenManager>().MoveAbajo();
+                _carta.GetComponent<CardState>().ChangeState(true);
+            }
         }
         else
         {
-            _deck2.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveArriba();
+            _carta = _deck2.transform.GetChild(_contadorCartas).gameObject;
+            if (_carta.GetComponent<CardState>().GetState() != GameManager.CardStateValues.Jugado)
+            {
+                _carta.GetComponent<TweenManager>().MoveArriba();
+                _carta.GetComponent<CardState>().ChangeState(true);
+            }
         }
     }
 }

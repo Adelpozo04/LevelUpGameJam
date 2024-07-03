@@ -22,10 +22,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _advanceBarJ1;
     [SerializeField] private GameObject _advanceBarJ2;
 
+    [SerializeField] private GameObject _eventSystem;
+
     [SerializeField] private InputActionAsset _J1_Input;
     [SerializeField] private InputActionAsset _J2_Input;
-
-    [SerializeField] private GameObject _eventSystem;
 
     [SerializeField] private GameObject _deckJ1;
     [SerializeField] private GameObject _deckJ2;
@@ -80,8 +80,8 @@ public class GameManager : MonoBehaviour
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
 
-            //Se cambia el input
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
+            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
 
             AssignCards(Players.Player2);
         }
@@ -98,8 +98,8 @@ public class GameManager : MonoBehaviour
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
 
-            //Se cambia el input
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
+            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
             AssignCards(Players.Player1);
         }
@@ -191,6 +191,7 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
         _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
+        _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
         _cronoJ2.GetComponent<TimeManager>().enabled = false;
     }

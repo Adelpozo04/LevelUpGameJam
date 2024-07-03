@@ -31,4 +31,14 @@ public class TweenManager : MonoBehaviour
         float posFinal = _botonSelTransform.position.y + 100;
         _botonSelTransform.DOMoveY(posFinal, 1f);
     }
+
+    public void AumentarCartaSeleccionada()
+    {
+        _botonSelTransform.DOScale(new Vector2(1.3f, 1.3f), 0.5f);
+    }
+
+    public void ReducirCartaDeseleccionada()
+    {
+        _botonSelTransform.DOScale(new Vector2(1f, 1f), 0.5f);
+    }
 }
