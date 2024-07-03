@@ -10,7 +10,7 @@ public class CardState : MonoBehaviour
 
     private GameManager.CardStateValues _currentState = GameManager.CardStateValues.Normal;
 
-    private Carta _cardStats;
+    [SerializeField] private Carta _cardStats;
 
     #endregion
 

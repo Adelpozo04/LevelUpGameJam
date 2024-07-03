@@ -27,11 +27,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _eventSystem;
 
-    [SerializeField] private GameObject _startCardJ1;
-    [SerializeField] private GameObject _startCardJ2;
+    [SerializeField] private GameObject _deckJ1;
+    [SerializeField] private GameObject _deckJ2;
 
     [SerializeField] private GameObject _cronoJ1;
     [SerializeField] private GameObject _cronoJ2;
+
+    [SerializeField] private CardManager _cardManager;
 
     #endregion
 
@@ -66,30 +68,64 @@ public class GameManager : MonoBehaviour
         Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
+            //Cambio tiempo cronos
             _cronoJ1.GetComponent<TimeManager>().enabled = false;
             _cronoJ2.GetComponent<TimeManager>().enabled = true;
 
+            //Se aplican efectos a las barras
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
 
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ2);
+            //Se cambia la carta de comienzo
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
 
+            //Se cambia el input
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
-            Debug.Log("Entra en EndTurn Player1");
+
+            AssignCards(Players.Player2);
         }
         else
         {
+            //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
             _cronoJ1.GetComponent<TimeManager>().enabled = true;
 
+            //Se aplican efectos a las barras
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
 
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ1);
+            //Se cambia la carta de comienzo
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
 
+            //Se cambia el input
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
-            Debug.Log("Entra en EndTurn Player2");
+
+            AssignCards(Players.Player1);
         }
+    }
+
+    private void AssignCards(Players currentPlayer)
+    {
+
+        if(currentPlayer == Players.Player1)
+        {
+
+            for (int i = 0; i < _deckJ1.transform.childCount; i++)
+            {
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
+            }
+
+        }
+        else
+        {
+
+            for (int i = 0; i < _deckJ2.transform.childCount; i++)
+            {
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
+            }
+
+        }
+
     }
 
     public void TimeEnded(Players pEnded)
@@ -152,7 +188,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ1);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
         _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
 
         _cronoJ2.GetComponent<TimeManager>().enabled = false;
