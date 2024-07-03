@@ -30,6 +30,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _startCardJ1;
     [SerializeField] private GameObject _startCardJ2;
 
+    [SerializeField] private GameObject _cronoJ1;
+    [SerializeField] private GameObject _cronoJ2;
+
     #endregion
 
     public enum Players{
@@ -56,6 +59,8 @@ public class GameManager : MonoBehaviour
         Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
+            _cronoJ1.GetComponent<TimeManager>().enabled = false;
+            _cronoJ2.GetComponent<TimeManager>().enabled = true;
 
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
@@ -67,6 +72,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            _cronoJ2.GetComponent<TimeManager>().enabled = false;
+            _cronoJ1.GetComponent<TimeManager>().enabled = true;
 
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
@@ -76,7 +83,6 @@ public class GameManager : MonoBehaviour
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
             Debug.Log("Entra en EndTurn Player2");
         }
-
     }
 
     public void TimeEnded(Players pEnded)
@@ -141,6 +147,8 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_startCardJ1);
         _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
+
+        _cronoJ2.GetComponent<TimeManager>().enabled = false;
     }
 
     // Update is called once per frame
