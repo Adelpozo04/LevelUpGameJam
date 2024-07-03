@@ -15,8 +15,8 @@ MonoBehaviour:
   "dise\xF1o": {fileID: 0}
   locura: 0
   locura_propia: 0
-  avance: 0
+  avance: 11
   avance_propio: 0
-  cost_mana: 0
-  num_cartas: 0
-  num_turnos: 0
+  cost_mana: 4
+  num_cartas: 4
+  num_turnos: 2

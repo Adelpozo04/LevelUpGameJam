@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: ambos_escudos_3
   m_EditorClassIdentifier: 
   "dise\xF1o": {fileID: 0}
-  locura: 0
+  locura: 9
   locura_propia: 0
-  avance: 0
+  avance: 9
   avance_propio: 0
-  cost_mana: 0
-  num_cartas: 0
-  num_turnos: 0
+  cost_mana: 5
+  num_cartas: 1
+  num_turnos: 3

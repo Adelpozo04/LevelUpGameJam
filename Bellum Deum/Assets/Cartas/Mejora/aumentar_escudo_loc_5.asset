@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: aumentar_escudo_loc_5
   m_EditorClassIdentifier: 
   "dise\xF1o": {fileID: 0}
-  locura: 0
+  locura: 13
   locura_propia: 0
   avance: 0
   avance_propio: 0
-  cost_mana: 0
-  num_cartas: 0
-  num_turnos: 0
+  cost_mana: 5
+  num_cartas: 2
+  num_turnos: 2
