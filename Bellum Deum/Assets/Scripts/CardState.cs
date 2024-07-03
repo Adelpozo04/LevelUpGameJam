@@ -8,7 +8,7 @@ public class CardState : MonoBehaviour
 
     #region parameters
 
-    private GameManager.CardStateValues _currentState = GameManager.CardStateValues.Normal;
+    [SerializeField] private GameManager.CardStateValues _currentState = GameManager.CardStateValues.Normal;
 
     [SerializeField] private Carta _cardStats;
 
@@ -17,6 +17,7 @@ public class CardState : MonoBehaviour
 
     public void ChangeState(bool cartaLaMesa)
     {
+
         if (cartaLaMesa)
         {
 
