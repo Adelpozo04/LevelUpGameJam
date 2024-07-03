@@ -40,6 +40,13 @@ public class GameManager : MonoBehaviour
         Player2
     }
 
+    public enum CardStateValues
+    {
+        Guardado,
+        Normal,
+        Jugado
+    }
+
     public static GameManager Instance
     {
         get
