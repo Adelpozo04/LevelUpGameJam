@@ -6,6 +6,7 @@ using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 using static GameManager;
 
 public class InputManager : MonoBehaviour
@@ -17,15 +18,15 @@ public class InputManager : MonoBehaviour
 
     private bool _enterPulsado = false;
 
-    public Vector2 _posCartaGuardada;
-
-    private Button _botonSeleccionado;
-
     private Players _currentPlayer = Players.Player1;
+
+    [SerializeField] private GameObject _deck1, _deck2;
+
+    private int _contadorCartas = 0;
 
     private void Start()
     {
-        _botonSeleccionado = GetComponent<Button>();
+        
     }
 
     void Update()
@@ -43,10 +44,12 @@ public class InputManager : MonoBehaviour
                     if (_currentPlayer == Players.Player1)
                     {
                         _currentPlayer = Players.Player2;
+                        _contadorCartas = 0;
                     }
                     else
                     {
                         _currentPlayer = Players.Player1;
+                        _contadorCartas = 0;
                     }
                     _tiempoPulsando = 0.0f;
                     Debug.Log("tiempo pulsando cumplido");
@@ -64,21 +67,71 @@ public class InputManager : MonoBehaviour
                 _enterPulsado = false;
             }
         }
+
+        if (_currentPlayer == Players.Player1)
+        {
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                if (_contadorCartas > 0)
+                {
+                    _contadorCartas--;
+                }
+                else
+                {
+                    _contadorCartas = _deck1.transform.GetChildCount() - 1;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.D))
+            {
+                _contadorCartas = (_contadorCartas + 1) % (_deck1.transform.GetChildCount());
+            }
+        }
+
+        if (_currentPlayer == Players.Player2)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (_contadorCartas > 0)
+                {
+                    _contadorCartas--;
+                }
+                else
+                {
+                    _contadorCartas = _deck2.transform.GetChildCount() - 1;
+                }
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                _contadorCartas = (_contadorCartas + 1) % (_deck2.transform.GetChildCount());
+            }
+        }
     }
 
     public void GuardarCarta(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            _botonSeleccionado.GetComponent<RectTransform>().localPosition = _posCartaGuardada;//posicion de carta guardada
+            Debug.Log("Llega");
+            if (_currentPlayer == Players.Player1)
+            {
+                _deck1.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveArriba();
+            }
+            else
+            {
+                _deck2.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveAbajo();
+            }
         }
     }
 
     public void JugarCarta(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (_currentPlayer == Players.Player1)
         {
-            _botonSeleccionado.GetComponent<RectTransform>().localPosition += transform.up * 100 * Time.deltaTime;//posicion de carta jugada
+            _deck1.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveAbajo();
+        }
+        else
+        {
+            _deck2.transform.GetChild(_contadorCartas).GetComponent<TweenManager>().MoveArriba();
         }
     }
 }

@@ -15,18 +15,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "GuardarCarta",
+                    "name": "JugarCarta",
                     "type": "Button",
-                    "id": "0fa7c0c9-853e-4518-9dea-416ce5d6f062",
+                    "id": "4ee4dc8a-8703-43fc-ae7b-6c0270bb1fad",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "JugarCarta",
+                    "name": "GuardarCarta",
                     "type": "Button",
-                    "id": "3e266ca5-1ea3-4bbd-ab52-f0fe8432d9a3",
+                    "id": "bccd990d-7ea1-4a7f-8a8d-7cc122279ea4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -68,26 +68,26 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "down",
-                    "id": "1d87b436-f09f-46d8-b1d4-18cc62dc1fb9",
-                    "path": "<Keyboard>/downArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "GuardarCarta",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "up",
-                    "id": "915f81f2-ab6c-4128-a1a4-066d04025a19",
+                    "name": "",
+                    "id": "bc7ad509-a70a-425e-bd25-d767c825409e",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Keyboard&Mouse",
+                    "groups": "",
                     "action": "JugarCarta",
                     "isComposite": false,
-                    "isPartOfComposite": true
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5b71f075-0d2e-4d59-aa6e-72a7a04063f1",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "GuardarCarta",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

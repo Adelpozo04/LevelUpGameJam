@@ -11,16 +11,11 @@ public class TimeManager : MonoBehaviour
 
     private float timeLeft;
     private bool onGoing1;
-    //public Text loserText;
-    //public Text escText;
-    //private bool loser = false;
 
 
     private void Awake()
     {
         timeLeft = (min * 60) + sec;
-        //loserText.gameObject.SetActive(false);
-        //escText.gameObject.SetActive(false);
         onGoing1 = true;
     }
 
@@ -32,13 +27,7 @@ public class TimeManager : MonoBehaviour
             if (timeLeft < 1)
             {
                 onGoing1 = true;
-                //loserText.gameObject.SetActive(true);
-                //escText.gameObject.SetActive(true);
                 Time.timeScale = 0;
-                //if (Input.GetKeyDown(KeyCode.Escape) && loser)
-                //{
-                //    SceneManager.LoadScene("MainMenu");
-                //}
             }
             int timeMin = Mathf.FloorToInt(timeLeft / 60);
             int timeSec = Mathf.FloorToInt(timeLeft % 60);

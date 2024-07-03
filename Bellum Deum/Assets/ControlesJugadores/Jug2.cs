@@ -37,18 +37,18 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""GuardarCarta"",
+                    ""name"": ""JugarCarta"",
                     ""type"": ""Button"",
-                    ""id"": ""0fa7c0c9-853e-4518-9dea-416ce5d6f062"",
+                    ""id"": ""4ee4dc8a-8703-43fc-ae7b-6c0270bb1fad"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""JugarCarta"",
+                    ""name"": ""GuardarCarta"",
                     ""type"": ""Button"",
-                    ""id"": ""3e266ca5-1ea3-4bbd-ab52-f0fe8432d9a3"",
+                    ""id"": ""bccd990d-7ea1-4a7f-8a8d-7cc122279ea4"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -90,26 +90,26 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""down"",
-                    ""id"": ""1d87b436-f09f-46d8-b1d4-18cc62dc1fb9"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""GuardarCarta"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""915f81f2-ab6c-4128-a1a4-066d04025a19"",
+                    ""name"": """",
+                    ""id"": ""bc7ad509-a70a-425e-bd25-d767c825409e"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
+                    ""groups"": """",
                     ""action"": ""JugarCarta"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": true
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b71f075-0d2e-4d59-aa6e-72a7a04063f1"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GuardarCarta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -180,8 +180,8 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
-        m_UI_GuardarCarta = m_UI.FindAction("GuardarCarta", throwIfNotFound: true);
         m_UI_JugarCarta = m_UI.FindAction("JugarCarta", throwIfNotFound: true);
+        m_UI_GuardarCarta = m_UI.FindAction("GuardarCarta", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -244,15 +244,15 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Navigate;
-    private readonly InputAction m_UI_GuardarCarta;
     private readonly InputAction m_UI_JugarCarta;
+    private readonly InputAction m_UI_GuardarCarta;
     public struct UIActions
     {
         private @Jug2 m_Wrapper;
         public UIActions(@Jug2 wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
-        public InputAction @GuardarCarta => m_Wrapper.m_UI_GuardarCarta;
         public InputAction @JugarCarta => m_Wrapper.m_UI_JugarCarta;
+        public InputAction @GuardarCarta => m_Wrapper.m_UI_GuardarCarta;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -265,12 +265,12 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
-            @GuardarCarta.started += instance.OnGuardarCarta;
-            @GuardarCarta.performed += instance.OnGuardarCarta;
-            @GuardarCarta.canceled += instance.OnGuardarCarta;
             @JugarCarta.started += instance.OnJugarCarta;
             @JugarCarta.performed += instance.OnJugarCarta;
             @JugarCarta.canceled += instance.OnJugarCarta;
+            @GuardarCarta.started += instance.OnGuardarCarta;
+            @GuardarCarta.performed += instance.OnGuardarCarta;
+            @GuardarCarta.canceled += instance.OnGuardarCarta;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -278,12 +278,12 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
-            @GuardarCarta.started -= instance.OnGuardarCarta;
-            @GuardarCarta.performed -= instance.OnGuardarCarta;
-            @GuardarCarta.canceled -= instance.OnGuardarCarta;
             @JugarCarta.started -= instance.OnJugarCarta;
             @JugarCarta.performed -= instance.OnJugarCarta;
             @JugarCarta.canceled -= instance.OnJugarCarta;
+            @GuardarCarta.started -= instance.OnGuardarCarta;
+            @GuardarCarta.performed -= instance.OnGuardarCarta;
+            @GuardarCarta.canceled -= instance.OnGuardarCarta;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -349,7 +349,7 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnNavigate(InputAction.CallbackContext context);
-        void OnGuardarCarta(InputAction.CallbackContext context);
         void OnJugarCarta(InputAction.CallbackContext context);
+        void OnGuardarCarta(InputAction.CallbackContext context);
     }
 }

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _cronoJ2;
 
     [SerializeField] private CardManager _cardManager;
+    [SerializeField] private GameObject _inputManager;
 
     #endregion
 
