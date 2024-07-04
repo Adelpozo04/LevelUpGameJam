@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
 
-            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
+            //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
             _feJ1.RestartFe();
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
 
-            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
+            //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
 
             _feJ2.RestartFe();
@@ -422,6 +422,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
 
         _inputManager.SetActive(false);
 

@@ -62,6 +62,24 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""829fcb86-da74-420e-83bb-1b645007035c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""f0646764-ddd7-406a-b6d2-65d323f70c0c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -130,6 +148,28 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ed9a66a-a114-4565-8d3e-a2f35806bb55"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""280f0b0a-4004-44c3-82ed-90968d5a1265"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -138,10 +178,10 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             ""id"": ""d8921ff5-2257-4452-96c5-12a8fede0e68"",
             ""actions"": [
                 {
-                    ""name"": ""JugarCarta"",
-                    ""type"": ""Button"",
-                    ""id"": ""8dad740c-3058-4f77-92f9-b662f8e7bee0"",
-                    ""expectedControlType"": ""Button"",
+                    ""name"": ""Navigate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f1ad369f-67e1-4fcf-94a6-256ed63de17a"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -156,10 +196,10 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Navigate"",
-                    ""type"": ""PassThrough"",
-                    ""id"": ""f1ad369f-67e1-4fcf-94a6-256ed63de17a"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""JugarCarta"",
+                    ""type"": ""Button"",
+                    ""id"": ""8dad740c-3058-4f77-92f9-b662f8e7bee0"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -168,6 +208,24 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""name"": ""Escape"",
                     ""type"": ""Button"",
                     ""id"": ""51a78b7d-dcdf-40a5-9c76-4c3fb2ff74c3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""1105294a-51b7-4381-a6f4-00ad447956da"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""GoLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""117b3185-73ba-40c2-9e2e-7f650ed5428a"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -210,12 +268,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c2254d9f-ec47-4ea1-a282-c3287496f115"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""2b9032c9-b470-41cc-aa67-0bd85f7cb134"",
+                    ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""GuardarCarta"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -232,12 +290,34 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""2b9032c9-b470-41cc-aa67-0bd85f7cb134"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""id"": ""c2254d9f-ec47-4ea1-a282-c3287496f115"",
+                    ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Escape"",
+                    ""groups"": """",
+                    ""action"": ""GuardarCarta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a693838e-0b27-49f3-adf2-a477128d4449"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8c4ca585-8a4e-44b4-85ca-5aa46201cd4b"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""GoLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -469,12 +549,16 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         m_J1_GuardarCarta = m_J1.FindAction("GuardarCarta", throwIfNotFound: true);
         m_J1_JugarCarta = m_J1.FindAction("JugarCarta", throwIfNotFound: true);
         m_J1_Escape = m_J1.FindAction("Escape", throwIfNotFound: true);
+        m_J1_GoRight = m_J1.FindAction("GoRight", throwIfNotFound: true);
+        m_J1_GoLeft = m_J1.FindAction("GoLeft", throwIfNotFound: true);
         // J2
         m_J2 = asset.FindActionMap("J2", throwIfNotFound: true);
-        m_J2_JugarCarta = m_J2.FindAction("JugarCarta", throwIfNotFound: true);
-        m_J2_GuardarCarta = m_J2.FindAction("GuardarCarta", throwIfNotFound: true);
         m_J2_Navigate = m_J2.FindAction("Navigate", throwIfNotFound: true);
+        m_J2_GuardarCarta = m_J2.FindAction("GuardarCarta", throwIfNotFound: true);
+        m_J2_JugarCarta = m_J2.FindAction("JugarCarta", throwIfNotFound: true);
         m_J2_Escape = m_J2.FindAction("Escape", throwIfNotFound: true);
+        m_J2_GoRight = m_J2.FindAction("GoRight", throwIfNotFound: true);
+        m_J2_GoLeft = m_J2.FindAction("GoLeft", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -545,6 +629,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputAction m_J1_GuardarCarta;
     private readonly InputAction m_J1_JugarCarta;
     private readonly InputAction m_J1_Escape;
+    private readonly InputAction m_J1_GoRight;
+    private readonly InputAction m_J1_GoLeft;
     public struct J1Actions
     {
         private @ControlesJuego m_Wrapper;
@@ -553,6 +639,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         public InputAction @GuardarCarta => m_Wrapper.m_J1_GuardarCarta;
         public InputAction @JugarCarta => m_Wrapper.m_J1_JugarCarta;
         public InputAction @Escape => m_Wrapper.m_J1_Escape;
+        public InputAction @GoRight => m_Wrapper.m_J1_GoRight;
+        public InputAction @GoLeft => m_Wrapper.m_J1_GoLeft;
         public InputActionMap Get() { return m_Wrapper.m_J1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -574,6 +662,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
+            @GoRight.started += instance.OnGoRight;
+            @GoRight.performed += instance.OnGoRight;
+            @GoRight.canceled += instance.OnGoRight;
+            @GoLeft.started += instance.OnGoLeft;
+            @GoLeft.performed += instance.OnGoLeft;
+            @GoLeft.canceled += instance.OnGoLeft;
         }
 
         private void UnregisterCallbacks(IJ1Actions instance)
@@ -590,6 +684,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
+            @GoRight.started -= instance.OnGoRight;
+            @GoRight.performed -= instance.OnGoRight;
+            @GoRight.canceled -= instance.OnGoRight;
+            @GoLeft.started -= instance.OnGoLeft;
+            @GoLeft.performed -= instance.OnGoLeft;
+            @GoLeft.canceled -= instance.OnGoLeft;
         }
 
         public void RemoveCallbacks(IJ1Actions instance)
@@ -611,18 +711,22 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     // J2
     private readonly InputActionMap m_J2;
     private List<IJ2Actions> m_J2ActionsCallbackInterfaces = new List<IJ2Actions>();
-    private readonly InputAction m_J2_JugarCarta;
-    private readonly InputAction m_J2_GuardarCarta;
     private readonly InputAction m_J2_Navigate;
+    private readonly InputAction m_J2_GuardarCarta;
+    private readonly InputAction m_J2_JugarCarta;
     private readonly InputAction m_J2_Escape;
+    private readonly InputAction m_J2_GoRight;
+    private readonly InputAction m_J2_GoLeft;
     public struct J2Actions
     {
         private @ControlesJuego m_Wrapper;
         public J2Actions(@ControlesJuego wrapper) { m_Wrapper = wrapper; }
-        public InputAction @JugarCarta => m_Wrapper.m_J2_JugarCarta;
-        public InputAction @GuardarCarta => m_Wrapper.m_J2_GuardarCarta;
         public InputAction @Navigate => m_Wrapper.m_J2_Navigate;
+        public InputAction @GuardarCarta => m_Wrapper.m_J2_GuardarCarta;
+        public InputAction @JugarCarta => m_Wrapper.m_J2_JugarCarta;
         public InputAction @Escape => m_Wrapper.m_J2_Escape;
+        public InputAction @GoRight => m_Wrapper.m_J2_GoRight;
+        public InputAction @GoLeft => m_Wrapper.m_J2_GoLeft;
         public InputActionMap Get() { return m_Wrapper.m_J2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -632,34 +736,46 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_J2ActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_J2ActionsCallbackInterfaces.Add(instance);
-            @JugarCarta.started += instance.OnJugarCarta;
-            @JugarCarta.performed += instance.OnJugarCarta;
-            @JugarCarta.canceled += instance.OnJugarCarta;
-            @GuardarCarta.started += instance.OnGuardarCarta;
-            @GuardarCarta.performed += instance.OnGuardarCarta;
-            @GuardarCarta.canceled += instance.OnGuardarCarta;
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @GuardarCarta.started += instance.OnGuardarCarta;
+            @GuardarCarta.performed += instance.OnGuardarCarta;
+            @GuardarCarta.canceled += instance.OnGuardarCarta;
+            @JugarCarta.started += instance.OnJugarCarta;
+            @JugarCarta.performed += instance.OnJugarCarta;
+            @JugarCarta.canceled += instance.OnJugarCarta;
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
+            @GoRight.started += instance.OnGoRight;
+            @GoRight.performed += instance.OnGoRight;
+            @GoRight.canceled += instance.OnGoRight;
+            @GoLeft.started += instance.OnGoLeft;
+            @GoLeft.performed += instance.OnGoLeft;
+            @GoLeft.canceled += instance.OnGoLeft;
         }
 
         private void UnregisterCallbacks(IJ2Actions instance)
         {
-            @JugarCarta.started -= instance.OnJugarCarta;
-            @JugarCarta.performed -= instance.OnJugarCarta;
-            @JugarCarta.canceled -= instance.OnJugarCarta;
-            @GuardarCarta.started -= instance.OnGuardarCarta;
-            @GuardarCarta.performed -= instance.OnGuardarCarta;
-            @GuardarCarta.canceled -= instance.OnGuardarCarta;
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @GuardarCarta.started -= instance.OnGuardarCarta;
+            @GuardarCarta.performed -= instance.OnGuardarCarta;
+            @GuardarCarta.canceled -= instance.OnGuardarCarta;
+            @JugarCarta.started -= instance.OnJugarCarta;
+            @JugarCarta.performed -= instance.OnJugarCarta;
+            @JugarCarta.canceled -= instance.OnJugarCarta;
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
+            @GoRight.started -= instance.OnGoRight;
+            @GoRight.performed -= instance.OnGoRight;
+            @GoRight.canceled -= instance.OnGoRight;
+            @GoLeft.started -= instance.OnGoLeft;
+            @GoLeft.performed -= instance.OnGoLeft;
+            @GoLeft.canceled -= instance.OnGoLeft;
         }
 
         public void RemoveCallbacks(IJ2Actions instance)
@@ -790,13 +906,17 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         void OnGuardarCarta(InputAction.CallbackContext context);
         void OnJugarCarta(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnGoRight(InputAction.CallbackContext context);
+        void OnGoLeft(InputAction.CallbackContext context);
     }
     public interface IJ2Actions
     {
-        void OnJugarCarta(InputAction.CallbackContext context);
-        void OnGuardarCarta(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+        void OnGuardarCarta(InputAction.CallbackContext context);
+        void OnJugarCarta(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
+        void OnGoRight(InputAction.CallbackContext context);
+        void OnGoLeft(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
