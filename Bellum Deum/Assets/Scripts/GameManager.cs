@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.UI;
 public class GameManager : MonoBehaviour
 {
 
+
     #region properties
 
     static private GameManager _instance;
@@ -48,6 +49,11 @@ public class GameManager : MonoBehaviour
         Guardado,
         Normal,
         Jugado
+    }
+    public enum CardType { 
+        Ataque,
+        Mejora,
+        Estado
     }
 
     public static GameManager Instance
