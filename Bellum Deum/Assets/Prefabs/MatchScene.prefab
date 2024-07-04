@@ -1199,15 +1199,15 @@ MonoBehaviour:
   _gameManager: {fileID: 6408495965299583939}
   _eventSystem: {fileID: 3154183005120368110}
   _inputManager: {fileID: 4294531899590456183}
-  _menuOpciones: {fileID: 0}
-  _menuControles: {fileID: 0}
-  _menuIconos: {fileID: 0}
-  _botones: {fileID: 0}
+  _menuOpciones: {fileID: 962262542824660563}
+  _menuControles: {fileID: 3965933908391953241}
+  _menuIconos: {fileID: 4193570632682900107}
+  _botones: {fileID: 8999061284482827612}
   _ControlJug_Input: {fileID: -944628639613478452, guid: 93e6b163308ca8b4ca3b104a279ae123, type: 3}
-  _deckJ1: {fileID: 0}
-  _deckJ2: {fileID: 0}
-  _cronoJ1: {fileID: 0}
-  _cronoJ2: {fileID: 0}
+  _deckJ1: {fileID: 1387934897371012475}
+  _deckJ2: {fileID: 4774709524665827007}
+  _cronoJ1: {fileID: 3303595766532604504}
+  _cronoJ2: {fileID: 1320995589474510331}
 --- !u!1 &1387934897371012475
 GameObject:
   m_ObjectHideFlags: 0
