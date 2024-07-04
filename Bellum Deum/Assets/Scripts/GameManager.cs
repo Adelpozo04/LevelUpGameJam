@@ -151,8 +151,7 @@ public class GameManager : MonoBehaviour
             //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
-            
-
+     
             _feJ1.RestartFe();
 
             AssignCards(Players.Player1);
@@ -171,7 +170,6 @@ public class GameManager : MonoBehaviour
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
 
             
-
             _feJ2.RestartFe();
 
             AssignCards(Players.Player2);
@@ -443,6 +441,9 @@ public class GameManager : MonoBehaviour
 
         _flipCoin.SetActive(false);
 
+        _deckJ1.SetActive(true);
+
+        _deckJ2.SetActive(true);
 
         if (starter == Players.Player1) 
         {
@@ -485,7 +486,12 @@ public class GameManager : MonoBehaviour
 
         _cronoJ2.SetActive(false);
 
+        _deckJ1.SetActive(false);
+
+        _deckJ2.SetActive(false);
+
         _flipCoin.GetComponent<FlipCoin>().StartSelection();
+
 
     }
 
