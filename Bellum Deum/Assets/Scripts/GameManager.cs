@@ -81,10 +81,14 @@ public class GameManager : MonoBehaviour
         Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
+            AttackPlayerCalculation(Players.Player1);
+
             StartTurnPlayer(Players.Player2);   
         }
         else
         {
+            AttackPlayerCalculation(Players.Player2);
+
             StartTurnPlayer(Players.Player1);
         }
     }
@@ -190,12 +194,14 @@ public class GameManager : MonoBehaviour
 
                     typeCard = cardStats.tipo_carta;
 
-                    if(typeCard == CardType.Ataque)
+                    crazy += cardStats.locura;
+
+                    avance += cardStats.avance;
+
+                    if (typeCard == CardType.Ataque)
                     {
 
-                        crazy += cardStats.locura;
-
-                        avance += cardStats.avance;
+                        
 
                         ownCrazy += cardStats.locura_propia;
 
@@ -210,10 +216,20 @@ public class GameManager : MonoBehaviour
                         _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
 
                     }
+                    else if(typeCard == CardType.Mejora)
+                    {
 
+                        Debug.Log("Aumento de resistencia");
+
+                        turnsEffect = cardStats.num_turnos;
+
+                        _crazyBarJ1.GetComponent<CrazyBarComponent>().addResistence(crazy, turnsEffect);
+
+                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().addResistence(avance, turnsEffect);
+                    }
                     
 
-                    turnsEffect = cardStats.num_turnos;
+                    
 
                     
                 }
@@ -235,12 +251,12 @@ public class GameManager : MonoBehaviour
 
                     typeCard = cardStats.tipo_carta;
 
+                    crazy += cardStats.locura;
+
+                    avance += cardStats.avance;
+
                     if (typeCard == CardType.Ataque)
-                    {
-
-                        crazy += cardStats.locura;
-
-                        avance += cardStats.avance;
+                    {       
 
                         ownCrazy += cardStats.locura_propia;
 
@@ -255,8 +271,17 @@ public class GameManager : MonoBehaviour
                         _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
 
                     }
+                    else if (typeCard == CardType.Mejora)
+                    {
 
-                    turnsEffect = cardStats.num_turnos;
+                        Debug.Log("Aumento de resistencia");
+
+                        turnsEffect = cardStats.num_turnos;
+
+                        _crazyBarJ1.GetComponent<CrazyBarComponent>().addResistence(crazy, turnsEffect);
+
+                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().addResistence(avance, turnsEffect);
+                    }
 
 
                 }

@@ -73,11 +73,11 @@ public class FlipCoin : MonoBehaviour
 
                 if (_reducing)
                 {
-                    _myTransform.sizeDelta -= new Vector2(0, _speed);
+                    _myTransform.sizeDelta -= new Vector2(0, _speed) * Time.deltaTime;
                 }
                 else
                 {
-                    _myTransform.sizeDelta += new Vector2(0, _speed);
+                    _myTransform.sizeDelta += new Vector2(0, _speed) * Time.deltaTime;
                 }
 
                 if (_myTransform.sizeDelta.y <= 0f)
