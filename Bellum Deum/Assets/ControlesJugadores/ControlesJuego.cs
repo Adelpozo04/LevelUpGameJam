@@ -53,6 +53,15 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b2af591-2c77-4536-8a4f-21aa9db90a65"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""action"": ""JugarCarta"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fbdf8ff3-0452-4a11-be98-e75bcb629ec7"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -140,6 +160,15 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""f1ad369f-67e1-4fcf-94a6-256ed63de17a"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""51a78b7d-dcdf-40a5-9c76-4c3fb2ff74c3"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -198,6 +227,173 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""JugarCarta"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b9032c9-b470-41cc-aa67-0bd85f7cb134"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""48811053-53d1-4634-b5b2-1bbdaae11f02"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b87c6b6a-b62d-4e4d-a3fd-d6f77c8cb487"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Aceptar"",
+                    ""type"": ""Button"",
+                    ""id"": ""c8b484df-20bf-43f3-895b-06c01f84cdab"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""1b829af9-d957-4dab-a4cd-d968ded3a56d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""f7fcc051-db71-44d2-8891-dd407e03776a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""4c4a5009-3ee1-49d3-b984-080e147eb1ab"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a87be09a-787d-475b-a0dc-664bd8f101d1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""386f883d-88a1-479e-a2b4-5a94ea6aec72"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8a235a18-705b-4b5b-ac7e-31815e79a835"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""e9be703b-f7e2-4234-a3e0-91042c97fb17"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""60bf6b81-eeac-4d01-92d3-3e6a2df3155e"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""dddf622d-eb83-4ee2-8f1a-63748e70cfbb"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c294cf65-2e73-4010-8bb2-99a337fc0ef0"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d2b31164-557a-4295-8aa5-9dc4bfc7760c"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Aceptar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a9707f83-caa3-45c8-ac28-2d2cd40f6f5e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -272,11 +468,18 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         m_J1_Navigate = m_J1.FindAction("Navigate", throwIfNotFound: true);
         m_J1_GuardarCarta = m_J1.FindAction("GuardarCarta", throwIfNotFound: true);
         m_J1_JugarCarta = m_J1.FindAction("JugarCarta", throwIfNotFound: true);
+        m_J1_Escape = m_J1.FindAction("Escape", throwIfNotFound: true);
         // J2
         m_J2 = asset.FindActionMap("J2", throwIfNotFound: true);
         m_J2_JugarCarta = m_J2.FindAction("JugarCarta", throwIfNotFound: true);
         m_J2_GuardarCarta = m_J2.FindAction("GuardarCarta", throwIfNotFound: true);
         m_J2_Navigate = m_J2.FindAction("Navigate", throwIfNotFound: true);
+        m_J2_Escape = m_J2.FindAction("Escape", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
+        m_UI_Aceptar = m_UI.FindAction("Aceptar", throwIfNotFound: true);
+        m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -341,6 +544,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputAction m_J1_Navigate;
     private readonly InputAction m_J1_GuardarCarta;
     private readonly InputAction m_J1_JugarCarta;
+    private readonly InputAction m_J1_Escape;
     public struct J1Actions
     {
         private @ControlesJuego m_Wrapper;
@@ -348,6 +552,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         public InputAction @Navigate => m_Wrapper.m_J1_Navigate;
         public InputAction @GuardarCarta => m_Wrapper.m_J1_GuardarCarta;
         public InputAction @JugarCarta => m_Wrapper.m_J1_JugarCarta;
+        public InputAction @Escape => m_Wrapper.m_J1_Escape;
         public InputActionMap Get() { return m_Wrapper.m_J1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -366,6 +571,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @JugarCarta.started += instance.OnJugarCarta;
             @JugarCarta.performed += instance.OnJugarCarta;
             @JugarCarta.canceled += instance.OnJugarCarta;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IJ1Actions instance)
@@ -379,6 +587,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @JugarCarta.started -= instance.OnJugarCarta;
             @JugarCarta.performed -= instance.OnJugarCarta;
             @JugarCarta.canceled -= instance.OnJugarCarta;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IJ1Actions instance)
@@ -403,6 +614,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputAction m_J2_JugarCarta;
     private readonly InputAction m_J2_GuardarCarta;
     private readonly InputAction m_J2_Navigate;
+    private readonly InputAction m_J2_Escape;
     public struct J2Actions
     {
         private @ControlesJuego m_Wrapper;
@@ -410,6 +622,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         public InputAction @JugarCarta => m_Wrapper.m_J2_JugarCarta;
         public InputAction @GuardarCarta => m_Wrapper.m_J2_GuardarCarta;
         public InputAction @Navigate => m_Wrapper.m_J2_Navigate;
+        public InputAction @Escape => m_Wrapper.m_J2_Escape;
         public InputActionMap Get() { return m_Wrapper.m_J2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -428,6 +641,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IJ2Actions instance)
@@ -441,6 +657,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IJ2Actions instance)
@@ -458,6 +677,68 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         }
     }
     public J2Actions @J2 => new J2Actions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
+    private readonly InputAction m_UI_Navigate;
+    private readonly InputAction m_UI_Aceptar;
+    private readonly InputAction m_UI_Escape;
+    public struct UIActions
+    {
+        private @ControlesJuego m_Wrapper;
+        public UIActions(@ControlesJuego wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
+        public InputAction @Aceptar => m_Wrapper.m_UI_Aceptar;
+        public InputAction @Escape => m_Wrapper.m_UI_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void AddCallbacks(IUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_UIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_UIActionsCallbackInterfaces.Add(instance);
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
+            @Aceptar.started += instance.OnAceptar;
+            @Aceptar.performed += instance.OnAceptar;
+            @Aceptar.canceled += instance.OnAceptar;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+        }
+
+        private void UnregisterCallbacks(IUIActions instance)
+        {
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
+            @Aceptar.started -= instance.OnAceptar;
+            @Aceptar.performed -= instance.OnAceptar;
+            @Aceptar.canceled -= instance.OnAceptar;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+        }
+
+        public void RemoveCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_UIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_UIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -508,11 +789,19 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         void OnNavigate(InputAction.CallbackContext context);
         void OnGuardarCarta(InputAction.CallbackContext context);
         void OnJugarCarta(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
     public interface IJ2Actions
     {
         void OnJugarCarta(InputAction.CallbackContext context);
         void OnGuardarCarta(InputAction.CallbackContext context);
         void OnNavigate(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnNavigate(InputAction.CallbackContext context);
+        void OnAceptar(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }
