@@ -81,7 +81,7 @@ public class AdvanceBarComponent : MonoBehaviour
         }
 
 
-        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
+        transform.GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
 
     }
 
@@ -96,7 +96,7 @@ public class AdvanceBarComponent : MonoBehaviour
         }
 
 
-        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
+        transform.GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
     }
 
     public void UpgradeAdvanceIncrement()
@@ -108,6 +108,6 @@ public class AdvanceBarComponent : MonoBehaviour
 
     void Start()
     {
-        transform.GetChild(0).GetChild(0).GetComponent<Image>().fillAmount = 0;
+        transform.GetChild(0).GetComponent<Image>().fillAmount = 0;
     }
 }
