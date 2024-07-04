@@ -42,6 +42,8 @@ public class FeComponent : MonoBehaviour
     public void RestoreFe(int fe)
     {
 
+        Debug.Log("devuelve fe: " + fe);
+
         _feAmount += fe;
 
         _textAmount.GetComponent<TextMeshProUGUI>().text = _feAmount.ToString();

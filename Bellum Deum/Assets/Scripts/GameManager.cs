@@ -208,11 +208,11 @@ public class GameManager : MonoBehaviour
 
         if (p == Players.Player1)
         {
-            return _feJ1.UseFe((int)(card.cost_fe / 2));
+            return _feJ1.UseFe(Mathf.CeilToInt(card.cost_fe / 2.0f));
         }
         else
         {
-            return _feJ2.UseFe((int)(card.cost_fe / 2));
+            return _feJ2.UseFe(Mathf.CeilToInt(card.cost_fe / 2.0f));
         }
 
     }
@@ -236,11 +236,11 @@ public class GameManager : MonoBehaviour
 
         if (p == Players.Player1)
         {
-            _feJ1.RestoreFe((int)(card.cost_fe/2));
+            _feJ1.RestoreFe(Mathf.CeilToInt(card.cost_fe / 2.0f));
         }
         else
         {
-            _feJ2.RestoreFe((int)(card.cost_fe/2));
+            _feJ2.RestoreFe(Mathf.CeilToInt(card.cost_fe / 2.0f));
         }
 
     }
