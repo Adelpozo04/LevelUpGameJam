@@ -93,6 +93,20 @@ public class GameManager : MonoBehaviour
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
 
+            for (int i = 0; i < _deckJ1.transform.childCount; ++i)
+            {
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorArriba();
+
+            }
+
+            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            {
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorArriba();
+
+            }
+
             StartTurnPlayer(Players.Player2);   
         }
         else
@@ -103,6 +117,20 @@ public class GameManager : MonoBehaviour
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
 
+            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            {
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+
+            }
+
+            for (int i = 0; i < _deckJ1.transform.childCount; ++i)
+            {
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+
+            }
+
             StartTurnPlayer(Players.Player1);
         }
     }
@@ -111,7 +139,7 @@ public class GameManager : MonoBehaviour
     {
         if(p == Players.Player1)
         {
-            Debug.Log("empieza el 1");
+
 
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
@@ -123,13 +151,14 @@ public class GameManager : MonoBehaviour
             //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
+            
+
             _feJ1.RestartFe();
 
             AssignCards(Players.Player1);
         }
         else
         {
-            Debug.Log("empieza el 2");
 
             //Cambio tiempo cronos
             _cronoJ1.GetComponent<TimeManager>().enabled = false;
@@ -140,6 +169,8 @@ public class GameManager : MonoBehaviour
 
             //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
+
+            
 
             _feJ2.RestartFe();
 
@@ -412,14 +443,29 @@ public class GameManager : MonoBehaviour
 
         _flipCoin.SetActive(false);
 
+
         if (starter == Players.Player1) 
         {
+
+            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            {
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+
+            }
 
             StartTurnPlayer(Players.Player1);
 
         }
         else
         {
+
+            for (int i = 0; i < _deckJ1.transform.childCount; ++i)
+            {
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorArriba();
+
+            }
 
             StartTurnPlayer(Players.Player2);
 

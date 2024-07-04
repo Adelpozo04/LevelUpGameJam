@@ -10,9 +10,13 @@ public class TweenManager : MonoBehaviour
 {
     private RectTransform _botonSelTransform;
 
+    private Vector2 _originalPos;
+
     void Start()
     {
         _botonSelTransform = gameObject.GetComponent<RectTransform>();
+
+        _originalPos = _botonSelTransform.localPosition;
     }
 
     void Update()
@@ -34,11 +38,28 @@ public class TweenManager : MonoBehaviour
 
     public void AumentarCartaSeleccionada()
     {
-        _botonSelTransform.DOScale(new Vector2(1.3f, 1.3f), 0.5f);
+        _botonSelTransform.DOScale(new Vector2(1.2f, 1.2f), 0.5f);
     }
 
     public void ReducirCartaDeseleccionada()
     {
         _botonSelTransform.DOScale(new Vector2(1f, 1f), 0.5f);
+    }
+
+    public void CartaSeVaPorArriba()
+    {
+
+        float posFinal = _botonSelTransform.position.y + 200;
+        _botonSelTransform.DOMoveY(posFinal, 0.6f);
+        //_botonSelTransform.DOMove(_originalPos, 0.6f);
+
+    }
+
+    public void CartaSeVaPorAbajo()
+    {
+
+        float posFinal = _botonSelTransform.position.y - 200;
+        _botonSelTransform.DOMoveY(posFinal, 0.6f);
+
     }
 }
