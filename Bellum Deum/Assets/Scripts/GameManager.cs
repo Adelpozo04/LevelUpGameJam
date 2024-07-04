@@ -164,17 +164,15 @@ public class GameManager : MonoBehaviour
     private void AttackPlayerCalculation(GameManager.Players p)
     {
 
-        int crazyAttack = 0;
+        CardType typeCard;
 
-        int avanceAttack = 0;
+        int crazy = 0;
 
-        int ownCrazyAttack = 0;
+        int avance = 0;
 
-        int ownAvanceAttack = 0;
+        int ownCrazy = 0;
 
-        int crazyDefense = 0;
-
-        int avanceDefense = 0;
+        int ownAvance = 0;
 
         int turnsEffect = 0;
 
@@ -190,15 +188,77 @@ public class GameManager : MonoBehaviour
                 {
                     Carta cardStats = card.GetComponent<CardState>().GetStats();
 
-                    crazyAttack += cardStats.locura;
+                    typeCard = cardStats.tipo_carta;
 
-                    avanceAttack += cardStats.avance;
+                    if(typeCard == CardType.Ataque)
+                    {
 
-                    ownCrazyAttack += cardStats.locura_propia;
+                        crazy += cardStats.locura;
 
-                    ownAvanceAttack += cardStats.avance_propio;
+                        avance += cardStats.avance;
+
+                        ownCrazy += cardStats.locura_propia;
+
+                        ownAvance += cardStats.avance_propio;
+
+                        _crazyBarJ2.GetComponent<CrazyBarComponent>().IncreaseCrazy(crazy);
+
+                        _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(avance);
+
+                        _crazyBarJ1.GetComponent<CrazyBarComponent>().IncreaseCrazy(ownCrazy);
+
+                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
+
+                    }
 
                     
+
+                    turnsEffect = cardStats.num_turnos;
+
+                    
+                }
+
+            }
+
+        }
+        else
+        {
+
+            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            {
+
+                GameObject card = _deckJ2.transform.GetChild(i).gameObject;
+
+                if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                {
+                    Carta cardStats = card.GetComponent<CardState>().GetStats();
+
+                    typeCard = cardStats.tipo_carta;
+
+                    if (typeCard == CardType.Ataque)
+                    {
+
+                        crazy += cardStats.locura;
+
+                        avance += cardStats.avance;
+
+                        ownCrazy += cardStats.locura_propia;
+
+                        ownAvance += cardStats.avance_propio;
+
+                        _crazyBarJ1.GetComponent<CrazyBarComponent>().IncreaseCrazy(crazy);
+
+                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(avance);
+
+                        _crazyBarJ2.GetComponent<CrazyBarComponent>().IncreaseCrazy(ownCrazy);
+
+                        _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
+
+                    }
+
+                    turnsEffect = cardStats.num_turnos;
+
+
                 }
 
             }

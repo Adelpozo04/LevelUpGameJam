@@ -74,8 +74,6 @@ public class FlipCoin : MonoBehaviour
                 if (_reducing)
                 {
                     _myTransform.sizeDelta -= new Vector2(0, _speed);
-
-                    Debug.Log(_myTransform.sizeDelta);
                 }
                 else
                 {

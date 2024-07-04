@@ -17,7 +17,7 @@ public class AdvanceBarComponent : MonoBehaviour
 
     [SerializeField] private float resistence;
 
-    [SerializeField] private float advanceIncrement = 1;
+    [SerializeField] private float advanceIncrement = 5;
 
     private List<float> resistenceValues= new List<float>();
 
