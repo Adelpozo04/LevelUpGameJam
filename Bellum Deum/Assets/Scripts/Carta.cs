@@ -14,6 +14,8 @@ public class Carta : ScriptableObject{
     public int num_cartas;
     public int num_turnos;
     public GameManager.CardType tipo_carta;
+    public bool afecta_a_rival;
+    public bool me_afecta;
     public bool saltar_turno;
     public bool ataque_menos_50;
     public bool ataque_mas_50;
