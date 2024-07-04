@@ -6081,6 +6081,9 @@ MonoBehaviour:
   _cardManager: {fileID: 2746666695075809757}
   _inputManager: {fileID: 4294531899590456183}
   _flipCoin: {fileID: 429895148440372587}
+  _J1Shield: {fileID: 396384070309683285}
+  _J2Shield: {fileID: 3298841789415391897}
+  _victoryMenu: {fileID: 1160435980284548601}
 --- !u!1 &6589988043239245237
 GameObject:
   m_ObjectHideFlags: 0

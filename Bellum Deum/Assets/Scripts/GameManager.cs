@@ -43,6 +43,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _flipCoin;
 
+    [SerializeField] private GameObject _J1Shield;
+    [SerializeField] private GameObject _J2Shield;
+
+    [SerializeField] private GameObject _victoryMenu;
+
+
     #endregion
 
     public enum Players{
@@ -83,11 +89,19 @@ public class GameManager : MonoBehaviour
         {
             AttackPlayerCalculation(Players.Player1);
 
+            //Se aplican efectos a las barras
+            _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
+            _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
+
             StartTurnPlayer(Players.Player2);   
         }
         else
         {
             AttackPlayerCalculation(Players.Player2);
+
+            //Se aplican efectos a las barras
+            _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
+            _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
 
             StartTurnPlayer(Players.Player1);
         }
@@ -101,11 +115,7 @@ public class GameManager : MonoBehaviour
 
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
-            _cronoJ1.GetComponent<TimeManager>().enabled = true;
-
-            //Se aplican efectos a las barras
-            _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
-            _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
+            _cronoJ1.GetComponent<TimeManager>().enabled = true; 
 
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
@@ -124,10 +134,6 @@ public class GameManager : MonoBehaviour
             //Cambio tiempo cronos
             _cronoJ1.GetComponent<TimeManager>().enabled = false;
             _cronoJ2.GetComponent<TimeManager>().enabled = true;
-
-            //Se aplican efectos a las barras
-            _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
-            _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
 
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
@@ -363,15 +369,17 @@ public class GameManager : MonoBehaviour
 
     public void EndGame(Players player, bool isWinner)
     {
+        _victoryMenu.SetActive(true);
+
         if(player == Players.Player1)
         {
             if (isWinner)
             {
-                //victoria jugador 1
+                _J2Shield.gameObject.SetActive(false);
             }
             else
             {
-                //victoria jugador 2
+                _J1Shield.gameObject.SetActive(false);
             }
 
 
@@ -381,11 +389,11 @@ public class GameManager : MonoBehaviour
 
             if (isWinner)
             {
-                //victoria jugador 2
+                _J1Shield.gameObject.SetActive(false);
             }
             else
             {
-                //victoria jugador 1
+                _J2Shield.gameObject.SetActive(false);
             }
 
         }
