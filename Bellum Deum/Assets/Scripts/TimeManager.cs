@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,7 +8,7 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] int min, sec;
-    [SerializeField] Text time;
+    [SerializeField] TextMeshProUGUI time;
 
     private float timeLeft;
     private bool onGoing1;

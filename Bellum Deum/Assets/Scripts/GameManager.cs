@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
@@ -40,6 +41,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CardManager _cardManager;
     [SerializeField] private GameObject _inputManager;
 
+    [SerializeField] private GameObject _flipCoin;
+
     #endregion
 
     public enum Players{
@@ -78,33 +81,25 @@ public class GameManager : MonoBehaviour
         Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
-            //Cambio tiempo cronos
-            _cronoJ1.GetComponent<TimeManager>().enabled = false;
-            _cronoJ2.GetComponent<TimeManager>().enabled = true;
-
-            //Se aplican efectos a las barras
-            _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
-            _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
-
-            //Se cambia la carta de comienzo
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
-
-            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
-            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
-
-            _feJ2.RestartFe();
-
-            AssignCards(Players.Player2);
+            StartTurnPlayer(Players.Player2);   
         }
         else
+        {
+            StartTurnPlayer(Players.Player1);
+        }
+    }
+
+    private void StartTurnPlayer(Players p)
+    {
+        if(p == Players.Player1)
         {
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
             _cronoJ1.GetComponent<TimeManager>().enabled = true;
 
             //Se aplican efectos a las barras
-            _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(pEnded);
-            _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(pEnded);
+            _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
+            _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
 
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
@@ -115,6 +110,26 @@ public class GameManager : MonoBehaviour
             _feJ1.RestartFe();
 
             AssignCards(Players.Player1);
+        }
+        else
+        {
+            //Cambio tiempo cronos
+            _cronoJ1.GetComponent<TimeManager>().enabled = false;
+            _cronoJ2.GetComponent<TimeManager>().enabled = true;
+
+            //Se aplican efectos a las barras
+            _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
+            _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
+
+            //Se cambia la carta de comienzo
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
+
+            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
+            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
+
+            _feJ2.RestartFe();
+
+            AssignCards(Players.Player2);
         }
     }
 
@@ -287,14 +302,44 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void StartMatch(Players starter)
+    {
+
+        _inputManager.SetActive(true);
+
+        _cronoJ1.SetActive(true);
+
+        _cronoJ2.SetActive(true);
+
+        _flipCoin.SetActive(false);
+
+        if (starter == Players.Player1) 
+        {
+
+            StartTurnPlayer(Players.Player1);
+
+        }
+        else
+        {
+
+            StartTurnPlayer(Players.Player2);
+
+        }
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
-        _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
-        _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
-        _cronoJ2.GetComponent<TimeManager>().enabled = false;
+        _inputManager.SetActive(false);
+
+        _cronoJ1.SetActive(false);
+
+        _cronoJ2.SetActive(false);
+
+        _flipCoin.GetComponent<FlipCoin>().StartSelection();
+
     }
 
     // Update is called once per frame
