@@ -244,7 +244,7 @@ public class InputManager : MonoBehaviour
     public void DesctivarMovCarta()
     {
         _active = false;
-        Invoke("ActivarCarta", 1f);
+        Invoke("ActivarCarta", 0.6f);
     }
 
     public void ActivarCarta()
@@ -256,12 +256,10 @@ public class InputManager : MonoBehaviour
     {
         if (_menuOpcionesActive == true)
         {
-            Debug.Log(_menuOpcionesActive);
             _menuOpcionesActive = false;
         }
         else
         {
-            Debug.Log(_menuOpcionesActive);
             _menuOpcionesActive = true;
         }
     }

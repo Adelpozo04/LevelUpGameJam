@@ -24,7 +24,7 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
     ""name"": ""Jug2"",
     ""maps"": [
         {
-            ""name"": ""UI"",
+            ""name"": ""J2"",
             ""id"": ""1191b243-b890-4185-bf24-e7febdf2a854"",
             ""actions"": [
                 {
@@ -112,6 +112,162 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""c2ca9345-2508-4bf3-83dd-f186d13e6ecc"",
+            ""actions"": [
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""f58f88a0-cb4a-444a-a3d7-b23c69f274a9"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""11a4a11e-8d62-4755-bff5-24a60c5bc1e9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""54ae4141-acd9-4923-846e-e0fba7a0c522"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""1af54ff3-e4d4-498f-b2b9-2906c45c5fce"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""3b783d8e-4637-4dff-867c-de505acd5386"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6e7e07e9-2e26-4b74-9ba0-00444618cc4f"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""348198c9-39ab-4794-95e5-10f63372e7c3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""8692bd83-949b-45d6-813f-028f7d200eb0"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""cb1cb557-71f4-4c02-9ebd-613761c970c6"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""bad0b9d2-5e75-4aba-bd03-2528f5e8bf44"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""be176534-1193-4561-be2c-67b11c1753a1"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""b786acb6-8b61-4370-9722-51bad1695d09"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f291258c-037e-4f98-8fc5-f58d789b1240"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""798a5c67-54ff-453b-90a6-d540924b4098"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -177,11 +333,16 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
         }
     ]
 }");
+        // J2
+        m_J2 = asset.FindActionMap("J2", throwIfNotFound: true);
+        m_J2_Navigate = m_J2.FindAction("Navigate", throwIfNotFound: true);
+        m_J2_JugarCarta = m_J2.FindAction("JugarCarta", throwIfNotFound: true);
+        m_J2_GuardarCarta = m_J2.FindAction("GuardarCarta", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
-        m_UI_JugarCarta = m_UI.FindAction("JugarCarta", throwIfNotFound: true);
-        m_UI_GuardarCarta = m_UI.FindAction("GuardarCarta", throwIfNotFound: true);
+        m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
+        m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -240,19 +401,81 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
+    // J2
+    private readonly InputActionMap m_J2;
+    private List<IJ2Actions> m_J2ActionsCallbackInterfaces = new List<IJ2Actions>();
+    private readonly InputAction m_J2_Navigate;
+    private readonly InputAction m_J2_JugarCarta;
+    private readonly InputAction m_J2_GuardarCarta;
+    public struct J2Actions
+    {
+        private @Jug2 m_Wrapper;
+        public J2Actions(@Jug2 wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Navigate => m_Wrapper.m_J2_Navigate;
+        public InputAction @JugarCarta => m_Wrapper.m_J2_JugarCarta;
+        public InputAction @GuardarCarta => m_Wrapper.m_J2_GuardarCarta;
+        public InputActionMap Get() { return m_Wrapper.m_J2; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(J2Actions set) { return set.Get(); }
+        public void AddCallbacks(IJ2Actions instance)
+        {
+            if (instance == null || m_Wrapper.m_J2ActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_J2ActionsCallbackInterfaces.Add(instance);
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
+            @JugarCarta.started += instance.OnJugarCarta;
+            @JugarCarta.performed += instance.OnJugarCarta;
+            @JugarCarta.canceled += instance.OnJugarCarta;
+            @GuardarCarta.started += instance.OnGuardarCarta;
+            @GuardarCarta.performed += instance.OnGuardarCarta;
+            @GuardarCarta.canceled += instance.OnGuardarCarta;
+        }
+
+        private void UnregisterCallbacks(IJ2Actions instance)
+        {
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
+            @JugarCarta.started -= instance.OnJugarCarta;
+            @JugarCarta.performed -= instance.OnJugarCarta;
+            @JugarCarta.canceled -= instance.OnJugarCarta;
+            @GuardarCarta.started -= instance.OnGuardarCarta;
+            @GuardarCarta.performed -= instance.OnGuardarCarta;
+            @GuardarCarta.canceled -= instance.OnGuardarCarta;
+        }
+
+        public void RemoveCallbacks(IJ2Actions instance)
+        {
+            if (m_Wrapper.m_J2ActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJ2Actions instance)
+        {
+            foreach (var item in m_Wrapper.m_J2ActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_J2ActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public J2Actions @J2 => new J2Actions(this);
+
     // UI
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Navigate;
-    private readonly InputAction m_UI_JugarCarta;
-    private readonly InputAction m_UI_GuardarCarta;
+    private readonly InputAction m_UI_Submit;
+    private readonly InputAction m_UI_Escape;
     public struct UIActions
     {
         private @Jug2 m_Wrapper;
         public UIActions(@Jug2 wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
-        public InputAction @JugarCarta => m_Wrapper.m_UI_JugarCarta;
-        public InputAction @GuardarCarta => m_Wrapper.m_UI_GuardarCarta;
+        public InputAction @Submit => m_Wrapper.m_UI_Submit;
+        public InputAction @Escape => m_Wrapper.m_UI_Escape;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -265,12 +488,12 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
-            @JugarCarta.started += instance.OnJugarCarta;
-            @JugarCarta.performed += instance.OnJugarCarta;
-            @JugarCarta.canceled += instance.OnJugarCarta;
-            @GuardarCarta.started += instance.OnGuardarCarta;
-            @GuardarCarta.performed += instance.OnGuardarCarta;
-            @GuardarCarta.canceled += instance.OnGuardarCarta;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
         }
 
         private void UnregisterCallbacks(IUIActions instance)
@@ -278,12 +501,12 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
-            @JugarCarta.started -= instance.OnJugarCarta;
-            @JugarCarta.performed -= instance.OnJugarCarta;
-            @JugarCarta.canceled -= instance.OnJugarCarta;
-            @GuardarCarta.started -= instance.OnGuardarCarta;
-            @GuardarCarta.performed -= instance.OnGuardarCarta;
-            @GuardarCarta.canceled -= instance.OnGuardarCarta;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
         }
 
         public void RemoveCallbacks(IUIActions instance)
@@ -346,10 +569,16 @@ public partial class @Jug2: IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_XRSchemeIndex];
         }
     }
-    public interface IUIActions
+    public interface IJ2Actions
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnJugarCarta(InputAction.CallbackContext context);
         void OnGuardarCarta(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
+        void OnNavigate(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

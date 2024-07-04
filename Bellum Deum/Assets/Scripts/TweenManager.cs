@@ -23,13 +23,13 @@ public class TweenManager : MonoBehaviour
     public void MoveAbajo()
     {
         float posFinal = _botonSelTransform.position.y - 100;
-        _botonSelTransform.DOMoveY(posFinal, 1f);
+        _botonSelTransform.DOMoveY(posFinal, 0.6f);
     }
 
     public void MoveArriba()
     {
         float posFinal = _botonSelTransform.position.y + 100;
-        _botonSelTransform.DOMoveY(posFinal, 1f);
+        _botonSelTransform.DOMoveY(posFinal, 0.6f);
     }
 
     public void AumentarCartaSeleccionada()

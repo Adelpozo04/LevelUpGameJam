@@ -235,7 +235,7 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Aceptar",
+                    "name": "Submit",
                     "type": "Button",
                     "id": "c8b484df-20bf-43f3-895b-06c01f84cdab",
                     "expectedControlType": "Button",
@@ -360,7 +360,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard&Mouse",
-                    "action": "Aceptar",
+                    "action": "Submit",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

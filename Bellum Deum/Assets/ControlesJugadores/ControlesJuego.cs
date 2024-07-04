@@ -257,7 +257,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Aceptar"",
+                    ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""c8b484df-20bf-43f3-895b-06c01f84cdab"",
                     ""expectedControlType"": ""Button"",
@@ -382,7 +382,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Aceptar"",
+                    ""action"": ""Submit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -478,7 +478,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
-        m_UI_Aceptar = m_UI.FindAction("Aceptar", throwIfNotFound: true);
+        m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
     }
 
@@ -682,14 +682,14 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Navigate;
-    private readonly InputAction m_UI_Aceptar;
+    private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_Escape;
     public struct UIActions
     {
         private @ControlesJuego m_Wrapper;
         public UIActions(@ControlesJuego wrapper) { m_Wrapper = wrapper; }
         public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
-        public InputAction @Aceptar => m_Wrapper.m_UI_Aceptar;
+        public InputAction @Submit => m_Wrapper.m_UI_Submit;
         public InputAction @Escape => m_Wrapper.m_UI_Escape;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
@@ -703,9 +703,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @Navigate.started += instance.OnNavigate;
             @Navigate.performed += instance.OnNavigate;
             @Navigate.canceled += instance.OnNavigate;
-            @Aceptar.started += instance.OnAceptar;
-            @Aceptar.performed += instance.OnAceptar;
-            @Aceptar.canceled += instance.OnAceptar;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
             @Escape.started += instance.OnEscape;
             @Escape.performed += instance.OnEscape;
             @Escape.canceled += instance.OnEscape;
@@ -716,9 +716,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @Navigate.started -= instance.OnNavigate;
             @Navigate.performed -= instance.OnNavigate;
             @Navigate.canceled -= instance.OnNavigate;
-            @Aceptar.started -= instance.OnAceptar;
-            @Aceptar.performed -= instance.OnAceptar;
-            @Aceptar.canceled -= instance.OnAceptar;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
             @Escape.started -= instance.OnEscape;
             @Escape.performed -= instance.OnEscape;
             @Escape.canceled -= instance.OnEscape;
@@ -801,7 +801,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     public interface IUIActions
     {
         void OnNavigate(InputAction.CallbackContext context);
-        void OnAceptar(InputAction.CallbackContext context);
+        void OnSubmit(InputAction.CallbackContext context);
         void OnEscape(InputAction.CallbackContext context);
     }
 }

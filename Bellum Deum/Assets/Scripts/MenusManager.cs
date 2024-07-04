@@ -62,9 +62,7 @@ public class MenusManager : MonoBehaviour
         {
             _menuOpciones.SetActive(false);
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
-            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");// o J2
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
+            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
             _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
 
@@ -72,11 +70,13 @@ public class MenusManager : MonoBehaviour
             {
                 Debug.Log("es j1");
                 _cronoJ1.GetComponent<TimeManager>().enabled = true;
+                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
             }
             else
             {
                 Debug.Log("es j2");
                 _cronoJ2.GetComponent<TimeManager>().enabled = true;
+                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
             }
         }
         
@@ -84,14 +84,11 @@ public class MenusManager : MonoBehaviour
 
     public void Controles()
     {
-        if (Input.GetButton("Aceptar"))
-        {
-            _menuControles.SetActive(true);
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
-        }
+        Debug.Log("Aplico la accion de controles");
+        _menuControles.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
         
         
-
     }
 
     public void Iconos(InputAction.CallbackContext context)
