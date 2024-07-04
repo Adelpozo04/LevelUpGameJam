@@ -23,6 +23,9 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private GameObject _deckJ1;
     [SerializeField] private GameObject _deckJ2;
 
+    [SerializeField] private GameObject _cronoJ1;
+    [SerializeField] private GameObject _cronoJ2;
+
     void Start()
     {
         
@@ -39,9 +42,13 @@ public class MenusManager : MonoBehaviour
         {
             _menuOpciones.SetActive(true);
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
-            //_eventSystem.SetActive(false);
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
+
+            _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
+
+            _cronoJ1.GetComponent<TimeManager>().enabled = false;
+            _cronoJ2.GetComponent<TimeManager>().enabled = false;
         }
         
     }
@@ -52,9 +59,14 @@ public class MenusManager : MonoBehaviour
         {
             _menuOpciones.SetActive(false);
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
-            //_eventSystem.SetActive(false);
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");// o J2
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
+
+            _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
+
+            _cronoJ1.GetComponent<TimeManager>().enabled = false;
+            _cronoJ2.GetComponent<TimeManager>().enabled = false;
         }
         
     }
