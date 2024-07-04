@@ -17,6 +17,17 @@ MonoBehaviour:
   locura_propia: 0
   avance: 0
   avance_propio: 0
-  cost_mana: 4
+  cost_fe: 4
   num_cartas: 4
   num_turnos: 2
+  tipo_carta: 1
+  afecta_a_rival: 0
+  me_afecta: 0
+  saltar_turno: 0
+  ataque_menos_50: 0
+  ataque_mas_50: 0
+  aumento_locura: 0
+  bloqueo_avance: 0
+  aumento_fe: 0
+  aumento_avance: 0
+  cambio_carta: 0
