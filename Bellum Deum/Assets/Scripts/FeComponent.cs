@@ -24,6 +24,8 @@ public class FeComponent : MonoBehaviour
     public bool UseFe(int fe)
     {
 
+        Debug.Log("checkeo fe: " + fe);
+
         if(_feAmount - fe >= 0)
         {
             _feAmount -= fe;
@@ -35,6 +37,15 @@ public class FeComponent : MonoBehaviour
 
 
         return false;
+    }
+
+    public void RestoreFe(int fe)
+    {
+
+        _feAmount += fe;
+
+        _textAmount.GetComponent<TextMeshProUGUI>().text = _feAmount.ToString();
+
     }
 
     public void RestartFe()
