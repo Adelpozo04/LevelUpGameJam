@@ -51,6 +51,8 @@ public class FeComponent : MonoBehaviour
 
         _feAmount = _maxFeAmount;
 
+        _textAmount.GetComponent<TextMeshProUGUI>().text = _feAmount.ToString();
+
     }
 
     public void UpgradeFeAmount()
