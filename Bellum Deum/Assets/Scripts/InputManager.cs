@@ -122,6 +122,13 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void StartMatch(GameManager.Players p)
+    {
+
+        _currentPlayer = p;
+
+    }
+
     public void GuardarCarta(InputAction.CallbackContext context)
     {
         if (_active == true)
