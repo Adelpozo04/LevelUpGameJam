@@ -34,6 +34,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _cronoJ1;
     [SerializeField] private GameObject _cronoJ2;
 
+    [SerializeField] private FeComponent _feJ1;
+    [SerializeField] private FeComponent _feJ2;
+
     [SerializeField] private CardManager _cardManager;
     [SerializeField] private GameObject _inputManager;
 
@@ -89,6 +92,8 @@ public class GameManager : MonoBehaviour
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
 
+            _feJ2.RestartFe();
+
             AssignCards(Players.Player2);
         }
         else
@@ -106,6 +111,8 @@ public class GameManager : MonoBehaviour
 
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
+
+            _feJ1.RestartFe();
 
             AssignCards(Players.Player1);
         }
@@ -135,6 +142,109 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void AttackPlayerCalculation(GameManager.Players p)
+    {
+
+        int crazyAttack = 0;
+
+        int avanceAttack = 0;
+
+        int ownCrazyAttack = 0;
+
+        int ownAvanceAttack = 0;
+
+        int crazyDefense = 0;
+
+        int avanceDefense = 0;
+
+        int turnsEffect = 0;
+
+        if(p == Players.Player1)
+        {
+
+            for(int i = 0; i < _deckJ1.transform.childCount; ++i)
+            {
+
+                GameObject card = _deckJ1.transform.GetChild(i).gameObject;
+
+                if(card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                {
+                    Carta cardStats = card.GetComponent<CardState>().GetStats();
+
+                    crazyAttack += cardStats.locura;
+
+                    avanceAttack += cardStats.avance;
+
+                    ownCrazyAttack += cardStats.locura_propia;
+
+                    ownAvanceAttack += cardStats.avance_propio;
+
+                    
+                }
+
+            }
+
+            
+
+        }
+
+    }
+
+    public bool PlayCard(Carta card, Players p)
+    {
+        if(p == Players.Player1)
+        {
+            return _feJ1.UseFe(card.cost_fe);
+        }
+        else
+        {
+            return _feJ2.UseFe(card.cost_fe);
+        }
+        
+    }
+
+    public bool SaveCard(Carta card, Players p)
+    {
+
+        if (p == Players.Player1)
+        {
+            return _feJ1.UseFe((int)(card.cost_fe / 2));
+        }
+        else
+        {
+            return _feJ2.UseFe((int)(card.cost_fe / 2));
+        }
+
+    }
+
+    public void CancelJugada(Carta card, Players p)
+    {
+
+        if (p == Players.Player1)
+        {
+            _feJ1.RestoreFe(card.cost_fe);
+        }
+        else
+        {
+            _feJ2.RestoreFe(card.cost_fe);
+        }
+
+    }
+
+    public void CancelGuardado(Carta card, Players p)
+    {
+
+        if (p == Players.Player1)
+        {
+            _feJ1.RestoreFe((int)(card.cost_fe/2));
+        }
+        else
+        {
+            _feJ2.RestoreFe((int)(card.cost_fe/2));
+        }
+
+    }
+
     public void TimeEnded(Players pEnded)
     {
 
@@ -146,19 +256,6 @@ public class GameManager : MonoBehaviour
         {
             _crazyBarJ2.GetComponent<CrazyBarComponent>().startMuerteSubita();
         }
-
-    }
-
-    public void CheckCardPlayed()
-    {
-        int crazyPoints;
-
-        int advancePoints;
-
-        //revision de puntos de cada carta
-        //revision de efectos
-
-
 
     }
 

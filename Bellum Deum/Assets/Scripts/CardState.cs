@@ -53,6 +53,11 @@ public class CardState : MonoBehaviour
         return _currentState;
     }
 
+    public Carta GetStats()
+    {
+        return _cardStats;
+    }
+
     public void AddCardStats(Carta card)
     {
         _cardStats = card;
