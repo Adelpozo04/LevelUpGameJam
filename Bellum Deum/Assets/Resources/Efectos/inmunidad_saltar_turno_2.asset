@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88e49a3c45451284bb6e910d3382c496, type: 3}
-  m_Name: inmunidad_saltar_turno_1
+  m_Name: inmunidad_saltar_turno_2
   m_EditorClassIdentifier: 
   "dise\xF1o": {fileID: 0}
   locura: 0
   locura_propia: 0
   avance: 0
   avance_propio: 0
-  cost_fe: 3
-  num_cartas: 5
-  num_turnos: 1
-  tipo_carta: 1
+  cost_fe: 4
+  num_cartas: 3
+  num_turnos: 2
+  tipo_carta: 2
   afecta_a_rival: 0
   me_afecta: 1
   saltar_turno: 1

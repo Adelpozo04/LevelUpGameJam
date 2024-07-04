@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88e49a3c45451284bb6e910d3382c496, type: 3}
-  m_Name: inmunidad_saltar_turno_3
+  m_Name: inmunidad_aumento_locura_1
   m_EditorClassIdentifier: 
   "dise\xF1o": {fileID: 0}
   locura: 0
   locura_propia: 0
   avance: 0
   avance_propio: 0
-  cost_fe: 5
-  num_cartas: 1
-  num_turnos: 3
-  tipo_carta: 1
+  cost_fe: 3
+  num_cartas: 5
+  num_turnos: 1
+  tipo_carta: 2
   afecta_a_rival: 0
   me_afecta: 1
-  saltar_turno: 1
+  saltar_turno: 0
   ataque_menos_50: 0
   ataque_mas_50: 0
-  aumento_locura: 0
+  aumento_locura: 1
   bloqueo_avance: 0
   aumento_fe: 0
   aumento_avance: 0

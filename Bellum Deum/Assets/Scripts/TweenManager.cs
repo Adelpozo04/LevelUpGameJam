@@ -62,4 +62,21 @@ public class TweenManager : MonoBehaviour
         _botonSelTransform.DOMoveY(posFinal, 0.6f);
 
     }
+
+    public void CartaSeVaPorArriba(int distance)
+    {
+
+        float posFinal = _botonSelTransform.position.y + distance;
+        _botonSelTransform.DOMoveY(posFinal, 0.6f);
+        //_botonSelTransform.DOMove(_originalPos, 0.6f);
+
+    }
+
+    public void CartaSeVaPorAbajo(int distance)
+    {
+
+        float posFinal = _botonSelTransform.position.y - distance;
+        _botonSelTransform.DOMoveY(posFinal, 0.6f);
+
+    }
 }

@@ -48,6 +48,11 @@ public class CardState : MonoBehaviour
         
     }
 
+    public void ReturnNormal()
+    {
+        _currentState = GameManager.CardStateValues.Normal;
+    }
+
     public GameManager.CardStateValues GetState()
     {
         return _currentState;
