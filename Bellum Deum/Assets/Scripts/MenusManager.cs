@@ -6,9 +6,12 @@ using UnityEngine.InputSystem.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Timeline.TimelinePlaybackControls;
+using UnityEditor;
+using static GameManager;
 
 public class MenusManager : MonoBehaviour
 {
+    [SerializeField] private GameObject _gameManager;
     [SerializeField] private GameObject _eventSystem;
     [SerializeField] private GameObject _inputManager;
 
@@ -65,8 +68,16 @@ public class MenusManager : MonoBehaviour
 
             _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
 
-            _cronoJ1.GetComponent<TimeManager>().enabled = false;
-            _cronoJ2.GetComponent<TimeManager>().enabled = false;
+            if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
+            {
+                Debug.Log("es j1");
+                _cronoJ1.GetComponent<TimeManager>().enabled = true;
+            }
+            else
+            {
+                Debug.Log("es j2");
+                _cronoJ2.GetComponent<TimeManager>().enabled = true;
+            }
         }
         
     }

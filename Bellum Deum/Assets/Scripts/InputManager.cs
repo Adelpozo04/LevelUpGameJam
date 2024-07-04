@@ -20,7 +20,7 @@ public class InputManager : MonoBehaviour
 
     private bool _enterPulsado = false;
 
-    private Players _currentPlayer = Players.Player1;
+    public Players _currentPlayer = Players.Player1;
 
     [SerializeField] private GameObject _deck1, _deck2;
 

@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27efbd88aed3b574a8ffff1103fb05a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _gameManager: {fileID: 6408495965299583939}
   _eventSystem: {fileID: 3154183005120368110}
   _inputManager: {fileID: 4294531899590456183}
   _menuOpciones: {fileID: 1060413953302318791}
@@ -1686,6 +1687,7 @@ MonoBehaviour:
   _deck1: {fileID: 8395364054650663928}
   _deck2: {fileID: 3586315317717711855}
   _active: 1
+  _menuOpcionesActive: 0
 --- !u!114 &5036683639551669787
 MonoBehaviour:
   m_ObjectHideFlags: 0
