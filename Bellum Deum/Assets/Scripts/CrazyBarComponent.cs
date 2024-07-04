@@ -78,7 +78,7 @@ public class CrazyBarComponent : MonoBehaviour
     }
 
 
-    private void DecreaseCrazy(float n)
+    public void DecreaseCrazy(float n)
     {
 
         if (resistence > 0)
@@ -99,7 +99,7 @@ public class CrazyBarComponent : MonoBehaviour
 
     }
 
-    private void IncreaseCrazy(float n)
+    public void IncreaseCrazy(float n)
     {
 
         amount += n;
