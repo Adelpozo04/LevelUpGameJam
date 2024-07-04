@@ -1684,6 +1684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputManager: {fileID: 4294531899590456183}
   _tiempoNecesario: 3
+  _currentPlayer: 0
   _deck1: {fileID: 8395364054650663928}
   _deck2: {fileID: 3586315317717711855}
   _active: 1

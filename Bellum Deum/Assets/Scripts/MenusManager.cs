@@ -82,14 +82,16 @@ public class MenusManager : MonoBehaviour
         
     }
 
-    public void Controles(InputAction.CallbackContext context)
+    public void Controles()
     {
-        if (context.started)
+        if (Input.GetButton("Aceptar"))
         {
             _menuControles.SetActive(true);
-            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
         }
         
+        
+
     }
 
     public void Iconos(InputAction.CallbackContext context)
