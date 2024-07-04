@@ -93,6 +93,8 @@ public class GameManager : MonoBehaviour
     {
         if(p == Players.Player1)
         {
+            Debug.Log("empieza el 1");
+
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
             _cronoJ1.GetComponent<TimeManager>().enabled = true;
@@ -113,6 +115,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("empieza el 2");
+
             //Cambio tiempo cronos
             _cronoJ1.GetComponent<TimeManager>().enabled = false;
             _cronoJ2.GetComponent<TimeManager>().enabled = true;
