@@ -311,6 +311,8 @@ public class GameManager : MonoBehaviour
 
         _inputManager.SetActive(true);
 
+        _inputManager.GetComponent<InputManager>().StartMatch(starter);
+
         _cronoJ1.SetActive(true);
 
         _cronoJ2.SetActive(true);
