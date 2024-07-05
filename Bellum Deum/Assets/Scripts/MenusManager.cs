@@ -126,7 +126,7 @@ public class MenusManager : MonoBehaviour
         _menuOpciones.SetActive(false);
 
         _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(0).gameObject);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(1).gameObject);
 
         _menuControles.SetActive(false);
         _menuIconos.SetActive(false);
