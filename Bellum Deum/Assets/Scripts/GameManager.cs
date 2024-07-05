@@ -307,7 +307,7 @@ public class GameManager : MonoBehaviour
         if(currentPlayer == Players.Player1)
         {
 
-            for (int i = 0; i < _deckJ1.transform.childCount - 1; i++)
+            for (int i = 0; i < _deckJ1.transform.childCount - 2; i++)
             {
                 _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -316,7 +316,7 @@ public class GameManager : MonoBehaviour
         else
         {
 
-            for (int i = 0; i < _deckJ2.transform.childCount - 1; i++)
+            for (int i = 0; i < _deckJ2.transform.childCount - 2; i++)
             {
                 _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -354,9 +354,19 @@ public class GameManager : MonoBehaviour
 
                     typeCard = cardStats.tipo_carta;
 
-                    crazy += cardStats.locura;
+                    if(CheckEffect(Players.Player1, Effects.AtaqueMenos))
+                    {
+                        crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
 
-                    avance += cardStats.avance;
+                        avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
+                    }
+                    else
+                    {
+                        crazy += cardStats.locura;
+
+                        avance += cardStats.avance;
+                    }
+                    
 
                     if (typeCard == CardType.Ataque)
                     {    
@@ -493,9 +503,18 @@ public class GameManager : MonoBehaviour
 
                     typeCard = cardStats.tipo_carta;
 
-                    crazy += cardStats.locura;
+                    if (CheckEffect(Players.Player2, Effects.AtaqueMenos))
+                    {
+                        crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
 
-                    avance += cardStats.avance;
+                        avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
+                    }
+                    else
+                    {
+                        crazy += cardStats.locura;
+
+                        avance += cardStats.avance;
+                    }
 
                     if (typeCard == CardType.Ataque)
                     {       
