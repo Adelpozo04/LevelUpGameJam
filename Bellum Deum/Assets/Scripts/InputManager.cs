@@ -30,6 +30,8 @@ public class InputManager : MonoBehaviour
 
     public bool _menuOpcionesActive = false;
 
+    private bool _cartaGuardada = false;
+
     private void Start()
     {
         
@@ -72,6 +74,8 @@ public class InputManager : MonoBehaviour
 
     public void CambioDeTurno()
     {
+
+        _cartaGuardada = false;
 
         GameManager.Instance.EndTurn(_currentPlayer);
         if (_currentPlayer == Players.Player1)
@@ -176,7 +180,7 @@ public class InputManager : MonoBehaviour
     {
         if (context.started)
         {
-            ;
+            
         }
     }
 
@@ -193,8 +197,11 @@ public class InputManager : MonoBehaviour
                     _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
 
 
-                    if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.SaveCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                    if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal &&
+                        !_cartaGuardada &&
+                        GameManager.Instance.SaveCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
                     {
+                        _cartaGuardada = true;
                         _carta.GetComponent<TweenManager>().MoveArriba();
                         _carta.GetComponent<CardState>().ChangeState(false);
                         DesctivarMovCarta();
@@ -254,6 +261,7 @@ public class InputManager : MonoBehaviour
                     }
                     else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Guardado)
                     {
+                        _cartaGuardada = false;
                         GameManager.Instance.CancelGuardado(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
                         _carta.GetComponent<TweenManager>().MoveAbajo();
                         _carta.GetComponent<CardState>().ChangeState(true);
