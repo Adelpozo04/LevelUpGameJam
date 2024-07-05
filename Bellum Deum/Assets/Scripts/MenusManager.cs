@@ -20,6 +20,7 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private GameObject _menuIconos;
 
     [SerializeField] private GameObject _botones;
+    [SerializeField] private GameObject _botonesInicio;
 
     [SerializeField] private InputActionAsset _ControlJug_Input;
 
@@ -29,9 +30,13 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private GameObject _cronoJ1;
     [SerializeField] private GameObject _cronoJ2;
 
+    private Scene m_Scene;
+    private string sceneName;
+
     void Start()
     {
-        
+        m_Scene = SceneManager.GetActiveScene();
+        sceneName = m_Scene.name;
     }
 
     void Update()
@@ -55,6 +60,16 @@ public class MenusManager : MonoBehaviour
         }
     }
 
+    public void LlamadaAbrirMenuOpciones()
+    {
+        _menuOpciones.SetActive(true);
+        _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
+        _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
+
+        _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
+    }
+
     public void Continuar(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -67,13 +82,11 @@ public class MenusManager : MonoBehaviour
 
             if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
             {
-                Debug.Log("es j1");
                 _cronoJ1.GetComponent<TimeManager>().enabled = true;
                 UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
             }
             else
             {
-                Debug.Log("es j2");
                 _cronoJ2.GetComponent<TimeManager>().enabled = true;
                 UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
             }
@@ -81,37 +94,6 @@ public class MenusManager : MonoBehaviour
             _menuControles.SetActive(false);
             _menuIconos.SetActive(false);
         }
-    }
-
-    public void Controles()
-    {
-        _menuControles.SetActive(true);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
-        
-        
-    }
-
-    public void Iconos()
-    {
-        _menuIconos.SetActive(true);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuIconos.transform.GetChild(2).gameObject);      
-    }
-
-    public void Sonido()
-    {
-        
-    }
-
-    public void PantallaCompleta()
-    {
-        
-    }
-
-    public void Volver()
-    {
-        _menuControles.SetActive(false);
-        _menuIconos.SetActive(false);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
     }
 
     public void LlamadaContinuar()
@@ -139,23 +121,58 @@ public class MenusManager : MonoBehaviour
         _menuIconos.SetActive(false);
     }
 
-    //public void Salir()
-    //{
-    //    if (/*_currentScene == nombre de la escena de juego*/)
-    //    {
-    //        SceneManager.LoadScene(""/*"nombre de la escena inicial"*/);
-    //    }
-    //    else
-    //    {
-    //        Application.Quit();
-    //    }
-    //}
+    public void LlamadaContinuarInicio()
+    {
+        _menuOpciones.SetActive(false);
 
-    //public void EscPorEscenas(InputAction.CallbackContext context)
-    //{
-    //    if (/*_currentScene == nombre de la escena de juego*/)
-    //    {
-    //        AbrirMenuOpciones(context);
-    //    }
-    //}
+        _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(0).gameObject);
+
+        _menuControles.SetActive(false);
+        _menuIconos.SetActive(false);
+    }
+
+    public void Controles()
+    {
+        _menuControles.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
+    }
+
+    public void Iconos()
+    {
+        _menuIconos.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuIconos.transform.GetChild(2).gameObject);      
+    }
+
+    public void Sonido()
+    {
+        
+    }
+
+    public void PantallaCompleta()
+    {
+        
+    }
+
+    public void Volver()
+    {
+        _menuControles.SetActive(false);
+        _menuIconos.SetActive(false);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
+    }
+
+    public void Jugar()
+    {
+        SceneManager.LoadScene("EscenaDiegoJuego");
+    }
+
+    public void SalirAInicio()
+    {
+        SceneManager.LoadScene("EscenaDiegoTítulo");
+    }
+
+    public void SalirJuego()
+    {
+        Application.Quit();
+    }
 }
