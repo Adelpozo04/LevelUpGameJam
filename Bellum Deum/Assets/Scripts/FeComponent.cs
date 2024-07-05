@@ -18,6 +18,8 @@ public class FeComponent : MonoBehaviour
 
     [SerializeField] private GameObject _textAmount;
 
+    [SerializeField] private GameManager.Players _currentPlayer;
+
     #endregion
 
 
@@ -49,7 +51,15 @@ public class FeComponent : MonoBehaviour
     public void RestartFe()
     {
 
-        _feAmount = _maxFeAmount;
+        if(GameManager.Instance.CheckEffect(_currentPlayer, GameManager.Effects.AumentoFe))
+        {
+            _feAmount = _maxFeAmount + 1;
+        }
+        else
+        {
+            _feAmount = _maxFeAmount;
+        }
+        
 
         _textAmount.GetComponent<TextMeshProUGUI>().text = _feAmount.ToString();
 
