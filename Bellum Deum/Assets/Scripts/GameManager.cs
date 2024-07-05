@@ -360,6 +360,14 @@ public class GameManager : MonoBehaviour
 
                         avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
                     }
+                    else if (CheckEffect(Players.Player1, Effects.AtaqueMas))
+                    {
+
+                        crazy += Mathf.CeilToInt(cardStats.locura * 1.5f);
+
+                        avance += Mathf.CeilToInt(cardStats.avance * 1.5f);
+
+                    }
                     else
                     {
                         crazy += cardStats.locura;
@@ -508,6 +516,14 @@ public class GameManager : MonoBehaviour
                         crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
 
                         avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
+                    }
+                    else if(CheckEffect(Players.Player2, Effects.AtaqueMas))
+                    {
+
+                        crazy += Mathf.CeilToInt(cardStats.locura * 1.5f);
+
+                        avance += Mathf.CeilToInt(cardStats.avance * 1.5f);
+
                     }
                     else
                     {
