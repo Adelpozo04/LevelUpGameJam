@@ -525,6 +525,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4131570188145205432, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4315647577457276189, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -572,6 +576,10 @@ PrefabInstance:
     - target: {fileID: 4369127036653215411, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4377096410996423589, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4758841486655880238, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: _cardStats
@@ -765,6 +773,10 @@ PrefabInstance:
       propertyPath: m_Colors.m_SelectedColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5955778746562769693, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6025844671488034671, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -847,6 +859,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7720591025938852591, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_Colors.m_SelectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388778417472426550, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8996423845073119523, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}

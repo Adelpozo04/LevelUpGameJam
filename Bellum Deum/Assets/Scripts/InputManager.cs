@@ -156,6 +156,7 @@ public class InputManager : MonoBehaviour
 
             _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
             _contadorCartas = (_contadorCartas + 1) % (_deck2.transform.childCount);
+            Debug.Log("vamos por la " + _contadorCartas);
             _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
 
         }
