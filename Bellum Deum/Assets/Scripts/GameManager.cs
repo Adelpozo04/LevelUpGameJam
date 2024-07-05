@@ -1,5 +1,7 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
@@ -13,6 +15,10 @@ public class GameManager : MonoBehaviour
     #region properties
 
     static private GameManager _instance;
+    private int _mejorafe1 = 0;
+    private int _mejorafe2=0;
+    private int _mejoraavan1 = 0;
+    private int _mejoraavan2 = 0;
 
     #endregion
 
@@ -696,6 +702,49 @@ public class GameManager : MonoBehaviour
         }
 
     }
+
+    public void MejoraFe(Players p)
+    {
+        if (p == Players.Player1)
+        {
+            int _cantidad1 = 10 + (10 * _mejorafe1);
+            if (_mejorafe1<3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+            {
+                _feJ1.GetComponent<FeComponent>().UpgradeFeAmount();
+            }
+        }
+        else
+        {
+
+            int _cantidad2 = 10 + (10 * _mejorafe2);
+            if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
+            {
+                _feJ2.GetComponent<FeComponent>().UpgradeFeAmount();
+            }
+        }
+    }
+
+    public void MejoraAvance(Players p)
+    {
+        if (p == Players.Player1)
+        {
+            int _cantidad1 = 10 + (10 * _mejorafe1);
+            if (_mejorafe1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+            {
+                _feJ1.GetComponent<FeComponent>().UpgradeFeAmount();
+            }
+        }
+        else
+        {
+
+            int _cantidad2 = 10 + (10 * _mejorafe2);
+            if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
+            {
+                _feJ2.GetComponent<FeComponent>().UpgradeFeAmount();
+            }
+        }
+    }
+
 
     public void TimeEnded(Players pEnded)
     {

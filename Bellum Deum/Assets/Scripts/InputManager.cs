@@ -172,6 +172,14 @@ public class InputManager : MonoBehaviour
 
     }
 
+    public void MejorarFe(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            ;
+        }
+    }
+
     public void GuardarCarta(InputAction.CallbackContext context)
     {
         if (_active == true)

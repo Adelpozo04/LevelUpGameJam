@@ -98,6 +98,19 @@ public class AdvanceBarComponent : MonoBehaviour
 
     }
 
+    public bool CheckAdvance(int cantidad)
+    {
+        if (amount >= cantidad)
+        {
+            amount -= cantidad;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     public void IncreaseAdvance(float n)
     {
 
