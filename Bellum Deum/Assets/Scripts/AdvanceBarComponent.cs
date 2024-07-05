@@ -48,7 +48,11 @@ public class AdvanceBarComponent : MonoBehaviour
             
         }
 
-        IncreaseAdvance(advanceIncrement);
+        if(!GameManager.Instance.CheckEffect(playerNumber, GameManager.Effects.BloqueoAvance))
+        {
+            IncreaseAdvance(advanceIncrement);
+        }
+        
 
     }
 
