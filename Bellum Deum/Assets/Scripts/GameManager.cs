@@ -48,9 +48,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _victoryMenu;
 
-    [SerializeField] private bool[] _currentEffectsJ1 = new bool[8];
-    [SerializeField] private bool[] _currentEffectsJ2 = new bool[8];
-
     [SerializeField] private int[] _turnsCurrentEffectsJ1 = new int[8];
     [SerializeField] private int[] _turnsCurrentEffectsJ2 = new int[8];
 
@@ -111,6 +108,7 @@ public class GameManager : MonoBehaviour
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
 
+            //Se hace llaman a las animaciones de entrada y salida
             for (int i = 0; i < _deckJ1.transform.childCount; ++i)
             {
 
@@ -124,7 +122,7 @@ public class GameManager : MonoBehaviour
                     card.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
 
                 }
-                else if(card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
                 {
 
                     card.GetComponent<CardState>().ReturnNormal();
@@ -137,7 +135,7 @@ public class GameManager : MonoBehaviour
                     card.GetComponent<TweenManager>().CartaSeVaPorArriba();
                 }
 
-                
+
 
             }
 
@@ -167,11 +165,13 @@ public class GameManager : MonoBehaviour
                     card.GetComponent<TweenManager>().CartaSeVaPorArriba();
                 }
 
-                
+
 
             }
 
-            StartTurnPlayer(Players.Player2);   
+
+            StartTurnPlayer(Players.Player2);
+             
         }
         else
         {
@@ -181,6 +181,8 @@ public class GameManager : MonoBehaviour
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
 
+
+            //Se hace llaman a las animaciones de entrada y salida
             for (int i = 0; i < _deckJ2.transform.childCount; ++i)
             {
 
@@ -235,8 +237,11 @@ public class GameManager : MonoBehaviour
                 }
 
             }
+                
 
             StartTurnPlayer(Players.Player1);
+            
+                
         }
     }
 
@@ -245,7 +250,7 @@ public class GameManager : MonoBehaviour
         if(p == Players.Player1)
         {
 
-
+            
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
             _cronoJ1.GetComponent<TimeManager>().enabled = true; 
@@ -253,8 +258,15 @@ public class GameManager : MonoBehaviour
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
 
-            //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
-            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
+            if (!CheckEffect(Players.Player1, Effects.SaltarTurno))
+            {
+                //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J1_Input;
+                _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
+            }
+            else
+            {
+                _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("JumpTurn");
+            }
 
      
             _feJ1.RestartFe();
@@ -271,9 +283,17 @@ public class GameManager : MonoBehaviour
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
 
-            //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
-            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
 
+
+            if (!CheckEffect(Players.Player2, Effects.SaltarTurno))
+            {
+                //_eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _J2_Input;
+                _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
+            }
+            else
+            {
+                _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("JumpTurn");
+            }
             
             _feJ2.RestartFe();
 
@@ -287,7 +307,7 @@ public class GameManager : MonoBehaviour
         if(currentPlayer == Players.Player1)
         {
 
-            for (int i = 0; i < _deckJ1.transform.childCount; i++)
+            for (int i = 0; i < _deckJ1.transform.childCount - 1; i++)
             {
                 _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -296,7 +316,7 @@ public class GameManager : MonoBehaviour
         else
         {
 
-            for (int i = 0; i < _deckJ2.transform.childCount; i++)
+            for (int i = 0; i < _deckJ2.transform.childCount - 1; i++)
             {
                 _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -339,9 +359,7 @@ public class GameManager : MonoBehaviour
                     avance += cardStats.avance;
 
                     if (typeCard == CardType.Ataque)
-                    {
-
-                        
+                    {    
 
                         ownCrazy += cardStats.locura_propia;
 
@@ -373,39 +391,41 @@ public class GameManager : MonoBehaviour
                         if (cardStats.afecta_a_rival)
                         {
 
+                            Debug.Log("Carta contra el rival: ");
+
                             if (cardStats.saltar_turno)
                             {
-                                _currentEffectsJ2[(int)Effects.SaltarTurno] = true;
+                                Debug.Log("saltar");
                                 _turnsCurrentEffectsJ2[(int)Effects.SaltarTurno] = turnsEffect;
                             }
                             else if (cardStats.ataque_menos_50)
                             {
-                                _currentEffectsJ2[(int)Effects.AtaqueMenos] = true;
+                                Debug.Log("-ataque");
                                 _turnsCurrentEffectsJ2[(int)Effects.AtaqueMenos] = turnsEffect;
                             }
                             else if (cardStats.ataque_mas_50)
                             {
-                                _currentEffectsJ2[(int)Effects.AtaqueMas] = true;
+                                Debug.Log("+ataque");
                                 _turnsCurrentEffectsJ2[(int)Effects.AtaqueMas] = turnsEffect;
                             }
                             else if (cardStats.aumento_locura)
                             {
-                                _currentEffectsJ2[(int)Effects.AumentoLocura] = true;
+                                Debug.Log("+loc");
                                 _turnsCurrentEffectsJ2[(int)Effects.AumentoLocura] = turnsEffect;
                             }
                             else if (cardStats.bloqueo_avance)
                             {
-                                _currentEffectsJ2[(int)Effects.BloqueoAvance] = true;
+                                Debug.Log("block");
                                 _turnsCurrentEffectsJ2[(int)Effects.BloqueoAvance] = turnsEffect;
                             }
                             else if (cardStats.aumento_fe)
                             {
-                                _currentEffectsJ2[(int)Effects.AumentoFe] = true;
+                                Debug.Log("+fe");
                                 _turnsCurrentEffectsJ2[(int)Effects.AumentoFe] = turnsEffect;
                             }
                             else if (cardStats.aumento_avance)
                             {
-                                _currentEffectsJ2[(int)Effects.AumentoAvance] = true;
+                                Debug.Log("+avance");
                                 _turnsCurrentEffectsJ2[(int)Effects.AumentoAvance] = turnsEffect;
                             }
 
@@ -414,39 +434,34 @@ public class GameManager : MonoBehaviour
                         if (cardStats.me_afecta)
                         {
 
+                            Debug.Log("Carta a mi");
+
                             if (cardStats.saltar_turno)
                             {
-                                _currentEffectsJ1[(int)Effects.SaltarTurno] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.SaltarTurno] = turnsEffect;
                             }
                             else if (cardStats.ataque_menos_50)
                             {
-                                _currentEffectsJ1[(int)Effects.AtaqueMenos] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AtaqueMenos] = turnsEffect;
                             }
                             else if (cardStats.ataque_mas_50)
                             {
-                                _currentEffectsJ1[(int)Effects.AtaqueMas] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AtaqueMas] = turnsEffect;
                             }
                             else if (cardStats.aumento_locura)
                             {
-                                _currentEffectsJ1[(int)Effects.AumentoLocura] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AumentoLocura] = turnsEffect;
                             }
                             else if (cardStats.bloqueo_avance)
                             {
-                                _currentEffectsJ1[(int)Effects.BloqueoAvance] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.BloqueoAvance] = turnsEffect;
                             }
                             else if (cardStats.aumento_fe)
                             {
-                                _currentEffectsJ1[(int)Effects.AumentoFe] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AumentoFe] = turnsEffect;
                             }
                             else if (cardStats.aumento_avance)
                             {
-                                _currentEffectsJ1[(int)Effects.AumentoAvance] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AumentoAvance] = turnsEffect;
                             }
 
@@ -517,37 +532,30 @@ public class GameManager : MonoBehaviour
 
                             if (cardStats.saltar_turno)
                             {
-                                _currentEffectsJ2[(int)Effects.SaltarTurno] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.SaltarTurno] = turnsEffect;
                             }
                             else if (cardStats.ataque_menos_50)
                             {
-                                _currentEffectsJ2[(int)Effects.AtaqueMenos] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.AtaqueMenos] = turnsEffect;
                             }
                             else if (cardStats.ataque_mas_50)
                             {
-                                _currentEffectsJ2[(int)Effects.AtaqueMas] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.AtaqueMas] = turnsEffect;
                             }
                             else if (cardStats.aumento_locura)
                             {
-                                _currentEffectsJ2[(int)Effects.AumentoLocura] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.AumentoLocura] = turnsEffect;
                             }
                             else if (cardStats.bloqueo_avance)
                             {
-                                _currentEffectsJ2[(int)Effects.BloqueoAvance] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.BloqueoAvance] = turnsEffect;
                             }
                             else if (cardStats.aumento_fe)
                             {
-                                _currentEffectsJ2[(int)Effects.AumentoFe] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.AumentoFe] = turnsEffect;
                             }
                             else if (cardStats.aumento_avance)
                             {
-                                _currentEffectsJ2[(int)Effects.AumentoAvance] = true;
                                 _turnsCurrentEffectsJ2[(int)Effects.AumentoAvance] = turnsEffect;
                             }
 
@@ -558,37 +566,30 @@ public class GameManager : MonoBehaviour
 
                             if (cardStats.saltar_turno)
                             {
-                                _currentEffectsJ1[(int)Effects.SaltarTurno] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.SaltarTurno] = turnsEffect;
                             }
                             else if (cardStats.ataque_menos_50)
                             {
-                                _currentEffectsJ1[(int)Effects.AtaqueMenos] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AtaqueMenos] = turnsEffect;
                             }
                             else if (cardStats.ataque_mas_50)
                             {
-                                _currentEffectsJ1[(int)Effects.AtaqueMas] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AtaqueMas] = turnsEffect;
                             }
                             else if (cardStats.aumento_locura)
                             {
-                                _currentEffectsJ1[(int)Effects.AumentoLocura] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AumentoLocura] = turnsEffect;
                             }
                             else if (cardStats.bloqueo_avance)
                             {
-                                _currentEffectsJ1[(int)Effects.BloqueoAvance] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.BloqueoAvance] = turnsEffect;
                             }
                             else if (cardStats.aumento_fe)
                             {
-                                _currentEffectsJ1[(int)Effects.AumentoFe] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AumentoFe] = turnsEffect;
                             }
                             else if (cardStats.aumento_avance)
                             {
-                                _currentEffectsJ1[(int)Effects.AumentoAvance] = true;
                                 _turnsCurrentEffectsJ1[(int)Effects.AumentoAvance] = turnsEffect;
                             }
 
@@ -671,6 +672,46 @@ public class GameManager : MonoBehaviour
         else
         {
             _crazyBarJ2.GetComponent<CrazyBarComponent>().startMuerteSubita();
+        }
+
+    }
+
+    public bool CheckEffect(Players p, Effects e)
+    {
+
+        if(p == Players.Player1)
+        {
+
+            if (_turnsCurrentEffectsJ1[(int)e] > 0)
+            {
+
+                _turnsCurrentEffectsJ1[(int)e]--;
+
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+        else
+        {
+
+            if (_turnsCurrentEffectsJ2[(int)e] > 0)
+            {
+
+                _turnsCurrentEffectsJ2[(int)e]--;
+
+                return true;
+
+            }
+            else
+            {
+                return false;
+            }
+
         }
 
     }

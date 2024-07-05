@@ -573,6 +573,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4758841486655880238, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _cardStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 84ddf57852a90f34a8c6f4463927af5e, type: 2}
     - target: {fileID: 4804745729177214256, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_Transition
       value: 0

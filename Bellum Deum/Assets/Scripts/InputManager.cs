@@ -48,23 +48,9 @@ public class InputManager : MonoBehaviour
                     if (_tiempoPulsando >= _tiempoNecesario)
                     {
                         _enterPulsado = true;
-                        GameManager.Instance.EndTurn(_currentPlayer);
-                        if (_currentPlayer == Players.Player1)
-                        {
-                            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-                            _currentPlayer = Players.Player2;
-                            _contadorCartas = 0;
-                            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
-                        }
-                        else
-                        {
-                            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-                            _currentPlayer = Players.Player1;
-                            _contadorCartas = 0;
-                            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
-                        }
-                        _tiempoPulsando = 0.0f;
-                        Debug.Log("tiempo pulsando cumplido");
+
+                        CambioDeTurno();
+
                     }
                 }
                 else
@@ -82,6 +68,28 @@ public class InputManager : MonoBehaviour
 
         }
         
+    }
+
+    public void CambioDeTurno()
+    {
+
+        GameManager.Instance.EndTurn(_currentPlayer);
+        if (_currentPlayer == Players.Player1)
+        {
+            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            _currentPlayer = Players.Player2;
+            _contadorCartas = 0;
+            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+        }
+        else
+        {
+            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            _currentPlayer = Players.Player1;
+            _contadorCartas = 0;
+            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+        }
+        _tiempoPulsando = 0.0f;
+
     }
 
     public void MoveLeftJ1(InputAction.CallbackContext context)

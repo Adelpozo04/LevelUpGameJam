@@ -478,6 +478,34 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""JumpTurn"",
+            ""id"": ""da289f94-d624-47c4-b28c-a36ae660d533"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""2d6473fb-e245-44bb-9bfa-57c3ebed940f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""2c9182ae-470b-431d-8f46-c4fcfd417b88"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -564,6 +592,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_Escape = m_UI.FindAction("Escape", throwIfNotFound: true);
+        // JumpTurn
+        m_JumpTurn = asset.FindActionMap("JumpTurn", throwIfNotFound: true);
+        m_JumpTurn_Escape = m_JumpTurn.FindAction("Escape", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -855,6 +886,52 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         }
     }
     public UIActions @UI => new UIActions(this);
+
+    // JumpTurn
+    private readonly InputActionMap m_JumpTurn;
+    private List<IJumpTurnActions> m_JumpTurnActionsCallbackInterfaces = new List<IJumpTurnActions>();
+    private readonly InputAction m_JumpTurn_Escape;
+    public struct JumpTurnActions
+    {
+        private @ControlesJuego m_Wrapper;
+        public JumpTurnActions(@ControlesJuego wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Escape => m_Wrapper.m_JumpTurn_Escape;
+        public InputActionMap Get() { return m_Wrapper.m_JumpTurn; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(JumpTurnActions set) { return set.Get(); }
+        public void AddCallbacks(IJumpTurnActions instance)
+        {
+            if (instance == null || m_Wrapper.m_JumpTurnActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_JumpTurnActionsCallbackInterfaces.Add(instance);
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+        }
+
+        private void UnregisterCallbacks(IJumpTurnActions instance)
+        {
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+        }
+
+        public void RemoveCallbacks(IJumpTurnActions instance)
+        {
+            if (m_Wrapper.m_JumpTurnActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IJumpTurnActions instance)
+        {
+            foreach (var item in m_Wrapper.m_JumpTurnActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_JumpTurnActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public JumpTurnActions @JumpTurn => new JumpTurnActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -922,6 +999,10 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     {
         void OnNavigate(InputAction.CallbackContext context);
         void OnSubmit(InputAction.CallbackContext context);
+        void OnEscape(InputAction.CallbackContext context);
+    }
+    public interface IJumpTurnActions
+    {
         void OnEscape(InputAction.CallbackContext context);
     }
 }

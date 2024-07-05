@@ -456,6 +456,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "JumpTurn",
+            "id": "da289f94-d624-47c4-b28c-a36ae660d533",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "2d6473fb-e245-44bb-9bfa-57c3ebed940f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "2c9182ae-470b-431d-8f46-c4fcfd417b88",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [
