@@ -23,6 +23,9 @@ public class FlipCoin : MonoBehaviour
 
     private bool _gameManagerAdvice = false;
 
+    [SerializeField] private GameObject _pantallaJug1;
+    [SerializeField] private GameObject _pantallaJug2;
+
 
     public void StartSelection()
     {
@@ -39,13 +42,13 @@ public class FlipCoin : MonoBehaviour
 
         if (_image.color == Color.blue)
         {
-
             GameManager.Instance.StartMatch(GameManager.Players.Player1);
-
+            _pantallaJug1.SetActive(false);
         }
         else
         {
             GameManager.Instance.StartMatch(GameManager.Players.Player2);
+            _pantallaJug2.SetActive(false);
         }
 
     }
@@ -92,8 +95,6 @@ public class FlipCoin : MonoBehaviour
                     {
                         _image.color = Color.blue;
                     }
-
-
                 }
                 else if (_myTransform.sizeDelta.y >= 100f)
                 {
@@ -107,13 +108,27 @@ public class FlipCoin : MonoBehaviour
                 {
                     Invoke("StartMatchCall", 5);
                     _gameManagerAdvice = true;
-                }
-                
 
+                    if (_image.color == Color.blue)
+                    {
+                        Invoke("ActivarPantallaJ1", 1f);
+                    }
+                    else
+                    {
+                        Invoke("ActivarPantallaJ2", 1f);
+                    }                    
+                }
             }
         }
-        
-        
+    }
 
+    public void ActivarPantallaJ1()
+    {
+        _pantallaJug1.SetActive(true);
+    }
+
+    public void ActivarPantallaJ2()
+    {
+        _pantallaJug2.SetActive(true);
     }
 }
