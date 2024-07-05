@@ -70,10 +70,8 @@ public class FlipCoin : MonoBehaviour
     {
         if (_startAnimation)
         {
-
             if (_contador < _turnsCoin)
             {
-
                 if (_reducing)
                 {
                     _myTransform.sizeDelta -= new Vector2(0, _speed) * Time.deltaTime;
