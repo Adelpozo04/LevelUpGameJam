@@ -313,7 +313,7 @@ public class GameManager : MonoBehaviour
         if(currentPlayer == Players.Player1)
         {
 
-            for (int i = 0; i < _deckJ1.transform.childCount - 2; i++)
+            for (int i = 0; i < _deckJ1.transform.childCount; i++)
             {
                 _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -322,7 +322,7 @@ public class GameManager : MonoBehaviour
         else
         {
 
-            for (int i = 0; i < _deckJ2.transform.childCount - 2; i++)
+            for (int i = 0; i < _deckJ2.transform.childCount; i++)
             {
                 _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -710,7 +710,7 @@ public class GameManager : MonoBehaviour
             int _cantidad1 = 10 + (10 * _mejorafe1);
             if (_mejorafe1<3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
             {
-                _feJ1.GetComponent<FeComponent>().UpgradeFeAmount();
+                _feJ1.UpgradeFeAmount();
             }
         }
         else
@@ -719,7 +719,7 @@ public class GameManager : MonoBehaviour
             int _cantidad2 = 10 + (10 * _mejorafe2);
             if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
             {
-                _feJ2.GetComponent<FeComponent>().UpgradeFeAmount();
+                _feJ2.UpgradeFeAmount();
             }
         }
     }
@@ -731,7 +731,7 @@ public class GameManager : MonoBehaviour
             int _cantidad1 = 10 + (10 * _mejorafe1);
             if (_mejorafe1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
             {
-                _feJ1.GetComponent<FeComponent>().UpgradeFeAmount();
+                _advanceBarJ1.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
             }
         }
         else
@@ -740,7 +740,7 @@ public class GameManager : MonoBehaviour
             int _cantidad2 = 10 + (10 * _mejorafe2);
             if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
             {
-                _feJ2.GetComponent<FeComponent>().UpgradeFeAmount();
+                _advanceBarJ2.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
             }
         }
     }
