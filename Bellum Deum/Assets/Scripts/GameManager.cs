@@ -730,8 +730,11 @@ public class GameManager : MonoBehaviour
         {
             int _cantidad1 = 10 + (10 * _mejorafe1);
             if (_mejorafe1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+            int _cantidad1 = 10 + (10 * _mejoraavan1);
+            if (_mejoraavan1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
             {
                 _feJ1.GetComponent<FeComponent>().UpgradeFeAmount();
+                _advanceBarJ1.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
             }
         }
         else
@@ -739,8 +742,11 @@ public class GameManager : MonoBehaviour
 
             int _cantidad2 = 10 + (10 * _mejorafe2);
             if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
+            int _cantidad2 = 10 + (10 * _mejoraavan2);
+            if (_mejoraavan2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
             {
                 _feJ2.GetComponent<FeComponent>().UpgradeFeAmount();
+                _advanceBarJ2.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
             }
         }
     }
