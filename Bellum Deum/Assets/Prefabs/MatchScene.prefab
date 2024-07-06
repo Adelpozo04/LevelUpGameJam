@@ -1581,7 +1581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 40
   maxAmount: 100
   playerNumber: 1
   resistence: 0
@@ -2172,7 +2172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 40
   maxAmount: 100
   playerNumber: 0
   resistence: 0
@@ -4528,6 +4528,70 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 2d6473fb-e245-44bb-9bfa-57c3ebed940f
     m_ActionName: JumpTurn/Escape[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MejorarFe
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 58584bc7-c221-4d7a-842e-abe0fb406981
+    m_ActionName: J1/MejorarFe[/Keyboard/q]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MejoraAvance
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 394987f1-491d-4696-b9eb-50abfe665d61
+    m_ActionName: J1/MejorarAvance[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MejorarFe
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 6d5bdd4f-499a-4e71-ba6b-9362e7cbd68b
+    m_ActionName: J2/MejorarFe[/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MejoraAvance
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19c59dc3-ec97-4bcc-a731-5e4c6b648ec6
+    m_ActionName: J2/MejorarAvance[/Keyboard/rightShift]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: J1
@@ -8310,7 +8374,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1348578438126141681}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5611962156043474072}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: MejoroFe
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8388778417472426550
 GameObject:
   m_ObjectHideFlags: 0

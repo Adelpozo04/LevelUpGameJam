@@ -180,7 +180,15 @@ public class InputManager : MonoBehaviour
     {
         if (context.started)
         {
-            
+            GameManager.Instance.MejoraFe(_currentPlayer);
+        }
+    }
+
+    public void MejoraAvance(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            GameManager.Instance.MejoraAvance(_currentPlayer);
         }
     }
 

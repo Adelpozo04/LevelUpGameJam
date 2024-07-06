@@ -103,6 +103,7 @@ public class AdvanceBarComponent : MonoBehaviour
         if (amount >= cantidad)
         {
             amount -= cantidad;
+            transform.GetChild(0).GetComponent<Image>().fillAmount = (amount / 100);
             return true;
         }
         else
@@ -128,8 +129,7 @@ public class AdvanceBarComponent : MonoBehaviour
     public void UpgradeAdvanceIncrement()
     {
 
-        advanceIncrement *= 2;
-
+        advanceIncrement += 5;
     }
 
     void Start()

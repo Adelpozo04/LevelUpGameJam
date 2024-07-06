@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "MejorarFe",
+                    "type": "Button",
+                    "id": "58584bc7-c221-4d7a-842e-abe0fb406981",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MejorarAvance",
+                    "type": "Button",
+                    "id": "394987f1-491d-4696-b9eb-50abfe665d61",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -148,6 +166,28 @@
                     "action": "GoLeft",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a67a3c9-f3de-468d-af45-178f2b407aa9",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MejorarFe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "116e6c05-c1df-404f-8be9-2f6a44c0ed35",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MejorarAvance",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -204,6 +244,24 @@
                     "name": "GoLeft",
                     "type": "Button",
                     "id": "117b3185-73ba-40c2-9e2e-7f650ed5428a",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MejorarFe",
+                    "type": "Button",
+                    "id": "6d5bdd4f-499a-4e71-ba6b-9362e7cbd68b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MejorarAvance",
+                    "type": "Button",
+                    "id": "19c59dc3-ec97-4bcc-a731-5e4c6b648ec6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -296,6 +354,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "GoLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "70d7aaaf-7315-4ec9-a5ab-c5c7686f0a3c",
+                    "path": "<Keyboard>/rightCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MejorarFe",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a30a53cf-dd69-49ea-a068-06784ed3663f",
+                    "path": "<Keyboard>/rightShift",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "MejorarAvance",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

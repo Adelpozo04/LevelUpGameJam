@@ -68,6 +68,7 @@ public class FeComponent : MonoBehaviour
     public void UpgradeFeAmount()
     {
         _maxFeAmount++;
+        _textAmount.GetComponent<TextMeshProUGUI>().text = _feAmount.ToString();
     }
 
     // Start is called before the first frame update
