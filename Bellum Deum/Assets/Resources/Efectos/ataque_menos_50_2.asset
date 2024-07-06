@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e49a3c45451284bb6e910d3382c496, type: 3}
   m_Name: ataque_menos_50_2
   m_EditorClassIdentifier: 
-  "dise\xF1o": {fileID: 0}
+  "dise\xF1o": {fileID: 21300000, guid: 1f448b9c44663334f8e2b02f42a6e53c, type: 3}
   locura: 0
   locura_propia: 0
   avance: 0
