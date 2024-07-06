@@ -6707,7 +6707,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentState: 1
-  _cardStats: {fileID: 0}
+  _cardStats: {fileID: 11400000, guid: eebb6be0baebed743bcbb8b9ddb1ddcb, type: 2}
 --- !u!114 &6517204205573750397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22680,7 +22680,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentState: 1
-  _cardStats: {fileID: 0}
+  _cardStats: {fileID: 11400000, guid: eebb6be0baebed743bcbb8b9ddb1ddcb, type: 2}
 --- !u!114 &2343700729536400800
 MonoBehaviour:
   m_ObjectHideFlags: 0

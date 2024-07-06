@@ -270,47 +270,53 @@ public class InputManager : MonoBehaviour
             {
                 if (_currentPlayer == Players.Player1)
                 {
-                    
-                    _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
 
-
-                    if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal &&
-                        !_cartaGuardada &&
-                        GameManager.Instance.SaveCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                    if(_contadorCartas != _deck1.transform.childCount)
                     {
-                        _cartaGuardada = true;
-                        _carta.GetComponent<TweenManager>().MoveArriba();
-                        _carta.GetComponent<CardState>().ChangeState(false);
-                        DesctivarMovCarta();
-                    }
-                    else if(_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Jugado)
-                    {
-                        GameManager.Instance.CancelJugada(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
-                        _carta.GetComponent<TweenManager>().MoveArriba();
-                        _carta.GetComponent<CardState>().ChangeState(false);
-                        DesctivarMovCarta();
+                        _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
 
-                    }
-                    
+
+                        if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal &&
+                            !_cartaGuardada &&
+                            GameManager.Instance.SaveCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                        {
+                            _cartaGuardada = true;
+                            _carta.GetComponent<TweenManager>().MoveArriba();
+                            _carta.GetComponent<CardState>().ChangeState(false);
+                            DesctivarMovCarta();
+                        }
+                        else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Jugado)
+                        {
+                            GameManager.Instance.CancelJugada(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
+                            _carta.GetComponent<TweenManager>().MoveArriba();
+                            _carta.GetComponent<CardState>().ChangeState(false);
+                            DesctivarMovCarta();
+
+                        }
+                    }         
 
                 }
                 else
                 {
-                    _carta = _deck2.transform.GetChild(_contadorCartas).gameObject;
 
-                    if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.SaveCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                    if (_contadorCartas != 0)
                     {
-                        _carta.GetComponent<TweenManager>().MoveAbajo();
-                        _carta.GetComponent<CardState>().ChangeState(false);
-                        DesctivarMovCarta();
-                    }
-                    else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Jugado)
-                    {
-                        GameManager.Instance.CancelJugada(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
-                        _carta.GetComponent<TweenManager>().MoveAbajo();
-                        _carta.GetComponent<CardState>().ChangeState(false);
-                        DesctivarMovCarta();
+                        _carta = _deck2.transform.GetChild(_contadorCartas).gameObject;
 
+                        if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.SaveCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                        {
+                            _carta.GetComponent<TweenManager>().MoveAbajo();
+                            _carta.GetComponent<CardState>().ChangeState(false);
+                            DesctivarMovCarta();
+                        }
+                        else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Jugado)
+                        {
+                            GameManager.Instance.CancelJugada(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
+                            _carta.GetComponent<TweenManager>().MoveAbajo();
+                            _carta.GetComponent<CardState>().ChangeState(false);
+                            DesctivarMovCarta();
+
+                        }
                     }
 
 
@@ -328,43 +334,88 @@ public class InputManager : MonoBehaviour
             {
                 if (_currentPlayer == Players.Player1)
                 {
-                    _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
-
-                    if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.PlayCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                    if (_contadorCartas != _deck1.transform.childCount)
                     {
-                        _carta.GetComponent<TweenManager>().MoveAbajo();
-                        _carta.GetComponent<CardState>().ChangeState(true);
-                        DesctivarMovCarta();
-                    }
-                    else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Guardado)
-                    {
-                        _cartaGuardada = false;
-                        GameManager.Instance.CancelGuardado(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
-                        _carta.GetComponent<TweenManager>().MoveAbajo();
-                        _carta.GetComponent<CardState>().ChangeState(true);
-                        DesctivarMovCarta();
+                        _carta = _deck1.transform.GetChild(_contadorCartas).gameObject;
 
+                        if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.PlayCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                        {
+                            _carta.GetComponent<TweenManager>().MoveAbajo();
+                            _carta.GetComponent<CardState>().ChangeState(true);
+                            DesctivarMovCarta();
+                        }
+                        else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Guardado)
+                        {
+                            _cartaGuardada = false;
+                            GameManager.Instance.CancelGuardado(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
+                            _carta.GetComponent<TweenManager>().MoveAbajo();
+                            _carta.GetComponent<CardState>().ChangeState(true);
+                            DesctivarMovCarta();
+
+                        }
                     }
+                    else
+                    {
+                        _carta = _cardSave1;
+
+                        Carta _cStats = _carta.GetComponent<CardState>().GetStats();
+
+                        Debug.Log("Estado Carta = " + _cStats.ToString());
+
+                        if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && 
+                            (_cStats.tipo_carta != GameManager.CardType.Estado || _cStats.afecta_a_rival || _cStats.me_afecta) && 
+                            GameManager.Instance.PlayCard(_cStats, _currentPlayer))
+                        {
+                            _carta.GetComponent<TweenManager>().MoveAbajo();
+                            _carta.GetComponent<CardState>().ChangeState(true);
+                            DesctivarMovCarta();
+                        }
+                    }
+
+                    
 
                 }
                 else
                 {
-                    _carta = _deck2.transform.GetChild(_contadorCartas).gameObject;
 
-                    if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.PlayCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                    if (_contadorCartas != 0)
                     {
-                        _carta.GetComponent<TweenManager>().MoveArriba();
-                        _carta.GetComponent<CardState>().ChangeState(true);
-                        DesctivarMovCarta();
-                    }
-                    else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Guardado)
-                    {
-                        GameManager.Instance.CancelGuardado(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
-                        _carta.GetComponent<TweenManager>().MoveArriba();
-                        _carta.GetComponent<CardState>().ChangeState(true);
-                        DesctivarMovCarta();
+                        _carta = _deck2.transform.GetChild(_contadorCartas).gameObject;
 
+                        if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal && GameManager.Instance.PlayCard(_carta.GetComponent<CardState>().GetStats(), _currentPlayer))
+                        {
+                            _carta.GetComponent<TweenManager>().MoveArriba();
+                            _carta.GetComponent<CardState>().ChangeState(true);
+                            DesctivarMovCarta();
+                        }
+                        else if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Guardado)
+                        {
+                            GameManager.Instance.CancelGuardado(_carta.GetComponent<CardState>().GetStats(), _currentPlayer);
+                            _carta.GetComponent<TweenManager>().MoveArriba();
+                            _carta.GetComponent<CardState>().ChangeState(true);
+                            DesctivarMovCarta();
+
+                        }
                     }
+                    else
+                    {
+                        _carta = _cardSave2;
+
+                        Carta _cStats = _carta.GetComponent<CardState>().GetStats();
+
+                        Debug.Log("Estado Carta = " + _cStats.ToString());
+
+                        if (_carta.GetComponent<CardState>().GetState() == GameManager.CardStateValues.Normal &&
+                            (_cStats.tipo_carta != GameManager.CardType.Estado || _cStats.afecta_a_rival || _cStats.me_afecta) &&
+                            GameManager.Instance.PlayCard(_cStats, _currentPlayer))
+                        {
+                            _carta.GetComponent<TweenManager>().MoveAbajo();
+                            _carta.GetComponent<CardState>().ChangeState(true);
+                            DesctivarMovCarta();
+                        }
+                    }
+
+                    
                 }
             }
         }
