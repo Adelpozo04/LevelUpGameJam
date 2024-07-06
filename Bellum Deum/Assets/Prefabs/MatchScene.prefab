@@ -1063,6 +1063,7 @@ GameObject:
   - component: {fileID: 4630350424722142482}
   - component: {fileID: 2215300732777006488}
   - component: {fileID: 8480064306392474494}
+  - component: {fileID: 3418882464984791505}
   m_Layer: 5
   m_Name: AdvanceUpgrade
   m_TagString: Untagged
@@ -1171,6 +1172,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3418882464984791505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208641873336696584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5ad4e740025ad46bbd053c77f0c298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1320995589474510331
 GameObject:
   m_ObjectHideFlags: 0
@@ -1581,7 +1594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 40
+  amount: 0
   maxAmount: 100
   playerNumber: 1
   resistence: 0
@@ -2172,7 +2185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 40
+  amount: 0
   maxAmount: 100
   playerNumber: 0
   resistence: 0
@@ -6532,6 +6545,7 @@ GameObject:
   - component: {fileID: 2997311311114273111}
   - component: {fileID: 6132324814745498028}
   - component: {fileID: 7936663968739651190}
+  - component: {fileID: 8953392162705703889}
   m_Layer: 5
   m_Name: AdvanceUpgrade
   m_TagString: Untagged
@@ -6640,6 +6654,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8953392162705703889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6256704934946293216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5ad4e740025ad46bbd053c77f0c298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6408495965299583939
 GameObject:
   m_ObjectHideFlags: 0
@@ -6705,6 +6731,8 @@ MonoBehaviour:
   _victoryMenu: {fileID: 1160435980284548601}
   _turnsCurrentEffectsJ1: 0000000000000000000000000000000000000000000000000000000000000000
   _turnsCurrentEffectsJ2: 0000000000000000000000000000000000000000000000000000000000000000
+  _mejoras1: {fileID: 2326690197541136415}
+  _mejoras2: {fileID: 775602559223130496}
 --- !u!1 &6496438168070476162
 GameObject:
   m_ObjectHideFlags: 0
@@ -7414,6 +7442,7 @@ GameObject:
   - component: {fileID: 2123901358601150617}
   - component: {fileID: 5814829094269198724}
   - component: {fileID: 7882685583396792285}
+  - component: {fileID: 8413025006603637909}
   m_Layer: 5
   m_Name: FeUpgrade
   m_TagString: Untagged
@@ -7522,6 +7551,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8413025006603637909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7278605324227893217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5ad4e740025ad46bbd053c77f0c298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7306639153277792698
 GameObject:
   m_ObjectHideFlags: 0
@@ -8267,6 +8308,7 @@ GameObject:
   - component: {fileID: 7142184952063415682}
   - component: {fileID: 1348578438126141681}
   - component: {fileID: 5825082040437097879}
+  - component: {fileID: 6910762706503181536}
   m_Layer: 5
   m_Name: FeUpgrade
   m_TagString: Untagged
@@ -8387,6 +8429,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &6910762706503181536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8287811359975834915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d5ad4e740025ad46bbd053c77f0c298, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8388778417472426550
 GameObject:
   m_ObjectHideFlags: 0
