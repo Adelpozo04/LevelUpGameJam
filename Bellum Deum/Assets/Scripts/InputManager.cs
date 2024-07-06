@@ -24,6 +24,8 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private GameObject _deck1, _deck2;
 
+    [SerializeField] private GameObject _cardSave1, _cardSave2;
+
     private int _contadorCartas = 0;
 
     public bool _active = true;
@@ -101,17 +103,34 @@ public class InputManager : MonoBehaviour
 
         if (context.started)
         {
+            if(_contadorCartas > _deck1.transform.childCount - 1)
+            {
+                _cardSave1.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+            else
+            {
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+            
 
-            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
             if (_contadorCartas > 0)
             {
                 _contadorCartas--;
             }
             else
             {
-                _contadorCartas = _deck1.transform.childCount - 1;
+                _contadorCartas = _deck1.transform.childCount;
             }
-            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+
+            if (_contadorCartas > _deck1.transform.childCount - 1)
+            {
+                _cardSave1.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+            else
+            {
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+                
 
         }
 
@@ -123,16 +142,34 @@ public class InputManager : MonoBehaviour
         if (context.started)
         {
 
-            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            if(_contadorCartas == 0)
+            {
+                _cardSave2.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+            else
+            {
+                _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+
+
             if (_contadorCartas > 0)
             {
                 _contadorCartas--;
             }
             else
             {
-                _contadorCartas = _deck2.transform.childCount - 1;
+                _contadorCartas = _deck2.transform.childCount;
             }
-            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+
+
+            if (_contadorCartas == 0)
+            {
+                _cardSave2.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+            else
+            {
+                _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
 
         }
 
@@ -144,9 +181,25 @@ public class InputManager : MonoBehaviour
         if (context.started)
         {
 
-            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-            _contadorCartas = (_contadorCartas + 1) % (_deck1.transform.childCount);
-            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            if (_contadorCartas > _deck1.transform.childCount - 1)
+            {
+                _cardSave1.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+            else
+            {
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+
+            _contadorCartas = (_contadorCartas + 1) % (_deck1.transform.childCount + 1);
+
+            if (_contadorCartas > _deck1.transform.childCount - 1)
+            {
+                _cardSave1.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+            else
+            {
+                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
 
         }
 
@@ -158,9 +211,26 @@ public class InputManager : MonoBehaviour
         if (context.started)
         {
 
-            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-            _contadorCartas = (_contadorCartas + 1) % (_deck2.transform.childCount);
-            _deck2.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+
+            if (_contadorCartas == 0)
+            {
+                _cardSave2.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+            else
+            {
+                _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+
+            _contadorCartas = (_contadorCartas + 1) % (_deck2.transform.childCount + 1);
+
+            if (_contadorCartas == 0)
+            {
+                _cardSave2.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+            else
+            {
+                _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
 
         }
 
