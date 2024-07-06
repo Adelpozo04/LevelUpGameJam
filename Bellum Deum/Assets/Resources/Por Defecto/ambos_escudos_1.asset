@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e49a3c45451284bb6e910d3382c496, type: 3}
   m_Name: ambos_escudos_1
   m_EditorClassIdentifier: 
-  "dise\xF1o": {fileID: 21300000, guid: d7022f1f6baff4c459f214ff5290b583, type: 3}
+  "dise\xF1o": {fileID: 21300000, guid: 885385bdfeb882d43b5cf3d69c90bdef, type: 3}
   locura: 0
   locura_propia: 0
   avance: 0
