@@ -90,15 +90,23 @@ public class MenusManager : MonoBehaviour
 
             _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
 
-            if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
+            if (sceneName == "EscenaDiegoTitulo")
             {
-                _cronoJ1.GetComponent<TimeManager>().enabled = true;
-                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
+                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(0).gameObject);
             }
-            else
+
+            if (sceneName == "EscenaDiego")
             {
-                _cronoJ2.GetComponent<TimeManager>().enabled = true;
-                UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
+                if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
+                {
+                    _cronoJ1.GetComponent<TimeManager>().enabled = true;
+                    UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
+                }
+                else
+                {
+                    _cronoJ2.GetComponent<TimeManager>().enabled = true;
+                    UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
+                }
             }
 
             _menuControles.SetActive(false);
@@ -144,12 +152,14 @@ public class MenusManager : MonoBehaviour
 
     public void Controles()
     {
+        _menuOpciones.SetActive(true);
         _menuControles.SetActive(true);
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(3).gameObject);
     }
 
     public void Iconos()
     {
+        _menuOpciones.SetActive(true);
         _menuIconos.SetActive(true);
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesNormas.transform.GetChild(0).gameObject);
     }
