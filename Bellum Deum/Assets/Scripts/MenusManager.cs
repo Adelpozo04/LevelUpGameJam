@@ -133,12 +133,14 @@ public class MenusManager : MonoBehaviour
 
     public void Controles()
     {
+        _menuOpciones.SetActive(true);
         _menuControles.SetActive(true);
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
     }
 
     public void Iconos()
     {
+        _menuOpciones.SetActive(true);
         _menuIconos.SetActive(true);
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuIconos.transform.GetChild(2).gameObject);      
     }
@@ -160,6 +162,14 @@ public class MenusManager : MonoBehaviour
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
     }
 
+    public void VolverInicio()
+    {
+        _menuOpciones.SetActive(false);
+        _menuControles.SetActive(false);
+        _menuIconos.SetActive(false);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(0).gameObject);
+    }
+
     public void Jugar()
     {
         SceneManager.LoadScene("EscenaDiegoJuego");
@@ -167,7 +177,7 @@ public class MenusManager : MonoBehaviour
 
     public void SalirAInicio()
     {
-        SceneManager.LoadScene("EscenaDiegoTítulo");
+        SceneManager.LoadScene("EscenaDiegoTitulo");
     }
 
     public void SalirJuego()
