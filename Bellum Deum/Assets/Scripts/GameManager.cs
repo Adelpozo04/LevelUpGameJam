@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     static private GameManager _instance;
     private int _mejorafe1 = 0;
-    private int _mejorafe2=0;
+    private int _mejorafe2 = 0;
     private int _mejoraavan1 = 0;
     private int _mejoraavan2 = 0;
     private bool _mejorahecha = false;
@@ -117,7 +117,6 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn(Players pEnded)
     {
-        Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
             _mejorahecha = false;
@@ -749,7 +748,13 @@ public class GameManager : MonoBehaviour
 
     public void MejoraFe(Players p)
     {
+        Debug.Log("input recibido mejora");
+
         if (_mejorahecha == false) {
+
+
+            Debug.Log("mejora hecha no");
+
             if (p == Players.Player1)
             {
                 int _cantidad1 = 10 + (10 * _mejorafe1);
@@ -775,7 +780,9 @@ public class GameManager : MonoBehaviour
 
     public void MejoraAvance(Players p)
     {
+        
         if (_mejorahecha == false) {
+
             if (p == Players.Player1)
             {
                 int _cantidad1 = 10 + (10 * _mejoraavan1);

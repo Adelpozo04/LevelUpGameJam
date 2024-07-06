@@ -58,9 +58,6 @@ public class CrazyBarComponent : MonoBehaviour
                 }
             }
 
-
-            Debug.Log("fin turno bar: " + playerNumber);
-
             if (_muerteSubita)
             {
                 IncreaseCrazy(2 * _muerteTurns);
@@ -68,7 +65,6 @@ public class CrazyBarComponent : MonoBehaviour
 
             if (GameManager.Instance.CheckEffect(playerNumber, GameManager.Effects.AumentoLocura))
             {
-                Debug.Log("aumenta Locura progresiva");
 
                 IncreaseCrazy(5);
             }
