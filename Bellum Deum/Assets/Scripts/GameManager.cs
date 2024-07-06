@@ -42,6 +42,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _cronoJ1;
     [SerializeField] private GameObject _cronoJ2;
 
+    [SerializeField] private ParticleSystem _particulasJ1;
+    [SerializeField] private ParticleSystem _particulasJ2;
+
     [SerializeField] private FeComponent _feJ1;
     [SerializeField] private FeComponent _feJ2;
 
@@ -276,7 +279,10 @@ public class GameManager : MonoBehaviour
             
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
-            _cronoJ1.GetComponent<TimeManager>().enabled = true; 
+            _cronoJ1.GetComponent<TimeManager>().enabled = true;
+
+            //Inicio particulas
+            _particulasJ1.Play();
 
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
@@ -304,6 +310,9 @@ public class GameManager : MonoBehaviour
             //Cambio tiempo cronos
             _cronoJ1.GetComponent<TimeManager>().enabled = false;
             _cronoJ2.GetComponent<TimeManager>().enabled = true;
+
+            //Inicio particulas
+            _particulasJ2.Play();
 
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
