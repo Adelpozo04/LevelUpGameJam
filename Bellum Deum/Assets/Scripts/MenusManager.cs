@@ -17,8 +17,13 @@ public class MenusManager : MonoBehaviour
     [SerializeField] private GameObject _menuOpciones;
     [SerializeField] private GameObject _menuControles;
     [SerializeField] private GameObject _menuIconos;
+    [SerializeField] private GameObject _menuNormasCartas;
+    [SerializeField] private GameObject _menuNormasFe;
+    [SerializeField] private GameObject _menuNormasBarras;
+    [SerializeField] private GameObject _menuNormasMejoras;
 
     [SerializeField] private GameObject _botones;
+    [SerializeField] private GameObject _botonesNormas;
     [SerializeField] private GameObject _botonesInicio;
 
     [SerializeField] private InputActionAsset _ControlJug_Input;
@@ -142,17 +147,31 @@ public class MenusManager : MonoBehaviour
     {
         _menuOpciones.SetActive(true);
         _menuIconos.SetActive(true);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuIconos.transform.GetChild(2).gameObject);      
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesNormas.transform.GetChild(0).gameObject);
     }
 
-    public void Sonido()
+    public void NormasCartas()
     {
-        
+        _menuNormasCartas.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuNormasCartas.transform.GetChild(3).gameObject);
     }
 
-    public void PantallaCompleta()
+    public void NormasFe()
     {
-        
+        _menuNormasFe.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuNormasFe.transform.GetChild(3).gameObject);
+    }
+
+    public void NormasBarras()
+    {
+        _menuNormasBarras.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuNormasBarras.transform.GetChild(3).gameObject);
+    }
+
+    public void NormasMejoras()
+    {
+        _menuNormasMejoras.SetActive(true);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuNormasMejoras.transform.GetChild(3).gameObject);
     }
 
     public void Volver()
@@ -160,6 +179,18 @@ public class MenusManager : MonoBehaviour
         _menuControles.SetActive(false);
         _menuIconos.SetActive(false);
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
+    }
+
+    public void VolverANormas()
+    {
+        _menuControles.SetActive(false);
+        _menuIconos.SetActive(false);
+        _menuNormasCartas.SetActive(false);
+        _menuNormasFe.SetActive(false);
+        _menuNormasBarras.SetActive(false);
+        _menuNormasMejoras.SetActive(false);
+
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesNormas.transform.GetChild(0).gameObject);
     }
 
     public void VolverInicio()
