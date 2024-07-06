@@ -42,12 +42,12 @@ public class TweenManager : MonoBehaviour
 
     public void AumentarMejoraSeleccionada()
     {
-        _botonMejorarFe.DOScale(new Vector2(1.2f, 1.2f), 0.5f);
+        _botonMejorarFe.DOScale(new Vector2(2f, 2f), 0.5f);
     }
 
     public void ReducirMejora()
     {
-        _botonMejorarFe.DOScale(new Vector2(1f, 1f), 0.5f);
+        _botonMejorarFe.DOScale(new Vector2(1.5f, 1.5f), 0.5f);
     }
 
     public void AumentarCartaSeleccionada()
