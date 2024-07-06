@@ -57,6 +57,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int[] _turnsCurrentEffectsJ1 = new int[8];
     [SerializeField] private int[] _turnsCurrentEffectsJ2 = new int[8];
 
+    private bool _J1Start = false;
+    private bool _J2Start = false;
+
 
     #endregion
 
@@ -114,66 +117,73 @@ public class GameManager : MonoBehaviour
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
 
-            //Se hace llaman a las animaciones de entrada y salida
-            for (int i = 0; i < _deckJ1.transform.childCount; ++i)
+            if (_J1Start)
             {
-
-                GameObject card = _deckJ1.transform.GetChild(i).gameObject;
-
-                if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                //Se hace llaman a las animaciones de entrada y salida
+                for (int i = 0; i < _deckJ1.transform.childCount; ++i)
                 {
 
-                    card.GetComponent<CardState>().ReturnNormal();
+                    GameObject card = _deckJ1.transform.GetChild(i).gameObject;
 
-                    card.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
+                    if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                    {
+
+                        card.GetComponent<CardState>().ReturnNormal();
+
+                        card.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
+
+                    }
+                    else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                    {
+
+                        card.GetComponent<CardState>().ReturnNormal();
+
+                        card.GetComponent<TweenManager>().CartaSeVaPorArriba(100);
+
+                    }
+                    else
+                    {
+                        card.GetComponent<TweenManager>().CartaSeVaPorArriba();
+                    }
+
+
 
                 }
-                else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
-                {
-
-                    card.GetComponent<CardState>().ReturnNormal();
-
-                    card.GetComponent<TweenManager>().CartaSeVaPorArriba(100);
-
-                }
-                else
-                {
-                    card.GetComponent<TweenManager>().CartaSeVaPorArriba();
-                }
-
-
-
             }
 
-            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            if (_J2Start)
             {
-
-                GameObject card = _deckJ2.transform.GetChild(i).gameObject;
-
-                if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                for (int i = 0; i < _deckJ2.transform.childCount; ++i)
                 {
 
-                    card.GetComponent<CardState>().ReturnNormal();
+                    GameObject card = _deckJ2.transform.GetChild(i).gameObject;
 
-                    card.GetComponent<TweenManager>().CartaSeVaPorArriba(100);
+                    if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                    {
+
+                        card.GetComponent<CardState>().ReturnNormal();
+
+                        card.GetComponent<TweenManager>().CartaSeVaPorArriba(100);
+
+                    }
+                    else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                    {
+
+                        card.GetComponent<CardState>().ReturnNormal();
+
+                        card.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
+
+                    }
+                    else
+                    {
+                        card.GetComponent<TweenManager>().CartaSeVaPorArriba();
+                    }
+
+
 
                 }
-                else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
-                {
-
-                    card.GetComponent<CardState>().ReturnNormal();
-
-                    card.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
-
-                }
-                else
-                {
-                    card.GetComponent<TweenManager>().CartaSeVaPorArriba();
-                }
-
-
-
             }
+            
 
 
             StartTurnPlayer(Players.Player2);
@@ -187,63 +197,68 @@ public class GameManager : MonoBehaviour
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
 
-
-            //Se hace llaman a las animaciones de entrada y salida
-            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            if (_J1Start)
             {
-
-                GameObject card = _deckJ2.transform.GetChild(i).gameObject;
-
-                if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                //Se hace llaman a las animaciones de entrada y salida
+                for (int i = 0; i < _deckJ2.transform.childCount; ++i)
                 {
 
-                    card.GetComponent<CardState>().ReturnNormal();
+                    GameObject card = _deckJ2.transform.GetChild(i).gameObject;
 
-                    card.GetComponent<TweenManager>().CartaSeVaPorAbajo(300);
+                    if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                    {
 
-                }
-                else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
-                {
+                        card.GetComponent<CardState>().ReturnNormal();
 
-                    card.GetComponent<CardState>().ReturnNormal();
+                        card.GetComponent<TweenManager>().CartaSeVaPorAbajo(300);
 
-                    card.GetComponent<TweenManager>().CartaSeVaPorAbajo(100);
+                    }
+                    else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                    {
 
-                }
-                else
-                {
-                    card.GetComponent<TweenManager>().CartaSeVaPorAbajo();
-                }
-            }
+                        card.GetComponent<CardState>().ReturnNormal();
 
-            for (int i = 0; i < _deckJ1.transform.childCount; ++i)
-            {
+                        card.GetComponent<TweenManager>().CartaSeVaPorAbajo(100);
 
-                GameObject card = _deckJ1.transform.GetChild(i).gameObject;
-
-                if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
-                {
-
-                    card.GetComponent<CardState>().ReturnNormal();
-
-                    card.GetComponent<TweenManager>().CartaSeVaPorAbajo(100);
-
-                }
-                else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
-                {
-
-                    card.GetComponent<CardState>().ReturnNormal();
-
-                    card.GetComponent<TweenManager>().CartaSeVaPorAbajo(300);
-
-                }
-                else
-                {
-                    card.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+                    }
+                    else
+                    {
+                        card.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+                    }
                 }
 
             }
-                
+
+            if (_J2Start)
+            {
+                for (int i = 0; i < _deckJ1.transform.childCount; ++i)
+                {
+
+                    GameObject card = _deckJ1.transform.GetChild(i).gameObject;
+
+                    if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                    {
+
+                        card.GetComponent<CardState>().ReturnNormal();
+
+                        card.GetComponent<TweenManager>().CartaSeVaPorAbajo(100);
+
+                    }
+                    else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                    {
+
+                        card.GetComponent<CardState>().ReturnNormal();
+
+                        card.GetComponent<TweenManager>().CartaSeVaPorAbajo(300);
+
+                    }
+                    else
+                    {
+                        card.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+                    }
+
+                }
+            }      
 
             StartTurnPlayer(Players.Player1);
             
@@ -255,7 +270,7 @@ public class GameManager : MonoBehaviour
     {
         if(p == Players.Player1)
         {
-
+            _J1Start = true;
             
             //Cambio tiempo cronos
             _cronoJ2.GetComponent<TimeManager>().enabled = false;
@@ -282,14 +297,14 @@ public class GameManager : MonoBehaviour
         else
         {
 
+            _J2Start = true;
+
             //Cambio tiempo cronos
             _cronoJ1.GetComponent<TimeManager>().enabled = false;
             _cronoJ2.GetComponent<TimeManager>().enabled = true;
 
             //Se cambia la carta de comienzo
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
-
-
 
             if (!CheckEffect(Players.Player2, Effects.SaltarTurno))
             {
@@ -313,7 +328,7 @@ public class GameManager : MonoBehaviour
         if(currentPlayer == Players.Player1)
         {
 
-            for (int i = 0; i < _deckJ1.transform.childCount - 2; i++)
+            for (int i = 0; i < _deckJ1.transform.childCount; i++)
             {
                 _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -322,7 +337,7 @@ public class GameManager : MonoBehaviour
         else
         {
 
-            for (int i = 0; i < _deckJ2.transform.childCount - 2; i++)
+            for (int i = 0; i < _deckJ2.transform.childCount; i++)
             {
                 _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
             }
@@ -710,7 +725,7 @@ public class GameManager : MonoBehaviour
             int _cantidad1 = 10 + (10 * _mejorafe1);
             if (_mejorafe1<3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
             {
-                _feJ1.GetComponent<FeComponent>().UpgradeFeAmount();
+                _feJ1.UpgradeFeAmount();
             }
         }
         else
@@ -719,7 +734,7 @@ public class GameManager : MonoBehaviour
             int _cantidad2 = 10 + (10 * _mejorafe2);
             if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
             {
-                _feJ2.GetComponent<FeComponent>().UpgradeFeAmount();
+                _feJ2.UpgradeFeAmount();
             }
         }
     }
@@ -852,25 +867,11 @@ public class GameManager : MonoBehaviour
         if (starter == Players.Player1) 
         {
 
-            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
-            {
-
-                _deckJ2.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorAbajo();
-
-            }
-
             StartTurnPlayer(Players.Player1);
 
         }
         else
         {
-
-            for (int i = 0; i < _deckJ1.transform.childCount; ++i)
-            {
-
-                _deckJ1.transform.GetChild(i).gameObject.GetComponent<TweenManager>().CartaSeVaPorArriba();
-
-            }
 
             StartTurnPlayer(Players.Player2);
 
