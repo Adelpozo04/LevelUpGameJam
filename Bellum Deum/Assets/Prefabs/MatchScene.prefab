@@ -7369,7 +7369,7 @@ MonoBehaviour:
   _feAmount: 0
   _maxFeAmount: 3
   _textAmount: {fileID: 7149519269508531574}
-  _currentPlayer: 0
+  _currentPlayer: 1
 --- !u!1 &4910242734242840764
 GameObject:
   m_ObjectHideFlags: 0
