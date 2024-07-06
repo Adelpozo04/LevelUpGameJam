@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -20,6 +19,8 @@ public class GameManager : MonoBehaviour
     private int _mejoraavan1 = 0;
     private int _mejoraavan2 = 0;
     private bool _mejorahecha = false;
+
+
 
     #endregion
 
@@ -60,6 +61,9 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int[] _turnsCurrentEffectsJ1 = new int[8];
     [SerializeField] private int[] _turnsCurrentEffectsJ2 = new int[8];
+
+    [SerializeField] private GameObject _mejoras1;
+    [SerializeField] private GameObject _mejoras2;
 
     private bool _J1Start = false;
     private bool _J2Start = false;
@@ -121,6 +125,8 @@ public class GameManager : MonoBehaviour
             //Se aplican efectos a las barras
             _crazyBarJ2.GetComponent<CrazyBarComponent>().changeTurn(Players.Player2);
             _advanceBarJ2.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player2);
+            _mejoras1.transform.GetChild(0).gameObject.GetComponent<TweenManager>().ReducirMejora();
+            _mejoras1.transform.GetChild(1).gameObject.GetComponent<TweenManager>().ReducirMejora();
 
             if (_J1Start)
             {
@@ -201,6 +207,8 @@ public class GameManager : MonoBehaviour
             //Se aplican efectos a las barras
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
+            _mejoras2.transform.GetChild(0).gameObject.GetComponent<TweenManager>().ReducirMejora();
+            _mejoras2.transform.GetChild(1).gameObject.GetComponent<TweenManager>().ReducirMejora();
 
             if (_J2Start)
             {
@@ -737,6 +745,7 @@ public class GameManager : MonoBehaviour
                 int _cantidad1 = 10 + (10 * _mejorafe1);
                 if (_mejorafe1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
                 {
+                    _mejoras1.transform.GetChild(0).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _feJ1.UpgradeFeAmount();
                 }
             }
@@ -746,6 +755,7 @@ public class GameManager : MonoBehaviour
                 int _cantidad2 = 10 + (10 * _mejorafe2);
                 if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
                 {
+                    _mejoras2.transform.GetChild(0).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _feJ2.UpgradeFeAmount();
                 }
             }
@@ -761,6 +771,7 @@ public class GameManager : MonoBehaviour
                 int _cantidad1 = 10 + (10 * _mejoraavan1);
                 if (_mejoraavan1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
                 {
+                    _mejoras1.transform.GetChild(1).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _advanceBarJ1.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
                 }
             }
@@ -770,6 +781,7 @@ public class GameManager : MonoBehaviour
                 int _cantidad2 = 10 + (10 * _mejoraavan2);
                 if (_mejoraavan2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
                 {
+                    _mejoras2.transform.GetChild(1).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _advanceBarJ2.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
                 }
             }
