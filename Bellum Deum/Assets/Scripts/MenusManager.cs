@@ -79,6 +79,12 @@ public class MenusManager : MonoBehaviour
         if (context.started)
         {
             _menuOpciones.SetActive(false);
+            _menuControles.SetActive(false);
+            _menuIconos.SetActive(false);
+            _menuNormasCartas.SetActive(false);
+            _menuNormasFe.SetActive(false);
+            _menuNormasBarras.SetActive(false);
+            _menuNormasMejoras.SetActive(false);
             _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
             _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
 
@@ -183,8 +189,8 @@ public class MenusManager : MonoBehaviour
 
     public void VolverANormas()
     {
+        _menuIconos.SetActive(true);
         _menuControles.SetActive(false);
-        _menuIconos.SetActive(false);
         _menuNormasCartas.SetActive(false);
         _menuNormasFe.SetActive(false);
         _menuNormasBarras.SetActive(false);
