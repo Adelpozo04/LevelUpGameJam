@@ -6,6 +6,7 @@ using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -349,7 +350,12 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < _deckJ1.transform.childCount; i++)
             {
-                _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
+                Carta card = _cardManager.AskCard();
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(card);
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = card.diseño;
+
             }
 
         }
@@ -358,7 +364,11 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < _deckJ2.transform.childCount; i++)
             {
-                _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
+                Carta card = _cardManager.AskCard();
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(card);
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = card.diseño;
             }
 
         }
