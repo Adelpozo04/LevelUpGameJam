@@ -80,6 +80,24 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MejorarFe"",
+                    ""type"": ""Button"",
+                    ""id"": ""58584bc7-c221-4d7a-842e-abe0fb406981"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MejorarAvance"",
+                    ""type"": ""Button"",
+                    ""id"": ""394987f1-491d-4696-b9eb-50abfe665d61"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -170,6 +188,28 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""action"": ""GoLeft"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8a67a3c9-f3de-468d-af45-178f2b407aa9"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MejorarFe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""116e6c05-c1df-404f-8be9-2f6a44c0ed35"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MejorarAvance"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -226,6 +266,24 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""name"": ""GoLeft"",
                     ""type"": ""Button"",
                     ""id"": ""117b3185-73ba-40c2-9e2e-7f650ed5428a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MejorarFe"",
+                    ""type"": ""Button"",
+                    ""id"": ""6d5bdd4f-499a-4e71-ba6b-9362e7cbd68b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MejorarAvance"",
+                    ""type"": ""Button"",
+                    ""id"": ""19c59dc3-ec97-4bcc-a731-5e4c6b648ec6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -318,6 +376,28 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""GoLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""70d7aaaf-7315-4ec9-a5ab-c5c7686f0a3c"",
+                    ""path"": ""<Keyboard>/rightCtrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MejorarFe"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a30a53cf-dd69-49ea-a068-06784ed3663f"",
+                    ""path"": ""<Keyboard>/rightShift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""MejorarAvance"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -579,6 +659,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         m_J1_Escape = m_J1.FindAction("Escape", throwIfNotFound: true);
         m_J1_GoRight = m_J1.FindAction("GoRight", throwIfNotFound: true);
         m_J1_GoLeft = m_J1.FindAction("GoLeft", throwIfNotFound: true);
+        m_J1_MejorarFe = m_J1.FindAction("MejorarFe", throwIfNotFound: true);
+        m_J1_MejorarAvance = m_J1.FindAction("MejorarAvance", throwIfNotFound: true);
         // J2
         m_J2 = asset.FindActionMap("J2", throwIfNotFound: true);
         m_J2_Navigate = m_J2.FindAction("Navigate", throwIfNotFound: true);
@@ -587,6 +669,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         m_J2_Escape = m_J2.FindAction("Escape", throwIfNotFound: true);
         m_J2_GoRight = m_J2.FindAction("GoRight", throwIfNotFound: true);
         m_J2_GoLeft = m_J2.FindAction("GoLeft", throwIfNotFound: true);
+        m_J2_MejorarFe = m_J2.FindAction("MejorarFe", throwIfNotFound: true);
+        m_J2_MejorarAvance = m_J2.FindAction("MejorarAvance", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -662,6 +746,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputAction m_J1_Escape;
     private readonly InputAction m_J1_GoRight;
     private readonly InputAction m_J1_GoLeft;
+    private readonly InputAction m_J1_MejorarFe;
+    private readonly InputAction m_J1_MejorarAvance;
     public struct J1Actions
     {
         private @ControlesJuego m_Wrapper;
@@ -672,6 +758,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         public InputAction @Escape => m_Wrapper.m_J1_Escape;
         public InputAction @GoRight => m_Wrapper.m_J1_GoRight;
         public InputAction @GoLeft => m_Wrapper.m_J1_GoLeft;
+        public InputAction @MejorarFe => m_Wrapper.m_J1_MejorarFe;
+        public InputAction @MejorarAvance => m_Wrapper.m_J1_MejorarAvance;
         public InputActionMap Get() { return m_Wrapper.m_J1; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -699,6 +787,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @GoLeft.started += instance.OnGoLeft;
             @GoLeft.performed += instance.OnGoLeft;
             @GoLeft.canceled += instance.OnGoLeft;
+            @MejorarFe.started += instance.OnMejorarFe;
+            @MejorarFe.performed += instance.OnMejorarFe;
+            @MejorarFe.canceled += instance.OnMejorarFe;
+            @MejorarAvance.started += instance.OnMejorarAvance;
+            @MejorarAvance.performed += instance.OnMejorarAvance;
+            @MejorarAvance.canceled += instance.OnMejorarAvance;
         }
 
         private void UnregisterCallbacks(IJ1Actions instance)
@@ -721,6 +815,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @GoLeft.started -= instance.OnGoLeft;
             @GoLeft.performed -= instance.OnGoLeft;
             @GoLeft.canceled -= instance.OnGoLeft;
+            @MejorarFe.started -= instance.OnMejorarFe;
+            @MejorarFe.performed -= instance.OnMejorarFe;
+            @MejorarFe.canceled -= instance.OnMejorarFe;
+            @MejorarAvance.started -= instance.OnMejorarAvance;
+            @MejorarAvance.performed -= instance.OnMejorarAvance;
+            @MejorarAvance.canceled -= instance.OnMejorarAvance;
         }
 
         public void RemoveCallbacks(IJ1Actions instance)
@@ -748,6 +848,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputAction m_J2_Escape;
     private readonly InputAction m_J2_GoRight;
     private readonly InputAction m_J2_GoLeft;
+    private readonly InputAction m_J2_MejorarFe;
+    private readonly InputAction m_J2_MejorarAvance;
     public struct J2Actions
     {
         private @ControlesJuego m_Wrapper;
@@ -758,6 +860,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         public InputAction @Escape => m_Wrapper.m_J2_Escape;
         public InputAction @GoRight => m_Wrapper.m_J2_GoRight;
         public InputAction @GoLeft => m_Wrapper.m_J2_GoLeft;
+        public InputAction @MejorarFe => m_Wrapper.m_J2_MejorarFe;
+        public InputAction @MejorarAvance => m_Wrapper.m_J2_MejorarAvance;
         public InputActionMap Get() { return m_Wrapper.m_J2; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -785,6 +889,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @GoLeft.started += instance.OnGoLeft;
             @GoLeft.performed += instance.OnGoLeft;
             @GoLeft.canceled += instance.OnGoLeft;
+            @MejorarFe.started += instance.OnMejorarFe;
+            @MejorarFe.performed += instance.OnMejorarFe;
+            @MejorarFe.canceled += instance.OnMejorarFe;
+            @MejorarAvance.started += instance.OnMejorarAvance;
+            @MejorarAvance.performed += instance.OnMejorarAvance;
+            @MejorarAvance.canceled += instance.OnMejorarAvance;
         }
 
         private void UnregisterCallbacks(IJ2Actions instance)
@@ -807,6 +917,12 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @GoLeft.started -= instance.OnGoLeft;
             @GoLeft.performed -= instance.OnGoLeft;
             @GoLeft.canceled -= instance.OnGoLeft;
+            @MejorarFe.started -= instance.OnMejorarFe;
+            @MejorarFe.performed -= instance.OnMejorarFe;
+            @MejorarFe.canceled -= instance.OnMejorarFe;
+            @MejorarAvance.started -= instance.OnMejorarAvance;
+            @MejorarAvance.performed -= instance.OnMejorarAvance;
+            @MejorarAvance.canceled -= instance.OnMejorarAvance;
         }
 
         public void RemoveCallbacks(IJ2Actions instance)
@@ -985,6 +1101,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         void OnEscape(InputAction.CallbackContext context);
         void OnGoRight(InputAction.CallbackContext context);
         void OnGoLeft(InputAction.CallbackContext context);
+        void OnMejorarFe(InputAction.CallbackContext context);
+        void OnMejorarAvance(InputAction.CallbackContext context);
     }
     public interface IJ2Actions
     {
@@ -994,6 +1112,8 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         void OnEscape(InputAction.CallbackContext context);
         void OnGoRight(InputAction.CallbackContext context);
         void OnGoLeft(InputAction.CallbackContext context);
+        void OnMejorarFe(InputAction.CallbackContext context);
+        void OnMejorarAvance(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

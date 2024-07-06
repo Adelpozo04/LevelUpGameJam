@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     private int _mejorafe2=0;
     private int _mejoraavan1 = 0;
     private int _mejoraavan2 = 0;
+    private bool _mejorahecha = false;
 
     #endregion
 
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
+            _mejorahecha = false;
             AttackPlayerCalculation(Players.Player1);
 
             //Se aplican efectos a las barras
@@ -720,44 +722,50 @@ public class GameManager : MonoBehaviour
 
     public void MejoraFe(Players p)
     {
-        if (p == Players.Player1)
-        {
-            int _cantidad1 = 10 + (10 * _mejorafe1);
-            if (_mejorafe1<3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+        if (_mejorahecha == false) {
+            if (p == Players.Player1)
             {
-                _feJ1.UpgradeFeAmount();
+                int _cantidad1 = 10 + (10 * _mejorafe1);
+                if (_mejorafe1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+                {
+                    _feJ1.UpgradeFeAmount();
+                }
             }
-        }
-        else
-        {
+            else
+            {
 
-            int _cantidad2 = 10 + (10 * _mejorafe2);
-            if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
-            {
-                _feJ2.UpgradeFeAmount();
+                int _cantidad2 = 10 + (10 * _mejorafe2);
+                if (_mejorafe2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
+                {
+                    _feJ2.UpgradeFeAmount();
+                }
             }
         }
+        _mejorahecha = true;
     }
 
     public void MejoraAvance(Players p)
     {
-        if (p == Players.Player1)
-        {
-            int _cantidad1 = 10 + (10 * _mejoraavan1);
-            if (_mejoraavan1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+        if (_mejorahecha == false) {
+            if (p == Players.Player1)
             {
-                _advanceBarJ1.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
+                int _cantidad1 = 10 + (10 * _mejoraavan1);
+                if (_mejoraavan1 < 3 && _advanceBarJ1.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad1))
+                {
+                    _advanceBarJ1.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
+                }
             }
-        }
-        else
-        {
+            else
+            {
 
-            int _cantidad2 = 10 + (10 * _mejoraavan2);
-            if (_mejoraavan2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
-            {
-                _advanceBarJ2.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
+                int _cantidad2 = 10 + (10 * _mejoraavan2);
+                if (_mejoraavan2 < 3 && _advanceBarJ2.GetComponent<AdvanceBarComponent>().CheckAdvance(_cantidad2))
+                {
+                    _advanceBarJ2.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
+                }
             }
         }
+        _mejorahecha = true;
     }
 
 
