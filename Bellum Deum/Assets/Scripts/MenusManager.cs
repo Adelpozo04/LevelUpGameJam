@@ -144,14 +144,12 @@ public class MenusManager : MonoBehaviour
 
     public void Controles()
     {
-        _menuOpciones.SetActive(true);
         _menuControles.SetActive(true);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(2).gameObject);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuControles.transform.GetChild(3).gameObject);
     }
 
     public void Iconos()
     {
-        _menuOpciones.SetActive(true);
         _menuIconos.SetActive(true);
         UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesNormas.transform.GetChild(0).gameObject);
     }
