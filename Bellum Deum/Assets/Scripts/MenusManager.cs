@@ -92,10 +92,12 @@ public class MenusManager : MonoBehaviour
 
             if (sceneName == "EscenaDiegoTitulo")
             {
+                _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
+                _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
                 UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(0).gameObject);
             }
 
-            if (sceneName == "EscenaDiego")
+            else
             {
                 if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
                 {
