@@ -1954,7 +1954,12 @@ MonoBehaviour:
   _menuOpciones: {fileID: 962262542824660563}
   _menuControles: {fileID: 3965933908391953241}
   _menuIconos: {fileID: 4193570632682900107}
+  _menuNormasCartas: {fileID: 0}
+  _menuNormasFe: {fileID: 0}
+  _menuNormasBarras: {fileID: 0}
+  _menuNormasMejoras: {fileID: 0}
   _botones: {fileID: 8999061284482827612}
+  _botonesNormas: {fileID: 0}
   _botonesInicio: {fileID: 0}
   _ControlJug_Input: {fileID: -944628639613478452, guid: 93e6b163308ca8b4ca3b104a279ae123, type: 3}
   _deckJ1: {fileID: 1387934897371012475}
@@ -2567,7 +2572,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 40
   maxAmount: 100
   playerNumber: 1
   resistence: 0
@@ -3222,7 +3227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0787b48eb0e10419d99d35462876af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amount: 0
+  amount: 40
   maxAmount: 100
   playerNumber: 0
   resistence: 0
