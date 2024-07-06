@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88e49a3c45451284bb6e910d3382c496, type: 3}
   m_Name: aumentar_locura_7
   m_EditorClassIdentifier: 
-  "dise\xF1o": {fileID: 0}
+  "dise\xF1o": {fileID: 21300000, guid: 99b5ed996f1ca2d45944d40d14841669, type: 3}
   locura: 20
   locura_propia: 5
   avance: 0
