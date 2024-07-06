@@ -202,7 +202,7 @@ public class GameManager : MonoBehaviour
             _crazyBarJ1.GetComponent<CrazyBarComponent>().changeTurn(Players.Player1);
             _advanceBarJ1.GetComponent<AdvanceBarComponent>().changeTurn(Players.Player1);
 
-            if (_J1Start)
+            if (_J2Start)
             {
                 //Se hace llaman a las animaciones de entrada y salida
                 for (int i = 0; i < _deckJ2.transform.childCount; ++i)
@@ -234,7 +234,7 @@ public class GameManager : MonoBehaviour
 
             }
 
-            if (_J2Start)
+            if (_J1Start)
             {
                 for (int i = 0; i < _deckJ1.transform.childCount; ++i)
                 {
