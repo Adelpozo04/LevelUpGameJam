@@ -87,7 +87,7 @@ public class CardManager : MonoBehaviour
             }
             
         }
-        for (int i = 0; i < 8; i++)
+        for (int i = 0; i < 7; i++)
         {
             if (i == 0)
             {
@@ -149,17 +149,6 @@ public class CardManager : MonoBehaviour
                 for (int j = 1; j <= 6; j++)
                 {
                     var carta_a_barajar = Resources.Load<Carta>("Efectos/bloquear_avance_" + j);
-                    for (int k = 0; k < carta_a_barajar.num_cartas; k++)
-                    {
-                        baraja.Add(carta_a_barajar);
-                    }
-                }
-            }
-            else if (i == 6)
-            {
-                for (int j = 1; j <= 6; j++)
-                {
-                    var carta_a_barajar = Resources.Load<Carta>("Efectos/cambiar_carta_" + j);
                     for (int k = 0; k < carta_a_barajar.num_cartas; k++)
                     {
                         baraja.Add(carta_a_barajar);

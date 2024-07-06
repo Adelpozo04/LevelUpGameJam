@@ -6,6 +6,7 @@ using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameManager : MonoBehaviour
 
     static private GameManager _instance;
     private int _mejorafe1 = 0;
-    private int _mejorafe2=0;
+    private int _mejorafe2 = 0;
     private int _mejoraavan1 = 0;
     private int _mejoraavan2 = 0;
     private bool _mejorahecha = false;
@@ -116,7 +117,6 @@ public class GameManager : MonoBehaviour
 
     public void EndTurn(Players pEnded)
     {
-        Debug.Log("Entra en EndTurn");
         if(Players.Player1 == pEnded)
         {
             _mejorahecha = false;
@@ -349,7 +349,12 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < _deckJ1.transform.childCount; i++)
             {
-                _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
+                Carta card = _cardManager.AskCard();
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(card);
+
+                _deckJ1.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = card.diseño;
+
             }
 
         }
@@ -358,7 +363,11 @@ public class GameManager : MonoBehaviour
 
             for (int i = 0; i < _deckJ2.transform.childCount; i++)
             {
-                _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(_cardManager.AskCard());
+                Carta card = _cardManager.AskCard();
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<CardState>().AddCardStats(card);
+
+                _deckJ2.transform.GetChild(i).gameObject.GetComponent<Image>().sprite = card.diseño;
             }
 
         }
@@ -739,7 +748,13 @@ public class GameManager : MonoBehaviour
 
     public void MejoraFe(Players p)
     {
+        Debug.Log("input recibido mejora");
+
         if (_mejorahecha == false) {
+
+
+            Debug.Log("mejora hecha no");
+
             if (p == Players.Player1)
             {
                 int _cantidad1 = 10 + (10 * _mejorafe1);
@@ -765,7 +780,9 @@ public class GameManager : MonoBehaviour
 
     public void MejoraAvance(Players p)
     {
+        
         if (_mejorahecha == false) {
+
             if (p == Players.Player1)
             {
                 int _cantidad1 = 10 + (10 * _mejoraavan1);
