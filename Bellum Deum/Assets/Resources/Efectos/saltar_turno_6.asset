@@ -21,12 +21,12 @@ MonoBehaviour:
   num_cartas: 4
   num_turnos: 3
   tipo_carta: 2
-  afecta_a_rival: 0
-  me_afecta: 0
-  saltar_turno: 0
+  afecta_a_rival: 1
+  me_afecta: 1
+  saltar_turno: 1
   ataque_menos_50: 0
   ataque_mas_50: 0
-  aumento_locura: 1
+  aumento_locura: 0
   bloqueo_avance: 0
   aumento_fe: 0
   aumento_avance: 0

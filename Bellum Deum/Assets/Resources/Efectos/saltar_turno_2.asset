@@ -22,7 +22,7 @@ MonoBehaviour:
   num_turnos: 2
   tipo_carta: 2
   afecta_a_rival: 1
-  me_afecta: 1
+  me_afecta: 0
   saltar_turno: 1
   ataque_menos_50: 0
   ataque_mas_50: 0
