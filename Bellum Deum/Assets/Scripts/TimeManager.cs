@@ -14,6 +14,11 @@ public class TimeManager : MonoBehaviour
     private bool onGoing1;
 
 
+    public bool TimeEnded()
+    {
+        return timeLeft < 1;
+    }
+
     private void Awake()
     {
         timeLeft = (min * 60) + sec;

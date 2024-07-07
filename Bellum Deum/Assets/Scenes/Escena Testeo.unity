@@ -371,6 +371,14 @@ PrefabInstance:
       propertyPath: m_CancelAction
       value: 
       objectReference: {fileID: 9057191391463330059, guid: 93e6b163308ca8b4ca3b104a279ae123, type: 3}
+    - target: {fileID: 4714195178497138238, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: min
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4714195178497138238, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: sec
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4758841486655880238, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: _cardStats
       value: 
@@ -442,6 +450,10 @@ PrefabInstance:
     - target: {fileID: 6686272658926772858, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6920736984980093650, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: amount
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8996423845073119523, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y
