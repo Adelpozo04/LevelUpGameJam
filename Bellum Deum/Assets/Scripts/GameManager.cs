@@ -450,7 +450,7 @@ public class GameManager : MonoBehaviour
         if(currentPlayer == Players.Player1)
         {
 
-            for (int i = 0; i < _deckJ1.transform.childCount - 1; i++)
+            for (int i = 0; i < _deckJ1.transform.childCount; i++)
             {
                 Carta card = _cardManager.AskCard();
 
