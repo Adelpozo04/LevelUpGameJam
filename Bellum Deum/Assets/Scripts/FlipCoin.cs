@@ -40,7 +40,7 @@ public class FlipCoin : MonoBehaviour
     private void StartMatchCall()
     {
 
-        if (_image.color == Color.blue)
+        if (_image.color == Color.red)
         {
             GameManager.Instance.StartMatch(GameManager.Players.Player1);
             _pantallaJug1.SetActive(false);
