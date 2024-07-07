@@ -178,7 +178,7 @@ public class MenusManager : MonoBehaviour
     public void NormasFe()
     {
         _menuNormasFe.SetActive(true);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuNormasFe.transform.GetChild(3).gameObject);
+        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_menuNormasFe.transform.GetChild(4).gameObject);
     }
 
     public void NormasBarras()
