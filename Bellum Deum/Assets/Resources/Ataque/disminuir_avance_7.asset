@@ -18,7 +18,7 @@ MonoBehaviour:
   avance: 20
   avance_propio: 5
   cost_fe: 4
-  num_cartas: 2
+  num_cartas: 4
   num_turnos: 0
   tipo_carta: 0
   afecta_a_rival: 0
