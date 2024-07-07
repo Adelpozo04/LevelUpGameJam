@@ -19642,6 +19642,9 @@ MonoBehaviour:
   _turnsCurrentEffectsJ2: 0000000000000000000000000000000000000000000000000000000000000000
   _mejoras1: {fileID: 2326690197541136415}
   _mejoras2: {fileID: 775602559223130496}
+  _cartaGuardadaJ1: {fileID: 8404059558933730463}
+  _cartaGuardadaJ2: {fileID: 4311461136375552948}
+  _cartaDefecto: {fileID: 11400000, guid: eebb6be0baebed743bcbb8b9ddb1ddcb, type: 2}
 --- !u!1 &6446256065821619661
 GameObject:
   m_ObjectHideFlags: 0

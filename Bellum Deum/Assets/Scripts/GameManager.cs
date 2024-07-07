@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -65,6 +66,11 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject _mejoras1;
     [SerializeField] private GameObject _mejoras2;
+
+    [SerializeField] private GameObject _cartaGuardadaJ1;
+    [SerializeField] private GameObject _cartaGuardadaJ2;
+
+    [SerializeField] private Carta _cartaDefecto;
 
     private bool _J1Start = false;
     private bool _J2Start = false;
@@ -160,6 +166,31 @@ public class GameManager : MonoBehaviour
 
 
                 }
+
+                GameObject cardSave = _cartaGuardadaJ1;
+
+                if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
+
+                }
+                else if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba(100);
+
+                }
+                else
+                {
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba();
+                }
+
+
             }
 
             if (_J2Start)
@@ -192,6 +223,29 @@ public class GameManager : MonoBehaviour
 
 
 
+                }
+
+                GameObject cardSave = _cartaGuardadaJ2;
+
+                if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba(100);
+
+                }
+                else if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba(300);
+
+                }
+                else
+                {
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba();
                 }
             }
             
@@ -240,6 +294,29 @@ public class GameManager : MonoBehaviour
                     }
                 }
 
+                GameObject cardSave = _cartaGuardadaJ2;
+
+                if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo(300);
+
+                }
+                else if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo(100);
+
+                }
+                else
+                {
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+                }
+
             }
 
             if (_J1Start)
@@ -271,6 +348,29 @@ public class GameManager : MonoBehaviour
                     }
 
                 }
+
+                GameObject cardSave = _cartaGuardadaJ1;
+
+                if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo(100);
+
+                }
+                else if (cardSave.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+                {
+
+                    cardSave.GetComponent<CardState>().ReturnNormal();
+
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo(300);
+
+                }
+                else
+                {
+                    cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo();
+                }
             }      
 
             StartTurnPlayer(Players.Player1);
@@ -278,6 +378,7 @@ public class GameManager : MonoBehaviour
                 
         }
     }
+
 
     private void StartTurnPlayer(Players p)
     {
@@ -377,6 +478,44 @@ public class GameManager : MonoBehaviour
     private void AttackPlayerCalculation(GameManager.Players p)
     {
 
+        
+
+        if(p == Players.Player1)
+        {
+
+            for(int i = 0; i < _deckJ1.transform.childCount; ++i)
+            {
+
+                GameObject card = _deckJ1.transform.GetChild(i).gameObject;
+
+                CheckCardAttack(card, p, false);
+
+            }
+
+            CheckCardAttack(_cartaGuardadaJ1, p, true);
+
+        }
+        else
+        {
+
+            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            {
+
+                GameObject card = _deckJ2.transform.GetChild(i).gameObject;
+
+                CheckCardAttack(card, p, false);
+
+            }
+
+            CheckCardAttack(_cartaGuardadaJ2, p, true);
+
+        }
+
+    }
+
+    private void CheckCardAttack(GameObject card, Players p, bool restartCard)
+    {
+
         CardType typeCard;
 
         int crazy = 0;
@@ -389,304 +528,311 @@ public class GameManager : MonoBehaviour
 
         int turnsEffect = 0;
 
-        if(p == Players.Player1)
+        if (p == Players.Player1)
         {
-
-            for(int i = 0; i < _deckJ1.transform.childCount; ++i)
+            if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
             {
+                Carta cardStats = card.GetComponent<CardState>().GetStats();
 
-                GameObject card = _deckJ1.transform.GetChild(i).gameObject;
+                typeCard = cardStats.tipo_carta;
 
-                if(card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                if (CheckEffect(Players.Player1, Effects.AtaqueMenos))
                 {
-                    Carta cardStats = card.GetComponent<CardState>().GetStats();
+                    crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
 
-                    typeCard = cardStats.tipo_carta;
+                    avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
+                }
+                else if (CheckEffect(Players.Player1, Effects.AtaqueMas))
+                {
 
-                    if(CheckEffect(Players.Player1, Effects.AtaqueMenos))
-                    {
-                        crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
+                    crazy += Mathf.CeilToInt(cardStats.locura * 1.5f);
 
-                        avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
-                    }
-                    else if (CheckEffect(Players.Player1, Effects.AtaqueMas))
-                    {
+                    avance += Mathf.CeilToInt(cardStats.avance * 1.5f);
 
-                        crazy += Mathf.CeilToInt(cardStats.locura * 1.5f);
+                }
+                else
+                {
+                    crazy += cardStats.locura;
 
-                        avance += Mathf.CeilToInt(cardStats.avance * 1.5f);
-
-                    }
-                    else
-                    {
-                        crazy += cardStats.locura;
-
-                        avance += cardStats.avance;
-                    }
-                    
-
-                    if (typeCard == CardType.Ataque)
-                    {    
-
-                        ownCrazy += cardStats.locura_propia;
-
-                        ownAvance += cardStats.avance_propio;
-
-                        _crazyBarJ2.GetComponent<CrazyBarComponent>().IncreaseCrazy(crazy);
-
-                        _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(avance);
-
-                        _crazyBarJ1.GetComponent<CrazyBarComponent>().IncreaseCrazy(ownCrazy);
-
-                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
-
-                    }
-                    else if(typeCard == CardType.Mejora)
-                    {
-
-                        turnsEffect = cardStats.num_turnos;
-
-                        _crazyBarJ1.GetComponent<CrazyBarComponent>().addResistence(crazy, turnsEffect);
-
-                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().addResistence(avance, turnsEffect);
-                    }
-                    else if(typeCard == CardType.Estado)
-                    {
-
-                        turnsEffect = cardStats.num_turnos;
-
-                        if (cardStats.afecta_a_rival)
-                        {
-
-                            Debug.Log("Carta contra el rival: ");
-
-                            if (cardStats.saltar_turno)
-                            {
-                                Debug.Log("saltar");
-                                _turnsCurrentEffectsJ2[(int)Effects.SaltarTurno] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_menos_50)
-                            {
-                                Debug.Log("-ataque");
-                                _turnsCurrentEffectsJ2[(int)Effects.AtaqueMenos] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_mas_50)
-                            {
-                                Debug.Log("+ataque");
-                                _turnsCurrentEffectsJ2[(int)Effects.AtaqueMas] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_locura)
-                            {
-                                Debug.Log("+loc");
-                                _turnsCurrentEffectsJ2[(int)Effects.AumentoLocura] = turnsEffect;
-                            }
-                            else if (cardStats.bloqueo_avance)
-                            {
-                                Debug.Log("block");
-                                _turnsCurrentEffectsJ2[(int)Effects.BloqueoAvance] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_fe)
-                            {
-                                Debug.Log("+fe");
-                                _turnsCurrentEffectsJ2[(int)Effects.AumentoFe] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_avance)
-                            {
-                                Debug.Log("+avance");
-                                _turnsCurrentEffectsJ2[(int)Effects.AumentoAvance] = turnsEffect;
-                            }
-
-                        }
-                        
-                        if (cardStats.me_afecta)
-                        {
-
-                            Debug.Log("Carta a mi");
-
-                            if (cardStats.saltar_turno)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.SaltarTurno] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_menos_50)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AtaqueMenos] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_mas_50)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AtaqueMas] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_locura)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AumentoLocura] = turnsEffect;
-                            }
-                            else if (cardStats.bloqueo_avance)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.BloqueoAvance] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_fe)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AumentoFe] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_avance)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AumentoAvance] = turnsEffect;
-                            }
-
-                        }
-
-
-                    }
-                    
-
-                    
-
-                    
+                    avance += cardStats.avance;
                 }
 
-            }
 
+                if (typeCard == CardType.Ataque)
+                {
+
+                    ownCrazy += cardStats.locura_propia;
+
+                    ownAvance += cardStats.avance_propio;
+
+                    _crazyBarJ2.GetComponent<CrazyBarComponent>().IncreaseCrazy(crazy);
+
+                    _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(avance);
+
+                    _crazyBarJ1.GetComponent<CrazyBarComponent>().IncreaseCrazy(ownCrazy);
+
+                    _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
+
+                }
+                else if (typeCard == CardType.Mejora)
+                {
+
+                    turnsEffect = cardStats.num_turnos;
+
+                    _crazyBarJ1.GetComponent<CrazyBarComponent>().addResistence(crazy, turnsEffect);
+
+                    _advanceBarJ1.GetComponent<AdvanceBarComponent>().addResistence(avance, turnsEffect);
+                }
+                else if (typeCard == CardType.Estado)
+                {
+
+                    turnsEffect = cardStats.num_turnos;
+
+                    if (cardStats.afecta_a_rival)
+                    {
+
+                        Debug.Log("Carta contra el rival: ");
+
+                        if (cardStats.saltar_turno)
+                        {
+                            Debug.Log("saltar");
+                            _turnsCurrentEffectsJ2[(int)Effects.SaltarTurno] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_menos_50)
+                        {
+                            Debug.Log("-ataque");
+                            _turnsCurrentEffectsJ2[(int)Effects.AtaqueMenos] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_mas_50)
+                        {
+                            Debug.Log("+ataque");
+                            _turnsCurrentEffectsJ2[(int)Effects.AtaqueMas] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_locura)
+                        {
+                            Debug.Log("+loc");
+                            _turnsCurrentEffectsJ2[(int)Effects.AumentoLocura] = turnsEffect;
+                        }
+                        else if (cardStats.bloqueo_avance)
+                        {
+                            Debug.Log("block");
+                            _turnsCurrentEffectsJ2[(int)Effects.BloqueoAvance] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_fe)
+                        {
+                            Debug.Log("+fe");
+                            _turnsCurrentEffectsJ2[(int)Effects.AumentoFe] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_avance)
+                        {
+                            Debug.Log("+avance");
+                            _turnsCurrentEffectsJ2[(int)Effects.AumentoAvance] = turnsEffect;
+                        }
+
+                    }
+
+                    if (cardStats.me_afecta)
+                    {
+
+                        Debug.Log("Carta a mi");
+
+                        if (cardStats.saltar_turno)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.SaltarTurno] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_menos_50)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AtaqueMenos] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_mas_50)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AtaqueMas] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_locura)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AumentoLocura] = turnsEffect;
+                        }
+                        else if (cardStats.bloqueo_avance)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.BloqueoAvance] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_fe)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AumentoFe] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_avance)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AumentoAvance] = turnsEffect;
+                        }
+
+                    }
+
+
+                }
+
+                if (restartCard)
+                {
+                    card.GetComponent<CardState>().AddCardStats(_cartaDefecto);
+
+                    card.GetComponent<Image>().sprite = _cartaDefecto.diseño;
+                }
+
+
+            }
+            else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+            {
+
+                _cartaGuardadaJ1.GetComponent<CardState>().AddCardStats(card.GetComponent<CardState>().GetStats());
+                _cartaGuardadaJ1.GetComponent<Image>().sprite = card.GetComponent<CardState>().GetStats().diseño;
+
+            }
         }
         else
         {
-
-            for (int i = 0; i < _deckJ2.transform.childCount; ++i)
+            if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
             {
+                Carta cardStats = card.GetComponent<CardState>().GetStats();
 
-                GameObject card = _deckJ2.transform.GetChild(i).gameObject;
+                typeCard = cardStats.tipo_carta;
 
-                if (card.GetComponent<CardState>().GetState() == CardStateValues.Jugado)
+                if (CheckEffect(Players.Player2, Effects.AtaqueMenos))
                 {
-                    Carta cardStats = card.GetComponent<CardState>().GetStats();
+                    crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
 
-                    typeCard = cardStats.tipo_carta;
+                    avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
+                }
+                else if (CheckEffect(Players.Player2, Effects.AtaqueMas))
+                {
 
-                    if (CheckEffect(Players.Player2, Effects.AtaqueMenos))
+                    crazy += Mathf.CeilToInt(cardStats.locura * 1.5f);
+
+                    avance += Mathf.CeilToInt(cardStats.avance * 1.5f);
+
+                }
+                else
+                {
+                    crazy += cardStats.locura;
+
+                    avance += cardStats.avance;
+                }
+
+                if (typeCard == CardType.Ataque)
+                {
+
+                    ownCrazy += cardStats.locura_propia;
+
+                    ownAvance += cardStats.avance_propio;
+
+                    _crazyBarJ1.GetComponent<CrazyBarComponent>().IncreaseCrazy(crazy);
+
+                    _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(avance);
+
+                    _crazyBarJ2.GetComponent<CrazyBarComponent>().IncreaseCrazy(ownCrazy);
+
+                    _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
+
+                }
+                else if (typeCard == CardType.Mejora)
+                {
+
+                    turnsEffect = cardStats.num_turnos;
+
+                    _crazyBarJ1.GetComponent<CrazyBarComponent>().addResistence(crazy, turnsEffect);
+
+                    _advanceBarJ1.GetComponent<AdvanceBarComponent>().addResistence(avance, turnsEffect);
+                }
+                else if (typeCard == CardType.Estado)
+                {
+
+                    turnsEffect = cardStats.num_turnos;
+
+                    if (cardStats.afecta_a_rival)
                     {
-                        crazy += Mathf.CeilToInt(cardStats.locura / 2.0f);
 
-                        avance += Mathf.CeilToInt(cardStats.avance / 2.0f);
-                    }
-                    else if(CheckEffect(Players.Player2, Effects.AtaqueMas))
-                    {
-
-                        crazy += Mathf.CeilToInt(cardStats.locura * 1.5f);
-
-                        avance += Mathf.CeilToInt(cardStats.avance * 1.5f);
-
-                    }
-                    else
-                    {
-                        crazy += cardStats.locura;
-
-                        avance += cardStats.avance;
-                    }
-
-                    if (typeCard == CardType.Ataque)
-                    {       
-
-                        ownCrazy += cardStats.locura_propia;
-
-                        ownAvance += cardStats.avance_propio;
-
-                        _crazyBarJ1.GetComponent<CrazyBarComponent>().IncreaseCrazy(crazy);
-
-                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().DecreaseAdvance(avance);
-
-                        _crazyBarJ2.GetComponent<CrazyBarComponent>().IncreaseCrazy(ownCrazy);
-
-                        _advanceBarJ2.GetComponent<AdvanceBarComponent>().DecreaseAdvance(ownAvance);
-
-                    }
-                    else if (typeCard == CardType.Mejora)
-                    {
-
-                        turnsEffect = cardStats.num_turnos;
-
-                        _crazyBarJ1.GetComponent<CrazyBarComponent>().addResistence(crazy, turnsEffect);
-
-                        _advanceBarJ1.GetComponent<AdvanceBarComponent>().addResistence(avance, turnsEffect);
-                    }
-                    else if (typeCard == CardType.Estado)
-                    {
-
-                        turnsEffect = cardStats.num_turnos;
-
-                        if (cardStats.afecta_a_rival)
+                        if (cardStats.saltar_turno)
                         {
-
-                            if (cardStats.saltar_turno)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.SaltarTurno] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_menos_50)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.AtaqueMenos] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_mas_50)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.AtaqueMas] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_locura)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.AumentoLocura] = turnsEffect;
-                            }
-                            else if (cardStats.bloqueo_avance)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.BloqueoAvance] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_fe)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.AumentoFe] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_avance)
-                            {
-                                _turnsCurrentEffectsJ2[(int)Effects.AumentoAvance] = turnsEffect;
-                            }
-
+                            _turnsCurrentEffectsJ2[(int)Effects.SaltarTurno] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_menos_50)
+                        {
+                            _turnsCurrentEffectsJ2[(int)Effects.AtaqueMenos] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_mas_50)
+                        {
+                            _turnsCurrentEffectsJ2[(int)Effects.AtaqueMas] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_locura)
+                        {
+                            _turnsCurrentEffectsJ2[(int)Effects.AumentoLocura] = turnsEffect;
+                        }
+                        else if (cardStats.bloqueo_avance)
+                        {
+                            _turnsCurrentEffectsJ2[(int)Effects.BloqueoAvance] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_fe)
+                        {
+                            _turnsCurrentEffectsJ2[(int)Effects.AumentoFe] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_avance)
+                        {
+                            _turnsCurrentEffectsJ2[(int)Effects.AumentoAvance] = turnsEffect;
                         }
 
-                        if (cardStats.me_afecta)
+                    }
+
+                    if (cardStats.me_afecta)
+                    {
+
+                        if (cardStats.saltar_turno)
                         {
-
-                            if (cardStats.saltar_turno)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.SaltarTurno] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_menos_50)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AtaqueMenos] = turnsEffect;
-                            }
-                            else if (cardStats.ataque_mas_50)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AtaqueMas] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_locura)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AumentoLocura] = turnsEffect;
-                            }
-                            else if (cardStats.bloqueo_avance)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.BloqueoAvance] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_fe)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AumentoFe] = turnsEffect;
-                            }
-                            else if (cardStats.aumento_avance)
-                            {
-                                _turnsCurrentEffectsJ1[(int)Effects.AumentoAvance] = turnsEffect;
-                            }
-
+                            _turnsCurrentEffectsJ1[(int)Effects.SaltarTurno] = turnsEffect;
                         }
-
+                        else if (cardStats.ataque_menos_50)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AtaqueMenos] = turnsEffect;
+                        }
+                        else if (cardStats.ataque_mas_50)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AtaqueMas] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_locura)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AumentoLocura] = turnsEffect;
+                        }
+                        else if (cardStats.bloqueo_avance)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.BloqueoAvance] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_fe)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AumentoFe] = turnsEffect;
+                        }
+                        else if (cardStats.aumento_avance)
+                        {
+                            _turnsCurrentEffectsJ1[(int)Effects.AumentoAvance] = turnsEffect;
+                        }
 
                     }
 
 
                 }
 
-            }
+                if (restartCard)
+                {
+                    card.GetComponent<CardState>().AddCardStats(_cartaDefecto);
 
+                    card.GetComponent<Image>().sprite = _cartaDefecto.diseño;
+                }
+
+
+            }
+            else if (card.GetComponent<CardState>().GetState() == CardStateValues.Guardado)
+            {
+
+                _cartaGuardadaJ2.GetComponent<CardState>().AddCardStats(card.GetComponent<CardState>().GetStats());
+                _cartaGuardadaJ2.GetComponent<Image>().sprite = card.GetComponent<CardState>().GetStats().diseño;
+
+            }
         }
 
     }
