@@ -61,7 +61,7 @@ public class FlipCoin : MonoBehaviour
 
         _image= GetComponent<Image>();
 
-        _image.color = Color.blue;
+        _image.color = Color.red;
 
     }
 
@@ -85,13 +85,13 @@ public class FlipCoin : MonoBehaviour
                 {
                     _reducing = false;
 
-                    if (_image.color == Color.blue)
+                    if (_image.color == Color.red)
                     {
-                        _image.color = Color.red;
+                        _image.color = Color.blue;
                     }
                     else
                     {
-                        _image.color = Color.blue;
+                        _image.color = Color.red;
                     }
                 }
                 else if (_myTransform.sizeDelta.y >= 100f)
@@ -107,7 +107,7 @@ public class FlipCoin : MonoBehaviour
                     Invoke("StartMatchCall", 5);
                     _gameManagerAdvice = true;
 
-                    if (_image.color == Color.blue)
+                    if (_image.color == Color.red)
                     {
                         Invoke("ActivarPantallaJ1", 1f);
                     }
