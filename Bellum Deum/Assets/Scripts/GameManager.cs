@@ -7,6 +7,7 @@ using UnityEngine.Analytics;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -250,8 +251,11 @@ public class GameManager : MonoBehaviour
                     cardSave.GetComponent<TweenManager>().CartaSeVaPorArriba();
                 }
             }
-            
 
+            if (_cronoJ1.GetComponent<TimeManager>().TimeEnded())
+            {
+                _crazyBarJ1.GetComponent<CrazyBarComponent>().startMuerteSubita();
+            }
 
             StartTurnPlayer(Players.Player2);
              
@@ -373,7 +377,12 @@ public class GameManager : MonoBehaviour
                 {
                     cardSave.GetComponent<TweenManager>().CartaSeVaPorAbajo();
                 }
-            }      
+            }
+
+            if (_cronoJ2.GetComponent<TimeManager>().TimeEnded())
+            {
+                _crazyBarJ2.GetComponent<CrazyBarComponent>().startMuerteSubita();
+            }
 
             StartTurnPlayer(Players.Player1);
             
@@ -1065,6 +1074,15 @@ public class GameManager : MonoBehaviour
             }
 
         }
+
+        Invoke("ReturnMainMenu", 3);
+    }
+
+    private void ReturnMainMenu()
+    {
+
+        SceneManager.LoadScene(0);
+
     }
 
     public void StartMatch(Players starter)

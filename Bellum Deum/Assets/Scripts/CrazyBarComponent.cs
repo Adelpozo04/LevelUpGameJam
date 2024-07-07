@@ -27,7 +27,7 @@ public class CrazyBarComponent : MonoBehaviour
 
     private bool _muerteSubita = false;
 
-    private float _muerteTurns;
+    private float _muerteTurns = 1;
 
     #endregion
 
@@ -60,7 +60,12 @@ public class CrazyBarComponent : MonoBehaviour
 
             if (_muerteSubita)
             {
-                IncreaseCrazy(2 * _muerteTurns);
+
+                Debug.Log("muerte Subita: +" + (5 * _muerteTurns));
+
+                IncreaseCrazy(5 * _muerteTurns);
+
+                _muerteTurns++;
             }
 
             if (GameManager.Instance.CheckEffect(playerNumber, GameManager.Effects.AumentoLocura))
