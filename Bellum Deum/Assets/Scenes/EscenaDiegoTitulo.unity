@@ -6393,7 +6393,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 645437251}
         m_TargetAssemblyTypeName: MenusManager, Assembly-CSharp
-        m_MethodName: LlamadaContinuar
+        m_MethodName: LlamadaContinuarInicio
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
