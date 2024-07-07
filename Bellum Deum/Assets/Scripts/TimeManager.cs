@@ -28,11 +28,15 @@ public class TimeManager : MonoBehaviour
             if (timeLeft < 1)
             {
                 onGoing1 = true;
-                Time.timeScale = 0;
             }
             int timeMin = Mathf.FloorToInt(timeLeft / 60);
             int timeSec = Mathf.FloorToInt(timeLeft % 60);
             time.text = string.Format("{00:00}:{01:00}", timeMin, timeSec);
+
+            if (timeLeft <= 1f)
+            {
+                onGoing1 = false;
+            }
         }
     }
 }
