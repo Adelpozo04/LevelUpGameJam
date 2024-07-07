@@ -16,7 +16,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private GameObject inputManager;
 
     private float _tiempoPulsando = 0f;
-    public float _tiempoNecesario = 3f;
+    public float _tiempoNecesario = 1f;
 
     private bool _enterPulsado = false;
 
