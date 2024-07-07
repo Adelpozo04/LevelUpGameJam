@@ -104,7 +104,7 @@ public class InputManager : MonoBehaviour
             }
             else
             {
-                _deck2.transform.GetChild(_contadorCartas + 1).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+                _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
             }
             
             _currentPlayer = Players.Player1;
