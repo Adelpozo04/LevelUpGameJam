@@ -22856,7 +22856,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 0
   maxAmount: 100
-  playerNumber: 0
+  playerNumber: 1
   resistence: 0
 --- !u!1 &8598315858278278133
 GameObject:
