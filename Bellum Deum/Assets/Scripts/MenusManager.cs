@@ -85,10 +85,6 @@ public class MenusManager : MonoBehaviour
             _menuNormasFe.SetActive(false);
             _menuNormasBarras.SetActive(false);
             _menuNormasMejoras.SetActive(false);
-            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
-            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
-
-            _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
 
             if (sceneName == "EscenaDiegoTitulo")
             {
@@ -101,16 +97,23 @@ public class MenusManager : MonoBehaviour
             {
                 if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
                 {
+                    Debug.Log("TurnoJ1");
+                    _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
+                    _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
                     _cronoJ1.GetComponent<TimeManager>().enabled = true;
                     UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
                 }
                 else
                 {
+                    Debug.Log("TurnoJ2");
+                    _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
+                    _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
                     _cronoJ2.GetComponent<TimeManager>().enabled = true;
                     UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
                 }
             }
 
+            _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
             _menuControles.SetActive(false);
             _menuIconos.SetActive(false);
         }
