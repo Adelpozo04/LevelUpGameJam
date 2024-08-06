@@ -311,6 +311,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1256342273 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7186529018103280121, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 1993321313}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1993321313
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343,6 +348,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1013793719449341194, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_FillAmount
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1402529580607325011, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -367,10 +376,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1800133121937459954, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3757367923142937474, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_CancelAction
       value: 
       objectReference: {fileID: 9057191391463330059, guid: 93e6b163308ca8b4ca3b104a279ae123, type: 3}
+    - target: {fileID: 4137955980041883366, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137955980041883366, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4137955980041883366, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4714195178497138238, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: min
       value: 0
@@ -387,6 +412,10 @@ PrefabInstance:
       propertyPath: playerNumber
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _enterBar
+      value: 
+      objectReference: {fileID: 1256342273}
     - target: {fileID: 5725422537908479467, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -454,6 +483,18 @@ PrefabInstance:
     - target: {fileID: 6920736984980093650, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: amount
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7186529018103280121, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264396905139718469, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264396905139718469, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_FillMethod
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8996423845073119523, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y

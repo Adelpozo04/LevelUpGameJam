@@ -26,6 +26,8 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private GameObject _cardSave1, _cardSave2;
 
+    [SerializeField] private GameObject _enterBar;
+
     private int _contadorCartas = 0;
 
     public bool _active = true;
@@ -47,11 +49,20 @@ public class InputManager : MonoBehaviour
             {
                 if (Input.GetKey(KeyCode.Return))
                 {
+                    _enterBar.SetActive(true);
+
+                    _enterBar.transform.GetChild(0).GetComponent<Image>().fillAmount = _tiempoPulsando / _tiempoNecesario;
+
                     _tiempoPulsando += Time.deltaTime;
+
 
                     if (_tiempoPulsando >= _tiempoNecesario)
                     {
                         _enterPulsado = true;
+
+                        _enterBar.SetActive(false);
+
+                        _enterBar.transform.GetChild(0).GetComponent<Image>().fillAmount = 0;
 
                         CambioDeTurno();
 
@@ -59,6 +70,10 @@ public class InputManager : MonoBehaviour
                 }
                 else
                 {
+                    _enterBar.transform.GetChild(0).GetComponent<Image>().fillAmount = 0;
+
+                    _enterBar.SetActive(false);
+
                     _tiempoPulsando = 0.0f;
                 }
             }
@@ -66,6 +81,8 @@ public class InputManager : MonoBehaviour
             {
                 if (Input.GetKeyUp(KeyCode.Return))
                 {
+                    
+
                     _enterPulsado = false;
                 }
             }
