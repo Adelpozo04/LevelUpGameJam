@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/EscenaDiegoTitulo.unity
+    path: Assets/Scenes/Escenas juego final/EscenaDiegoTitulo.unity
     guid: f66f144b21de93e4ca10f0fef0376e04
   - enabled: 1
-    path: Assets/Scenes/Adrian.unity
+    path: Assets/Scenes/Escenas juego final/Adrian.unity
     guid: ceb2039da92cd1743b9df9bf55c8d34a
   m_configObjects: {}
