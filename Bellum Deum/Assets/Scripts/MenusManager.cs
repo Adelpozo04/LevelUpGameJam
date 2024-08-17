@@ -222,7 +222,7 @@ public class MenusManager : MonoBehaviour
 
     public void Jugar()
     {
-        SceneManager.LoadScene("Adrian");
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void SalirAInicio()
