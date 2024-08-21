@@ -58,9 +58,9 @@ public class MovTuto : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
             {
-                if (_posX.localPosition == new Vector3(-9600, 0, 0)) //PASAR AL JUEGO
+                if (_posX.localPosition == new Vector3(-19200, 0, 0)) //PASAR AL JUEGO
                 {
-                    SceneManager.LoadScene("Adrian");
+                    SceneManager.LoadScene("EscenaDiegoTitulo");
                 }
                 else //IR DER
                 {

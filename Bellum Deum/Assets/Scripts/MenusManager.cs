@@ -164,9 +164,17 @@ public class MenusManager : MonoBehaviour
 
     public void Iconos()
     {
-        _menuOpciones.SetActive(true);
-        _menuIconos.SetActive(true);
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesNormas.transform.GetChild(0).gameObject);
+        if (sceneName == "Adrian")
+        {
+            _menuOpciones.SetActive(true);
+            _menuIconos.SetActive(true);
+            UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesNormas.transform.GetChild(0).gameObject);
+        }
+
+        else
+        {
+            SceneManager.LoadScene("Tutorial");
+        }
     }
 
     public void NormasCartas()
@@ -222,7 +230,7 @@ public class MenusManager : MonoBehaviour
 
     public void Jugar()
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Adrian");
     }
 
     public void SalirAInicio()

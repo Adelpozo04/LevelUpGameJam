@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Escenas juego final/Adrian.unity
     guid: ceb2039da92cd1743b9df9bf55c8d34a
+  - enabled: 1
+    path: Assets/Scenes/Escenas juego final/Tutorial.unity
+    guid: 011308efc4e97354ea2fa5dc5adbe885
   m_configObjects: {}

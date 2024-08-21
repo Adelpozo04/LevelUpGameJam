@@ -7875,6 +7875,10 @@ PrefabInstance:
       propertyPath: _enterBar
       value: 
       objectReference: {fileID: 1123938254}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _tiempoNecesario
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 5725422537908479467, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

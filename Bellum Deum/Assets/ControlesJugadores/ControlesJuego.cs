@@ -159,7 +159,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fbdf8ff3-0452-4a11-be98-e75bcb629ec7"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
@@ -327,7 +327,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""2b9032c9-b470-41cc-aa67-0bd85f7cb134"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""path"": ""<Keyboard>/p"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
