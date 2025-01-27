@@ -55,7 +55,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Escape"",
+                    ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""1b2af591-2c77-4536-8a4f-21aa9db90a65"",
                     ""expectedControlType"": ""Button"",
@@ -163,7 +163,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Escape"",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -656,7 +656,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         m_J1_Navigate = m_J1.FindAction("Navigate", throwIfNotFound: true);
         m_J1_GuardarCarta = m_J1.FindAction("GuardarCarta", throwIfNotFound: true);
         m_J1_JugarCarta = m_J1.FindAction("JugarCarta", throwIfNotFound: true);
-        m_J1_Escape = m_J1.FindAction("Escape", throwIfNotFound: true);
+        m_J1_Pause = m_J1.FindAction("Pause", throwIfNotFound: true);
         m_J1_GoRight = m_J1.FindAction("GoRight", throwIfNotFound: true);
         m_J1_GoLeft = m_J1.FindAction("GoLeft", throwIfNotFound: true);
         m_J1_MejorarFe = m_J1.FindAction("MejorarFe", throwIfNotFound: true);
@@ -743,7 +743,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
     private readonly InputAction m_J1_Navigate;
     private readonly InputAction m_J1_GuardarCarta;
     private readonly InputAction m_J1_JugarCarta;
-    private readonly InputAction m_J1_Escape;
+    private readonly InputAction m_J1_Pause;
     private readonly InputAction m_J1_GoRight;
     private readonly InputAction m_J1_GoLeft;
     private readonly InputAction m_J1_MejorarFe;
@@ -755,7 +755,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         public InputAction @Navigate => m_Wrapper.m_J1_Navigate;
         public InputAction @GuardarCarta => m_Wrapper.m_J1_GuardarCarta;
         public InputAction @JugarCarta => m_Wrapper.m_J1_JugarCarta;
-        public InputAction @Escape => m_Wrapper.m_J1_Escape;
+        public InputAction @Pause => m_Wrapper.m_J1_Pause;
         public InputAction @GoRight => m_Wrapper.m_J1_GoRight;
         public InputAction @GoLeft => m_Wrapper.m_J1_GoLeft;
         public InputAction @MejorarFe => m_Wrapper.m_J1_MejorarFe;
@@ -778,9 +778,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @JugarCarta.started += instance.OnJugarCarta;
             @JugarCarta.performed += instance.OnJugarCarta;
             @JugarCarta.canceled += instance.OnJugarCarta;
-            @Escape.started += instance.OnEscape;
-            @Escape.performed += instance.OnEscape;
-            @Escape.canceled += instance.OnEscape;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
             @GoRight.started += instance.OnGoRight;
             @GoRight.performed += instance.OnGoRight;
             @GoRight.canceled += instance.OnGoRight;
@@ -806,9 +806,9 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
             @JugarCarta.started -= instance.OnJugarCarta;
             @JugarCarta.performed -= instance.OnJugarCarta;
             @JugarCarta.canceled -= instance.OnJugarCarta;
-            @Escape.started -= instance.OnEscape;
-            @Escape.performed -= instance.OnEscape;
-            @Escape.canceled -= instance.OnEscape;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
             @GoRight.started -= instance.OnGoRight;
             @GoRight.performed -= instance.OnGoRight;
             @GoRight.canceled -= instance.OnGoRight;
@@ -1098,7 +1098,7 @@ public partial class @ControlesJuego: IInputActionCollection2, IDisposable
         void OnNavigate(InputAction.CallbackContext context);
         void OnGuardarCarta(InputAction.CallbackContext context);
         void OnJugarCarta(InputAction.CallbackContext context);
-        void OnEscape(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
         void OnGoRight(InputAction.CallbackContext context);
         void OnGoLeft(InputAction.CallbackContext context);
         void OnMejorarFe(InputAction.CallbackContext context);

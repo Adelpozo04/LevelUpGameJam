@@ -64,16 +64,6 @@ public class MenusManager : MonoBehaviour
         }
     }
 
-    public void LlamadaAbrirMenuOpciones()
-    {
-        _menuOpciones.SetActive(true);
-        _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
-        _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
-        UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botones.transform.GetChild(0).gameObject);
-
-        _inputManager.GetComponent<InputManager>().CambiarEstadoMenu();
-    }
-
     public void Continuar(InputAction.CallbackContext context)
     {
         if (context.started)
@@ -92,9 +82,11 @@ public class MenusManager : MonoBehaviour
                 _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("UI");
                 UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_botonesInicio.transform.GetChild(0).gameObject);
             }
-
             else
             {
+
+                Debug.Log(_inputManager.GetComponent<InputManager>()._currentPlayer);
+
                 if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
                 {
                     Debug.Log("TurnoJ1");
@@ -130,12 +122,16 @@ public class MenusManager : MonoBehaviour
         if (_inputManager.GetComponent<InputManager>()._currentPlayer == Players.Player1)
         {
             Debug.Log("es j1");
+            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
+            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J1");
             _cronoJ1.GetComponent<TimeManager>().enabled = true;
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ1.transform.GetChild(0).gameObject);
         }
         else
         {
             Debug.Log("es j2");
+            _eventSystem.GetComponent<InputSystemUIInputModule>().actionsAsset = _ControlJug_Input;
+            _inputManager.GetComponent<PlayerInput>().SwitchCurrentActionMap("J2");
             _cronoJ2.GetComponent<TimeManager>().enabled = true;
             UnityEngine.EventSystems.EventSystem.current.SetSelectedGameObject(_deckJ2.transform.GetChild(0).gameObject);
         }
