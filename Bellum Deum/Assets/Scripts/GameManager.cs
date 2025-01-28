@@ -198,6 +198,8 @@ public class GameManager : MonoBehaviour
 
             if (_J2Start)
             {
+                _mejorahecha = false;
+
                 for (int i = 0; i < _deckJ2.transform.childCount; ++i)
                 {
 
