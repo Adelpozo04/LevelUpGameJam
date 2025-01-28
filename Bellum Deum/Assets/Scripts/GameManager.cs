@@ -264,6 +264,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            _mejorahecha = false;
             AttackPlayerCalculation(Players.Player2);
 
             //Se aplican efectos a las barras
