@@ -945,6 +945,7 @@ public class GameManager : MonoBehaviour
                 {
                     _mejoras1.transform.GetChild(0).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _feJ1.UpgradeFeAmount();
+                    _mejorafe1++;
                 }
             }
             else
@@ -955,6 +956,7 @@ public class GameManager : MonoBehaviour
                 {
                     _mejoras2.transform.GetChild(0).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _feJ2.UpgradeFeAmount();
+                    _mejorafe2++;
                 }
             }
         }
@@ -973,6 +975,7 @@ public class GameManager : MonoBehaviour
                 {
                     _mejoras1.transform.GetChild(1).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _advanceBarJ1.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
+                    _mejoraavan1++;
                 }
             }
             else
@@ -983,6 +986,7 @@ public class GameManager : MonoBehaviour
                 {
                     _mejoras2.transform.GetChild(1).gameObject.GetComponent<TweenManager>().AumentarMejoraSeleccionada();
                     _advanceBarJ2.GetComponent<AdvanceBarComponent>().UpgradeAdvanceIncrement();
+                    _mejoraavan2++;
                 }
             }
         }
