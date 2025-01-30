@@ -23,10 +23,15 @@ public class InputManager : MonoBehaviour
     public Players _currentPlayer = Players.Player1;
 
     [SerializeField] private GameObject _deck1, _deck2;
+    [SerializeField] private GameObject [] _decks;
 
     [SerializeField] private GameObject _cardSave1, _cardSave2;
+    [SerializeField] private GameObject[] _cardsSave;
 
     [SerializeField] private GameObject _enterBar;
+
+    private int[] primeraCartaPosJugadores_ = {0, 1};
+    private int[] cartaSavePosJugadores_ = new int[2];
 
     private int _contadorCartas = 0;
 
@@ -38,7 +43,8 @@ public class InputManager : MonoBehaviour
 
     private void Start()
     {
-        
+        cartaSavePosJugadores_[0] =  _decks[0].transform.childCount;
+        cartaSavePosJugadores_[1] = 0;
     }
 
     void Update()
@@ -92,43 +98,32 @@ public class InputManager : MonoBehaviour
     }
 
     public void CambioDeTurno()
-    {
-
-        _cartaGuardada = false;
+    { 
 
         GameManager.Instance.EndTurn(_currentPlayer);
+
+        //reducir el tamaño de las cartas seleccionadas
+        _decks[(int)_currentPlayer].transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+        _cardsSave[(int)_currentPlayer].GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+
+        //Cambiar el jugador actual
         if (_currentPlayer == Players.Player1)
         {
-            if(_contadorCartas == _deck1.transform.childCount)
-            {
-                _cardSave1.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-            }
-            else
-            {
-                _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-            }
-            
             _currentPlayer = Players.Player2;
-            _contadorCartas = 1;
-            _cartaGuardada = false;
-            _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
         }
         else
         {
-            if(_contadorCartas == 0)
-            {
-                _cardSave2.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-            }
-            else
-            {
-                _deck2.transform.GetChild(_contadorCartas - 1).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
-            }
-            
             _currentPlayer = Players.Player1;
-            _contadorCartas = 0;
-            _cartaGuardada = false;
-            _deck1.transform.GetChild(_contadorCartas).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
         }
+
+        //configura el contador de cartas al nuevo jugador
+        _contadorCartas = primeraCartaPosJugadores_[(int)_currentPlayer];
+        
+        //Aumenta la carta que tiene el jugador en mano al inicio
+        _decks[(int)_currentPlayer].transform.GetChild(0).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+
+        //Pone los valores por defecto
+        _cartaGuardada = false;
         _tiempoPulsando = 0.0f;
 
     }

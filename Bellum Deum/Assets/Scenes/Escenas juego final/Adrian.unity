@@ -7815,6 +7815,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &363049887 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4774709524665827007, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 1123938253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &843345646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1387934897371012475, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 1123938253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &936275148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8404059558933730463, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 1123938253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1123938253
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7879,6 +7894,30 @@ PrefabInstance:
       propertyPath: _tiempoNecesario
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _decks.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _decks.Array.data[0]
+      value: 
+      objectReference: {fileID: 843345646}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _decks.Array.data[1]
+      value: 
+      objectReference: {fileID: 363049887}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _cardsSave.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _cardsSave.Array.data[0]
+      value: 
+      objectReference: {fileID: 936275148}
+    - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: _cardsSave.Array.data[1]
+      value: 
+      objectReference: {fileID: 1954622605}
     - target: {fileID: 5725422537908479467, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -10333,6 +10372,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1954622605 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4311461136375552948, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+  m_PrefabInstance: {fileID: 1123938253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2144798068
 GameObject:
   m_ObjectHideFlags: 0
