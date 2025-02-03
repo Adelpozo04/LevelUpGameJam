@@ -205,6 +205,36 @@ public class InputManager : MonoBehaviour
 
     }
 
+    public void MoveRight(InputAction.CallbackContext context)
+    {
+
+        if (context.started)
+        {
+
+            if (_contadorCartas == cartaSavePosJugadores_[(int)_currentPlayer])
+            {
+                _cardsSave[(int)_currentPlayer].GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+            else
+            {
+                _decks[(int)_currentPlayer].transform.GetChild(0).gameObject.GetComponent<TweenManager>().ReducirCartaDeseleccionada();
+            }
+
+            _contadorCartas = (_contadorCartas + 1) % (_deck1.transform.childCount + 1);
+
+            if (_contadorCartas == cartaSavePosJugadores_[(int)_currentPlayer])
+            {
+                _cardsSave[(int)_currentPlayer].GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+            else
+            {
+                _decks[(int)_currentPlayer].transform.GetChild(0).gameObject.GetComponent<TweenManager>().AumentarCartaSeleccionada();
+            }
+
+        }
+
+    }
+
     public void MoveRightJ1(InputAction.CallbackContext context)
     {
 

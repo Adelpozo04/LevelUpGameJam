@@ -7886,6 +7886,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5036683639551669787, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 5036683639551669787, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: MoveRight
+      objectReference: {fileID: 0}
     - target: {fileID: 5611962156043474072, guid: 4b9a9066a6adcbe42b1ab8a43113a71d, type: 3}
       propertyPath: _enterBar
       value: 
